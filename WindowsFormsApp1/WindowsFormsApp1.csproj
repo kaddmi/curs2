@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,6 +89,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Func.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Func.Designer.cs">
+      <DependentUpon>Func.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Func.resx">
+      <DependentUpon>Func.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log.resx">
       <DependentUpon>Log.cs</DependentUpon>

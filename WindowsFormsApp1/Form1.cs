@@ -219,6 +219,13 @@ namespace WindowsFormsApp1
             }
         }
 
-    
+        private void ФунционалToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Func funcForm = new Func();
+            if (funcForm.ShowDialog(this) == DialogResult.Cancel)
+            {
+                funcForm.Close();
+            }
+        }
     } 
 }

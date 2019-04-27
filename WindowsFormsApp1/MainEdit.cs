@@ -309,6 +309,8 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex != -1)
+            {
                 Edit modalDialog = new Edit();
                 bool show = false;
                 string colName = "";
@@ -325,40 +327,40 @@ namespace WindowsFormsApp1
                         {
                             case "Статья":
                                 {
-                                if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
-                                    switch (e.ColumnIndex)
-                                    {
-                                        case 3:
-                                            {
-                                                if (!zur)
+                                    if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
+                                        switch (e.ColumnIndex)
+                                        {
+                                            case 3:
+                                                {
+                                                    if (!zur)
+                                                    {
+                                                        show = true;
+                                                        modalDialog.label1.Text = "ФИО сотрудника";
+                                                        colName = "КодСотрудника";
+                                                        com1 = "select Код, ФИО from Сотрудник";
+                                                        combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                    }
+                                                }
+                                                break;
+                                            case 4:
                                                 {
                                                     show = true;
-                                                    modalDialog.label1.Text = "ФИО сотрудника";
-                                                    colName = "КодСотрудника";
-                                                    com1 = "select Код, ФИО from Сотрудник";
-                                                    combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                    modalDialog.label1.Text = "Номер выпуска";
+                                                    colName = "КодВыпуска";
+                                                    com1 = "select Код, Номер from НомерГазеты";
+                                                    combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection);
                                                 }
-                                            }
-                                            break;
-                                        case 4:
-                                            {
-                                                show = true;
-                                                modalDialog.label1.Text = "Номер выпуска";
-                                                colName = "КодВыпуска";
-                                                com1 = "select Код, Номер from НомерГазеты";
-                                                combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection);
-                                            }
-                                            break;
-                                        case 5:
-                                            {
-                                                show = true;
-                                                modalDialog.label1.Text = "Название рубрики";
-                                                colName = "КодРубрики";
-                                                com1 = "select Код, Название from Рубрика";
-                                                combBox(modalDialog.comboBox1, "Рубрика", "Название", com1, connection);
-                                            }
-                                            break;
-                                    }
+                                                break;
+                                            case 5:
+                                                {
+                                                    show = true;
+                                                    modalDialog.label1.Text = "Название рубрики";
+                                                    colName = "КодРубрики";
+                                                    com1 = "select Код, Название from Рубрика";
+                                                    combBox(modalDialog.comboBox1, "Рубрика", "Название", com1, connection);
+                                                }
+                                                break;
+                                        }
                                 }
                                 break;
                             case "Договор":
@@ -405,66 +407,66 @@ namespace WindowsFormsApp1
 
                             case "Объявление":
                                 {
-                                 if (!chit || (chit &&  String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Заказчик"].Value.ToString()) == 0))
-                                    switch (e.ColumnIndex)
-                                    {
-                                        case 1:
-                                            {
-                                                show = true;
-                                                modalDialog.label1.Text = "Номер выпуска";
-                                                colName = "КодВыпуска";
-                                                com1 = "select Код, Номер from НомерГазеты";
-                                                combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection);
-                                            }
-                                            break;
-                                    }
+                                    if (!chit || (chit && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Заказчик"].Value.ToString()) == 0))
+                                        switch (e.ColumnIndex)
+                                        {
+                                            case 1:
+                                                {
+                                                    show = true;
+                                                    modalDialog.label1.Text = "Номер выпуска";
+                                                    colName = "КодВыпуска";
+                                                    com1 = "select Код, Номер from НомерГазеты";
+                                                    combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                                }
+                                                break;
+                                        }
                                 }
                                 break;
                             case "Фото":
                                 {
-                                if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
-                                    switch (e.ColumnIndex)
-                                    {
-                                        case 2:
-                                            {
-                                                if (!zur)
+                                    if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
+                                        switch (e.ColumnIndex)
+                                        {
+                                            case 2:
+                                                {
+                                                    if (!zur)
+                                                    {
+                                                        show = true;
+                                                        modalDialog.label1.Text = "ФИО сотрудника";
+                                                        colName = "КодСотрудника";
+                                                        com1 = "select Код, ФИО from Сотрудник";
+                                                        combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                    }
+                                                }
+                                                break;
+                                            case 3:
                                                 {
                                                     show = true;
-                                                    modalDialog.label1.Text = "ФИО сотрудника";
-                                                    colName = "КодСотрудника";
-                                                    com1 = "select Код, ФИО from Сотрудник";
-                                                    combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                    modalDialog.label1.Text = "Заголовок статьи";
+                                                    colName = "КодСтатьи";
+                                                    com1 = "select Код, Заголовок from Статья";
+                                                    combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection);
                                                 }
-                                            }
-                                            break;
-                                        case 3:
-                                            {
-                                                show = true;
-                                                modalDialog.label1.Text = "Заголовок статьи";
-                                                colName = "КодСтатьи";
-                                                com1 = "select Код, Заголовок from Статья";
-                                                combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection);
-                                            }
-                                            break;
-                                    }
+                                                break;
+                                        }
 
                                 }
                                 break;
                             case "Отзыв":
                                 {
-                                if (!chit || (chit && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИО"].Value.ToString()) == 0))
-                                    switch (e.ColumnIndex)
-                                    {
-                                        case 2:
-                                            {
-                                                show = true;
-                                                modalDialog.label1.Text = "Заголовок статьи";
-                                                colName = "КодСтатьи";
-                                                com1 = "select Код, Заголовок from Статья";
-                                                combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection);
-                                            }
-                                            break;
-                                    }
+                                    if (!chit || (chit && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИО"].Value.ToString()) == 0))
+                                        switch (e.ColumnIndex)
+                                        {
+                                            case 2:
+                                                {
+                                                    show = true;
+                                                    modalDialog.label1.Text = "Заголовок статьи";
+                                                    colName = "КодСтатьи";
+                                                    com1 = "select Код, Заголовок from Статья";
+                                                    combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection);
+                                                }
+                                                break;
+                                        }
                                 }
                                 break;
                         }
@@ -478,7 +480,7 @@ namespace WindowsFormsApp1
                                 string col = dataGridView1.Columns[c].HeaderText;
                                 com1 = "update " + curTable + " set " + colName + "=" + modalDialog.comboBox1.SelectedValue.ToString() + " where Код=" + i;
                                 SqlCommand myCommand = new SqlCommand(com1, connection);
-                                int number = myCommand.ExecuteNonQuery();                           
+                                int number = myCommand.ExecuteNonQuery();
                             }
                         }
                     }
@@ -487,7 +489,7 @@ namespace WindowsFormsApp1
                         MessageBox.Show(ex.Message);
                     }
                 }
-            
+            }
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -716,7 +718,7 @@ namespace WindowsFormsApp1
                         switch (curTable)
                         {
                             case "Отзыв":
-                                command = "select ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
+                                command = "select Отзыв.Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
                                           "from Отзыв, Статья " +
                                           "where КодСтатьи=Статья.Код and ФИО='" + log + "'";
                                 checkedListBox1.Visible = true;
@@ -725,7 +727,7 @@ namespace WindowsFormsApp1
                                 richTextBox1.Text = "ФИО = " + log;
                                 break;
                             case "Объявление":
-                                command = "select Номер as НомерВыпуска, Категория, Заказчик, Текст " +
+                                command = "select Объявление.Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
                                           "from НомерГазеты, Объявление " +
                                           "where НомерГазеты.Код=КодВыпуска and Заказчик='" + log + "'";
                                 checkedListBox1.Visible = true;
@@ -734,14 +736,14 @@ namespace WindowsFormsApp1
                                 richTextBox1.Text = "Заказчик = " + log;
                                 break;
                             case "Статья":
-                                command = "select Тип, Заголовок, ФИОСотрудника, НомерВыпуска, НазваниеРубрики from Перечень_статей where ФИОСотрудника='" + log + "'";
+                                command = "select * from Перечень_статей where ФИОСотрудника='" + log + "'";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(750, 194);
                                 richTextBox1.Text = "ФИОСотрудника = " + log;
                                 break;
                             case "Фото":
-                                command = "select Формат, ФИОСотрудника, ЗаголовокСтатьи, ДатаСъёмки from Перечень_фото where ФИОСотрудника='" + log + "'";
+                                command = "select * from Перечень_фото where ФИОСотрудника='" + log + "'";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(640, 194);
@@ -753,6 +755,7 @@ namespace WindowsFormsApp1
                         DataTable dt = new DataTable();
                         dt.Load(dr);
                         dataGridView1.DataSource = dt.DefaultView;
+                        dataGridView1.Columns["Код"].Visible = false;
                         edit(curTable);
 
                     }

@@ -75,3 +75,4 @@ D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.reso
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 D:\curs2_0\WindowsFormsApp1\bin\Debug\Aga.Controls.dll
+D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Func.resources
