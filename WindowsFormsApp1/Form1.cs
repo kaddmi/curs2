@@ -13,8 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        bool editbb;
-        bool delB;
+        string role;
         public SqlCredential cred;
         public Form1()
         {
@@ -23,24 +22,52 @@ namespace WindowsFormsApp1
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            treeView1.Nodes[0].Expand();
-            treeView1.Nodes[1].Expand();
-            treeView1.Nodes[2].Expand();
             Authorization aut = this.Owner as Authorization;
-            editbb = aut.editB;
-            delB = aut.deleteB;
+            role = aut.role;
             aut.pwd.MakeReadOnly();
             cred = new SqlCredential(aut.login, aut.pwd);
             if (aut != null)
             {
-                label48.Text = aut.login;
-                
+                if (aut.login == "читатель")
+                    loginToolStripMenuItem.Text = aut.fio;
+                else
+                    loginToolStripMenuItem.Text = aut.login;
             }
+            switch (role)
+            {
+                case "системный администратор":
+                    admView.Visible = true;
+                    admView.Nodes[0].Expand();
+                    admView.Nodes[1].Expand();
+                    admView.Nodes[2].Expand();
+                    break;
+                case "главный редактор":
+                    redView.Visible = true;
+                    redView.Nodes[0].Expand();
+
+                    break;
+                case "журналист":
+                    zurView.Visible = true;
+                    zurView.Nodes[0].Expand();
+                    break;
+                case "читатель":
+                    chitView.Visible = true;
+                    chitView.Nodes[0].Expand();
+                    break;
+                case "специалист по кадрам":
+                    kadrView.Visible = true;
+                    kadrView.Nodes[0].Expand();
+                    break;
+                case "работник рекламного отдела":
+                    reklView.Visible = true;
+                    reklView.Nodes[0].Expand();
+                    break;
+            }                     
         }
 
         private void edit(string cT, bool view)
         {
-            MainEdit edit = new MainEdit(cT, cred, view, editbb, delB);
+            MainEdit edit = new MainEdit(cT, cred, view, role, loginToolStripMenuItem.Text);
             if (edit.ShowDialog(this) == DialogResult.OK)
             {
                 //add.Close();
@@ -49,7 +76,7 @@ namespace WindowsFormsApp1
 
         private void add(string cT)
         {
-            MainAdd add = new MainAdd(cT, cred);
+            MainAdd add = new MainAdd(cT, cred, role, loginToolStripMenuItem.Text);
             if (add.ShowDialog(this) == DialogResult.OK)
             {
                 //add.Close();

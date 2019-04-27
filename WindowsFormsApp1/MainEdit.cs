@@ -16,28 +16,25 @@ namespace WindowsFormsApp1
         SqlCredential cred;
         string curTable;
         bool view;
-        bool editbb;
-        bool delbb;
+        string log;
+        string role;
+        bool chit = false;
+        bool zur = false;
+        bool first = true;
         string command;
-        public MainEdit(string currTable, SqlCredential credd, bool v, bool edit, bool del)
+        public MainEdit(string currTable, SqlCredential credd, bool v, string r, string login)
         {
             InitializeComponent();
             curTable = currTable;
             cred = credd;
             view = v;
-            editbb = edit;
-            delbb = del;
-            if (!edit)
-                dataGridView1.ReadOnly = true;
-            else
-                dataGridView1.ReadOnly = false;
-            if (!del)
-                dataGridView1.AllowUserToDeleteRows = false;
-            else
-                dataGridView1.AllowUserToDeleteRows = true;
+            role = r;
+            if (String.Compare(r, "читатель") == 0)
+                chit = true;
+            if (String.Compare(r, "журналист") == 0)
+                zur = true;
+            log = login;
         }
-
-
 
         public void edit(string tableName)
         {
@@ -47,7 +44,7 @@ namespace WindowsFormsApp1
                     {
                         dataGridView1.Columns["ФИОСотрудника"].ReadOnly = true;
                         dataGridView1.Columns["НомерВыпуска"].ReadOnly = true;
-                        dataGridView1.Columns["НазваниеРубрики"].ReadOnly = true;
+                        dataGridView1.Columns["НазваниеРубрики"].ReadOnly = true;                        
                     }
                     break;
                 case "Договор":
@@ -62,6 +59,8 @@ namespace WindowsFormsApp1
                 case "Объявление":
                     {
                         dataGridView1.Columns["НомерВыпуска"].ReadOnly = true;
+                        if (chit)
+                            dataGridView1.Columns["Заказчик"].ReadOnly = true;
                     }
                     break;
                 case "Фото":
@@ -72,64 +71,76 @@ namespace WindowsFormsApp1
                     break;
                 case "Отзыв":
                     dataGridView1.Columns["ЗаголовокСтатьи"].ReadOnly = true;
+                    if (chit)
+                        dataGridView1.Columns["ФИО"].ReadOnly = true;
                     break;
             }
 
         }
 
-
-
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Credential = cred;
-            using (connection)
+            string s = "";
+            if (curTable == "Отзыв")
+                s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИО"].Value.ToString();
+            if (curTable == "Объявление")
+                s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Заказчик"].Value.ToString();
+            if (curTable == "Статья" || curTable == "Фото")
+                s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString();
+            if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(log, s) == 0)))
             {
-                try
+                string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Credential = cred;
+                using (connection)
                 {
-                    connection.Open();
-                    string command = "";
-                    int i = Convert.ToInt32(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Код"].Value);
-                    if (!view)
-                        command = "delete from " + curTable + " where Код=" + i;
-                    else
-                        command = "delete from Перечень_реклам where Код=" + i;
-                    DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить выбранную запись?", "Удаление записи", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
+                    try
                     {
-                        if (curTable == "Сотрудник")
+                        connection.Open();
+                        string command = "";
+                        int i = Convert.ToInt32(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Код"].Value);
+                        if (!view)
+                            command = "delete from " + curTable + " where Код=" + i;
+                        else
+                            command = "delete from Перечень_реклам where Код=" + i;
+                        DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить выбранную запись?", "Удаление записи", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            if (curTable == "Сотрудник")
+                            {
+                                e.Cancel = true;
+                                SqlCommand myCommand = new SqlCommand(command, connection);
+                                int number = myCommand.ExecuteNonQuery();
+                                string command1 = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник";
+                                SqlCommand myCommand1 = new SqlCommand(command1, connection);
+                                SqlDataReader dr = myCommand1.ExecuteReader();
+                                DataTable dt = new DataTable();
+                                dt.Load(dr);
+                                dataGridView1.DataSource = dt.DefaultView;
+                                dataGridView1.Columns["Код"].Visible = false;
+                            }
+                            else
+                            {
+                                SqlCommand myCommand = new SqlCommand(command, connection);
+                                int number = myCommand.ExecuteNonQuery();
+                            }
+                        }
+                        if (result == DialogResult.No)
                         {
                             e.Cancel = true;
-                            SqlCommand myCommand = new SqlCommand(command, connection);
-                            int number = myCommand.ExecuteNonQuery();
-                            string command1 = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник";
-                            SqlCommand myCommand1 = new SqlCommand(command1, connection);
-                            SqlDataReader dr = myCommand1.ExecuteReader();
-                            DataTable dt = new DataTable();
-                            dt.Load(dr);
-                            dataGridView1.DataSource = dt.DefaultView;
-                            dataGridView1.Columns["Код"].Visible = false;
                         }
-                        else
-                        {
-                            SqlCommand myCommand = new SqlCommand(command, connection);
-                            int number = myCommand.ExecuteNonQuery();
-                        }
+
+
                     }
-                    if (result == DialogResult.No)
+                    catch (Exception ex)
                     {
+                        MessageBox.Show(ex.Message);
                         e.Cancel = true;
                     }
-
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    e.Cancel = true;
                 }
             }
+            else
+                e.Cancel = true;
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -159,6 +170,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (String.Compare(curTable, "Сотрудник") == 0 && e.ColumnIndex == 4)
@@ -180,7 +192,7 @@ namespace WindowsFormsApp1
             filterDialog.comboBox1.Visible = false;
             filterDialog.label1.Visible = false;
             filterDialog.label2.Visible = false;
-          //  label2.Visible = false;
+
             if (checkBox1.Checked == true)
             {
                 filterDialog.listBox1.Items.Clear();
@@ -278,9 +290,11 @@ namespace WindowsFormsApp1
             }
             else
             {
-               // listBox1_SelectedIndexChanged(sender, e);
+                // listBox1_SelectedIndexChanged(sender, e);
                 checkBox1.Checked = false;
+                MainEdit_Shown(sender, e);
             }
+            
         }
 
         public void combBox(ComboBox cb, string table, string dispMember, string com1, SqlConnection connection, string valM = "Код")
@@ -295,8 +309,6 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (editbb)
-            {
                 Edit modalDialog = new Edit();
                 bool show = false;
                 string colName = "";
@@ -313,15 +325,19 @@ namespace WindowsFormsApp1
                         {
                             case "Статья":
                                 {
+                                if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
                                     switch (e.ColumnIndex)
                                     {
                                         case 3:
                                             {
-                                                show = true;
-                                                modalDialog.label1.Text = "ФИО сотрудника";
-                                                colName = "КодСотрудника";
-                                                com1 = "select Код, ФИО from Сотрудник";
-                                                combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                if (!zur)
+                                                {
+                                                    show = true;
+                                                    modalDialog.label1.Text = "ФИО сотрудника";
+                                                    colName = "КодСотрудника";
+                                                    com1 = "select Код, ФИО from Сотрудник";
+                                                    combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                }
                                             }
                                             break;
                                         case 4:
@@ -389,6 +405,7 @@ namespace WindowsFormsApp1
 
                             case "Объявление":
                                 {
+                                 if (!chit || (chit &&  String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Заказчик"].Value.ToString()) == 0))
                                     switch (e.ColumnIndex)
                                     {
                                         case 1:
@@ -405,15 +422,19 @@ namespace WindowsFormsApp1
                                 break;
                             case "Фото":
                                 {
+                                if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
                                     switch (e.ColumnIndex)
                                     {
                                         case 2:
                                             {
-                                                show = true;
-                                                modalDialog.label1.Text = "ФИО сотрудника";
-                                                colName = "КодСотрудника";
-                                                com1 = "select Код, ФИО from Сотрудник";
-                                                combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                if (!zur)
+                                                {
+                                                    show = true;
+                                                    modalDialog.label1.Text = "ФИО сотрудника";
+                                                    colName = "КодСотрудника";
+                                                    com1 = "select Код, ФИО from Сотрудник";
+                                                    combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                }
                                             }
                                             break;
                                         case 3:
@@ -431,6 +452,7 @@ namespace WindowsFormsApp1
                                 break;
                             case "Отзыв":
                                 {
+                                if (!chit || (chit && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИО"].Value.ToString()) == 0))
                                     switch (e.ColumnIndex)
                                     {
                                         case 2:
@@ -465,7 +487,7 @@ namespace WindowsFormsApp1
                         MessageBox.Show(ex.Message);
                     }
                 }
-            }
+            
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -490,142 +512,258 @@ namespace WindowsFormsApp1
             label47.Visible = true;
             checkedListBox1.Enabled = true;  
             checkedListBox1.Items.Clear();
-            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
-            SqlConnection connection = new SqlConnection(connectionString);
-            using (connection)
+            if ((chit || zur) && first)
             {
-                try
+                checkBox1.Visible = false;
+                checkBox2.Visible = true;
+                checkBox2.Checked = true;
+                changeFilter.Visible = false;
+            }              
+            else
+            {
+                string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+                SqlConnection connection = new SqlConnection(connectionString);
+                using (connection)
                 {
-                    connection.Open();                   
-                    switch (curTable)
+                    try
                     {
-                        case "Статья":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            command = "select * from Перечень_статей";
-                            dataGridView1.Size = new System.Drawing.Size(750, 194);
-                        //    this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "Заказчик":
-                            command = "select Код, Название from Заказчик";
-                            checkBox1.Visible = false;
-                            checkedListBox1.Enabled = false;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = false;
-                            dataGridView1.Size = new System.Drawing.Size(200, 194);
-                      //      this.Size = new System.Drawing.Size(200, s);
-                            break;
-                        case "Договор":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            command = "select Договор.Код as Код, Название as НазваниеЗаказчика, ДатаДоговора, ДатаНачала, ДатаКонца, Стоимость, ТекстРекламы " +
-                                      "from Заказчик, Договор " +
-                                      "where КодЗаказчика=Заказчик.Код";
-                            dataGridView1.Size = new System.Drawing.Size(1050, 194);
-                        //    this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "Реклама":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            view = true;
-                            command = "select * from Перечень_реклам";
-                            dataGridView1.Size = new System.Drawing.Size(520, 194);
-                        //    this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "Рубрика":
-                            command = "select Код, Название from Рубрика";
-                            checkedListBox1.Enabled = false;
-                            checkedListBox1.Visible = true;
-                            checkBox1.Visible = false;
-                            button2.Visible = false;
-                            dataGridView1.Size = new System.Drawing.Size(200, 194);
-                       //     this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "Сотрудник":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            command = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник";
-                            dataGridView1.Size = new System.Drawing.Size(620, 194);
-                          //  this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "НомерГазеты":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            command = "select Код, Номер, Ценa, Дата, КоличествоПроданных from НомерГазеты";
-                            dataGridView1.Size = new System.Drawing.Size(500, 194);
-                        //    this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "Объявление":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            command = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
-                                      "from НомерГазеты, Объявление " +
-                                      "where НомерГазеты.Код=КодВыпуска";
-                            dataGridView1.Size = new System.Drawing.Size(700, 194);
-                         //   this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "Фото":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            command = "select * from Перечень_фото";
-                            dataGridView1.Size = new System.Drawing.Size(640, 194);
-                          //  this.Size = new System.Drawing.Size(750, s);
-                            break;
-                        case "Отзыв":
-                            checkBox1.Visible = true;
-                            checkedListBox1.Visible = true;
-                            button2.Visible = true;
-                            command = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
-                                      "from Отзыв, Статья " +
-                                      "where КодСтатьи=Статья.Код";
-                             dataGridView1.Size = new System.Drawing.Size(960, 194);
-                            //this.Size = new System.Drawing.Size(750, s);
-                            break;
-                    }
-                    SqlCommand myCommand = new SqlCommand(command, connection);
-                    SqlDataReader dr = myCommand.ExecuteReader();
-                    DataTable dt = new DataTable();
-                    dt.Load(dr);
-                    dataGridView1.DataSource = dt.DefaultView;
-                    int i = 0;
-                    if (checkedListBox1.Visible == true)
-                    {
-                        SqlDataAdapter da2 = new SqlDataAdapter(command, connection);
-                        DataTable result = new DataTable();
-                        da2.Fill(result);
-                        foreach (DataColumn item in result.Columns)
+                        connection.Open();
+                        switch (curTable)
                         {
-                            checkedListBox1.Items.Add(item.ColumnName);
-                            checkedListBox1.SetItemChecked(i, true);
-                            i++;
+                            case "Статья":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                command = "select * from Перечень_статей";
+                                dataGridView1.Size = new System.Drawing.Size(750, 194);
+                                break;
+                            case "Заказчик":
+                                command = "select Код, Название from Заказчик";
+                                checkBox1.Visible = false;
+                                checkedListBox1.Enabled = false;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = false;
+                                dataGridView1.Size = new System.Drawing.Size(200, 194);
+                                break;
+                            case "Договор":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                command = "select Договор.Код as Код, Название as НазваниеЗаказчика, ДатаДоговора, ДатаНачала, ДатаКонца, Стоимость, ТекстРекламы " +
+                                          "from Заказчик, Договор " +
+                                          "where КодЗаказчика=Заказчик.Код";
+                                dataGridView1.Size = new System.Drawing.Size(1050, 194);
+                                break;
+                            case "Реклама":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                view = true;
+                                command = "select * from Перечень_реклам";
+                                dataGridView1.Size = new System.Drawing.Size(520, 194);
+                                break;
+                            case "Рубрика":
+                                command = "select Код, Название from Рубрика";
+                                checkedListBox1.Enabled = false;
+                                checkedListBox1.Visible = true;
+                                checkBox1.Visible = false;
+                                button2.Visible = false;
+                                dataGridView1.Size = new System.Drawing.Size(200, 194);
+                                break;
+                            case "Сотрудник":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                command = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник";
+                                dataGridView1.Size = new System.Drawing.Size(620, 194);
+                                break;
+                            case "НомерГазеты":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                command = "select Код, Номер, Ценa, Дата, КоличествоПроданных from НомерГазеты";
+                                dataGridView1.Size = new System.Drawing.Size(520, 194);
+                                break;
+                            case "Объявление":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                command = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
+                                              "from НомерГазеты, Объявление " +
+                                              "where НомерГазеты.Код=КодВыпуска";
+                                dataGridView1.Size = new System.Drawing.Size(700, 194);
+                                break;
+                            case "Фото":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                command = "select * from Перечень_фото";
+                                dataGridView1.Size = new System.Drawing.Size(640, 194);
+                                break;
+                            case "Отзыв":
+                                checkBox1.Visible = true;
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                command = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
+                                          "from Отзыв, Статья " +
+                                          "where КодСтатьи=Статья.Код";
+                                dataGridView1.Size = new System.Drawing.Size(960, 194);
+                                break;
                         }
-                        checkedListBox1.Items.Remove("Код");
-                        foreach (var item in checkedListBox1.Items)
+                        SqlCommand myCommand = new SqlCommand(command, connection);
+                        SqlDataReader dr = myCommand.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(dr);
+                        dataGridView1.DataSource = dt.DefaultView;
+                        int i = 0;
+                        if (checkedListBox1.Visible == true)
                         {
-                            dataGridView1.Columns[item.ToString()].Visible = true;
+                            SqlDataAdapter da2 = new SqlDataAdapter(command, connection);
+                            DataTable result = new DataTable();
+                            da2.Fill(result);
+                            foreach (DataColumn item in result.Columns)
+                            {
+                                checkedListBox1.Items.Add(item.ColumnName);
+                                checkedListBox1.SetItemChecked(i, true);
+                                i++;
+                            }
+                            checkedListBox1.Items.Remove("Код");
+                            foreach (var item in checkedListBox1.Items)
+                            {
+                                dataGridView1.Columns[item.ToString()].Visible = true;
+                            }
                         }
+                        dataGridView1.Columns["Код"].Visible = false;
+                        if (curTable == "Сотрудник")
+                        {
+                            dataGridView1.Columns["ДатаПоступления"].ReadOnly = true;
+                            dataGridView1.Columns["ДатаУвольнения"].ReadOnly = true;
+                        }
+                        edit(curTable);
                     }
-                    dataGridView1.Columns["Код"].Visible = false;
-                    if (curTable == "Сотрудник")
+                    catch (Exception ex)
                     {
-                        dataGridView1.Columns["ДатаПоступления"].ReadOnly = true;
-                        dataGridView1.Columns["ДатаУвольнения"].ReadOnly = true;
+                        MessageBox.Show(ex.Message);
                     }
-                    edit(curTable);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void DataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            string s = "";
+            switch (curTable)
+            {
+                case "Отзыв":
+                    if (chit)
+                    {
+                        s = dataGridView1.Rows[e.RowIndex].Cells["ФИО"].Value.ToString();
+                        if (String.Compare(s, log) != 0)
+                        {
+                            dataGridView1.Rows[e.RowIndex].ReadOnly = true;
+                        }                           
+                    }
+                    break;
+                case "Объявление":
+                    if (chit)
+                    {
+                        s = dataGridView1.Rows[e.RowIndex].Cells["Заказчик"].Value.ToString();
+                        if (String.Compare(s, log) != 0)
+                        {
+                            dataGridView1.Rows[e.RowIndex].ReadOnly = true;
+                        }
+                    }
+                    break;
+                case "Статья":
+                    if (zur)
+                    {
+                        s = dataGridView1.Rows[e.RowIndex].Cells["ФИОСотрудника"].Value.ToString();
+                        if (String.Compare(s, log) != 0)
+                        {
+                            dataGridView1.Rows[e.RowIndex].ReadOnly = true;
+                        }
+                    }
+                    break;
+                case "Фото":
+                    if (zur)
+                    {
+                        s = dataGridView1.Rows[e.RowIndex].Cells["ФИОСотрудника"].Value.ToString();
+                        if (String.Compare(s, log) != 0)
+                        {
+                            dataGridView1.Rows[e.RowIndex].ReadOnly = true;
+                        }
+                    }
+                    break;
+                }
+            
+        }
+
+        private void CheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            first = false;
+            if (checkBox2.Checked)
+            {
+                richTextBox1.Visible = true;
+                string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Credential = cred;
+                using (connection)
+                {
+                    try
+                    {
+                        connection.Open();
+                        string command = "";
+                        switch (curTable)
+                        {
+                            case "Отзыв":
+                                command = "select ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
+                                          "from Отзыв, Статья " +
+                                          "where КодСтатьи=Статья.Код and ФИО='" + log + "'";
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                dataGridView1.Size = new System.Drawing.Size(960, 194);
+                                richTextBox1.Text = "ФИО = " + log;
+                                break;
+                            case "Объявление":
+                                command = "select Номер as НомерВыпуска, Категория, Заказчик, Текст " +
+                                          "from НомерГазеты, Объявление " +
+                                          "where НомерГазеты.Код=КодВыпуска and Заказчик='" + log + "'";
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                dataGridView1.Size = new System.Drawing.Size(700, 194);
+                                richTextBox1.Text = "Заказчик = " + log;
+                                break;
+                            case "Статья":
+                                command = "select Тип, Заголовок, ФИОСотрудника, НомерВыпуска, НазваниеРубрики from Перечень_статей where ФИОСотрудника='" + log + "'";
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                dataGridView1.Size = new System.Drawing.Size(750, 194);
+                                richTextBox1.Text = "ФИОСотрудника = " + log;
+                                break;
+                            case "Фото":
+                                command = "select Формат, ФИОСотрудника, ЗаголовокСтатьи, ДатаСъёмки from Перечень_фото where ФИОСотрудника='" + log + "'";
+                                checkedListBox1.Visible = true;
+                                button2.Visible = true;
+                                dataGridView1.Size = new System.Drawing.Size(640, 194);
+                                richTextBox1.Text = "ФИОСотрудника = " + log;
+                                break;
+                        }
+                        SqlCommand myCommand = new SqlCommand(command, connection);
+                        SqlDataReader dr = myCommand.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(dr);
+                        dataGridView1.DataSource = dt.DefaultView;
+                        edit(curTable);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            else
+                MainEdit_Shown(sender, e);
         }
     }
 }

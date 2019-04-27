@@ -59,46 +59,5 @@ namespace WindowsFormsApp1.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _97563195_old_grunge_newspaper_collage_paper_texture_horizontal_background_blurred_vintage_newspaper_backgroun {
-            get {
-                object obj = ResourceManager.GetObject("97563195-old-grunge-newspaper-collage-paper-texture-horizontal-background-blurred" +
-                        "-vintage-newspaper-backgroun", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap depositphotos_164190608_stock_photo_newspaper_seamless_pattern {
-            get {
-                object obj = ResourceManager.GetObject("depositphotos_164190608-stock-photo-newspaper-seamless-pattern", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap istockphoto_490632576_1024x1024 {
-            get {
-                object obj = ResourceManager.GetObject("istockphoto-490632576-1024x1024", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ivory_off_white_paper_texture {
-            get {
-                object obj = ResourceManager.GetObject("ivory-off-white-paper-texture", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

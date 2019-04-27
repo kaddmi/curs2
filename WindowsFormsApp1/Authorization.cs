@@ -14,17 +14,16 @@ namespace WindowsFormsApp1
 {
     public partial class Authorization : Form
     {
-        public bool deleteB = false;
-        public bool editB = false;
-        public bool addB = false;
+        public string role;
         public SecureString pwd = new SecureString();
 
-        public string login = "Гость";
+        public string login;
+        public string fio;
         public Authorization()
         {
 
             InitializeComponent();
-            button2.Select();
+            textBox1.Select();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -36,7 +35,7 @@ namespace WindowsFormsApp1
                 try
                 {
                     connection.Open();
-                    string command1 = "select count(*) from users where Логин='" + textBox1.Text + "'";
+                    string command1 = "select count(*) from users2 where Логин='" + textBox1.Text + "'";
                     SqlCommand myCommand1 = new SqlCommand(command1, connection);
                     object number = myCommand1.ExecuteScalar();
                     if (number.ToString() != "1")
@@ -45,7 +44,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        string command2 = "select Удаление, Редактирование, Добавление from users where Логин='" + textBox1.Text + "' and Пароль='" + textBox2.Text + "'";
+                        string command2 = "select Должность from users2 where Логин='" + textBox1.Text + "' and Пароль='" + textBox2.Text + "'";
                         SqlCommand command = new SqlCommand(command2, connection);
                         SqlDataReader reader = command.ExecuteReader();
                         if (reader.HasRows)
@@ -54,9 +53,7 @@ namespace WindowsFormsApp1
                                 pwd.AppendChar(c);
                             while (reader.Read())
                             {
-                                deleteB = reader.GetBoolean(0);
-                                editB = reader.GetBoolean(1);
-                                addB = reader.GetBoolean(2);                              
+                                role = reader.GetString(0);                                  
                             }
                             login = textBox1.Text;
                             this.Hide();
@@ -79,12 +76,23 @@ namespace WindowsFormsApp1
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Внесите в поле логин своё ФИО");
+                return;
+            }
+            else
+            {
+                role = "читатель";
+                login = "читатель";
+                fio = textBox1.Text;
+                foreach (char c in "password")
+                    pwd.AppendChar(c);
+            }
             this.Hide();
             Form1 form1 = new Form1();
             form1.Owner = this;
             form1.Show();
-            foreach (char c in "password")
-                pwd.AppendChar(c);
         }
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)

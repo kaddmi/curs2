@@ -15,11 +15,15 @@ namespace WindowsFormsApp1
     {
         SqlCredential cred;
         string curTable;
-        public MainAdd(string currTable, SqlCredential credd)
+        string r;
+        string log;
+        public MainAdd(string currTable, SqlCredential credd, string role, string user)
         {
             InitializeComponent();
             curTable = currTable;
             cred = credd;
+            r = role;
+            log = user;
             Add();
         }
 
@@ -45,12 +49,20 @@ namespace WindowsFormsApp1
                                 com1 = "select Код, ФИО from Сотрудник";
                                 com2 = "select Код, Номер from НомерГазеты";
                                 com3 = "select Код, Название from Рубрика";
+                                stType.Select();
                                 combBox(stNames, "Сотрудник", "ФИО", com1, connection);
                                 combBox(stNumbers, "НомерГазеты", "Номер", com2, connection);
                                 combBox(stR, "Рубрика", "Название", com3, connection);
-                                sotr.Visible = true;
-                                nom.Visible = true;
-                                rubr.Visible = true;
+                                if (String.Compare(r, "журналист") != 0)
+                                {
+                                    sotr.Visible = true;
+                                    nom.Visible = true;
+                                    rubr.Visible = true;
+                                }
+                                else
+                                {
+                                    stPanel.Location = new Point(3, 42);
+                                }
                             }
                             break;
                         case "Заказчик":
@@ -61,6 +73,7 @@ namespace WindowsFormsApp1
                             {
                              //   dogPanel.Location = new Point(401, 72);
                                 dogPanel.Visible = true;
+                                dogZak.Select();
                                 com1 = "select Код, Название from Заказчик";
                                 combBox(dogZak, "Заказчик", "Название", com1, connection);
                                 zak.Visible = true;
@@ -70,6 +83,7 @@ namespace WindowsFormsApp1
                             {
                               //  reklPanel.Location = new Point(401, 72);
                                 reklPanel.Visible = true;
+                                reklNumber.Select();
                                 com1 = "select Код, Номер from НомерГазеты";
                                 com2 = "select Код, ТекстРекламы from Договор";
                                 combBox(reklNumber, "НомерГазеты", "Номер", com1, connection, "Номер");
@@ -85,10 +99,12 @@ namespace WindowsFormsApp1
                         case "Сотрудник":
                             sotrPanel.Location = new Point(3, 42);
                             sotrPanel.Visible = true;
+                            sotrName.Select();
                             break;
                         case "НомерГазеты":
                             newspPanel.Location = new Point(3, 42);
                             newspPanel.Visible = true;
+                            newspNumber.Select();
                             break;
                         case "Объявление":
                             {
@@ -96,8 +112,17 @@ namespace WindowsFormsApp1
                                 obPanel.Visible = true;
                                 com1 = "select Код, Номер from НомерГазеты";
                                 combBox(obNumber, "НомерГазеты", "Номер", com1, connection);
-                                nom.Location = new Point(3, 42);
-                                nom.Visible = true;
+                                if (String.Compare(r, "читатель") != 0)
+                                {
+                                    nom.Location = new Point(3, 42);
+                                    nom.Visible = true;
+                                }
+                                else
+                                {
+                                    obPanel.Location = new Point(3, 42);
+                                    obZak.Text = log;
+                                }
+                                   
                             }
                             break;
                         case "Фото":
@@ -108,18 +133,36 @@ namespace WindowsFormsApp1
                                 com2 = "select Код, Номер from НомерГазеты where Код in (select КодВыпуска from Статья)";
                                 combBox(photoName, "Сотрудник", "ФИО", com1, connection);
                                 combBox(photoNumber, "НомерГазеты", "Номер", com2, connection);
-                                stat.Visible = true;
-                                sotr.Visible = true;
+                                if (String.Compare(r, "журналист") != 0)
+                                {
+                                    stat.Visible = true;
+                                    sotr.Visible = true;
+                                }
+                                else
+                                {
+                                    stat.Location = new Point(3, 42);
+                                    stat.Visible = true;
+                                }
+                                    
                             }
                             break;
                         case "Отзыв":
                             {
                              //   otzPanel.Location = new Point(401, 72);
                                 otzPanel.Visible = true;
+                                otzName.Select();
                                 com1 = "select Код, Номер from НомерГазеты where Код in (select КодВыпуска from Статья)";
                                 combBox(otzNumber, "НомерГазеты", "Номер", com1, connection);
-                                stat.Location = new Point(3, 42);
-                                stat.Visible = true;
+                                if (String.Compare(r, "читатель")!= 0)
+                                {
+                                    stat.Location = new Point(3, 42);
+                                    stat.Visible = true;
+                                }
+                                else
+                                {
+                                    otzPanel.Location = new Point(3, 42);
+                                    otzName.Text = log;
+                                }
                             }
                             break;
                     }

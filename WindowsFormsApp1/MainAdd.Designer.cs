@@ -231,7 +231,7 @@
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
             this.otzPanel.Controls.Add(this.otzDate, 5, 1);
             this.otzPanel.Controls.Add(this.label32, 5, 0);
             this.otzPanel.Controls.Add(this.otzAdd, 6, 1);
@@ -251,7 +251,7 @@
             this.otzPanel.RowCount = 2;
             this.otzPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.otzPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.otzPanel.Size = new System.Drawing.Size(972, 100);
+            this.otzPanel.Size = new System.Drawing.Size(983, 100);
             this.otzPanel.TabIndex = 80;
             this.otzPanel.Visible = false;
             // 
@@ -289,7 +289,7 @@
             this.otzAdd.Location = new System.Drawing.Point(770, 56);
             this.otzAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.otzAdd.Name = "otzAdd";
-            this.otzAdd.Size = new System.Drawing.Size(198, 36);
+            this.otzAdd.Size = new System.Drawing.Size(212, 36);
             this.otzAdd.TabIndex = 9;
             this.otzAdd.Text = "Добавить";
             this.otzAdd.UseVisualStyleBackColor = true;
@@ -383,7 +383,7 @@
             this.label31.Location = new System.Drawing.Point(770, 3);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(198, 45);
+            this.label31.Size = new System.Drawing.Size(212, 45);
             this.label31.TabIndex = 4;
             this.label31.Text = "Добавить";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -431,9 +431,9 @@
             // 
             this.reklPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.reklPanel.ColumnCount = 3;
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.52688F));
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.47312F));
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 236F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.92263F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.07737F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 248F));
             this.reklPanel.Controls.Add(this.label36, 0, 0);
             this.reklPanel.Controls.Add(this.label34, 2, 0);
             this.reklPanel.Controls.Add(this.label35, 1, 0);
@@ -445,7 +445,7 @@
             this.reklPanel.RowCount = 2;
             this.reklPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.reklPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.reklPanel.Size = new System.Drawing.Size(605, 100);
+            this.reklPanel.Size = new System.Drawing.Size(764, 100);
             this.reklPanel.TabIndex = 79;
             this.reklPanel.Visible = false;
             // 
@@ -458,7 +458,7 @@
             this.label36.Location = new System.Drawing.Point(7, 3);
             this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(90, 45);
+            this.label36.Size = new System.Drawing.Size(92, 45);
             this.label36.TabIndex = 6;
             this.label36.Text = "Номер выпуска";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -469,10 +469,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(369, 3);
+            this.label34.Location = new System.Drawing.Point(516, 3);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(229, 45);
+            this.label34.Size = new System.Drawing.Size(241, 45);
             this.label34.TabIndex = 2;
             this.label34.Text = "Добавить";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -483,10 +483,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(108, 3);
+            this.label35.Location = new System.Drawing.Point(110, 3);
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(250, 45);
+            this.label35.Size = new System.Drawing.Size(395, 45);
             this.label35.TabIndex = 5;
             this.label35.Text = "Текст рекламы";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -496,10 +496,10 @@
             this.reklText.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.reklText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reklText.FormattingEnabled = true;
-            this.reklText.Location = new System.Drawing.Point(108, 56);
+            this.reklText.Location = new System.Drawing.Point(110, 56);
             this.reklText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklText.Name = "reklText";
-            this.reklText.Size = new System.Drawing.Size(250, 28);
+            this.reklText.Size = new System.Drawing.Size(395, 28);
             this.reklText.TabIndex = 10;
             // 
             // reklNumber
@@ -520,10 +520,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reklAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.reklAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reklAdd.Location = new System.Drawing.Point(369, 56);
+            this.reklAdd.Location = new System.Drawing.Point(516, 56);
             this.reklAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklAdd.Name = "reklAdd";
-            this.reklAdd.Size = new System.Drawing.Size(229, 36);
+            this.reklAdd.Size = new System.Drawing.Size(241, 36);
             this.reklAdd.TabIndex = 3;
             this.reklAdd.Text = "Добавить";
             this.reklAdd.UseVisualStyleBackColor = true;
@@ -539,7 +539,7 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
@@ -582,7 +582,7 @@
             this.label39.Location = new System.Drawing.Point(900, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(188, 47);
+            this.label39.Size = new System.Drawing.Size(197, 47);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -597,7 +597,7 @@
             this.dogAdd.Location = new System.Drawing.Point(900, 58);
             this.dogAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogAdd.Name = "dogAdd";
-            this.dogAdd.Size = new System.Drawing.Size(188, 37);
+            this.dogAdd.Size = new System.Drawing.Size(197, 37);
             this.dogAdd.TabIndex = 9;
             this.dogAdd.Text = "Добавить";
             this.dogAdd.UseVisualStyleBackColor = true;
@@ -1661,7 +1661,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(378, 192);
+            this.ClientSize = new System.Drawing.Size(211, 181);
             this.Controls.Add(this.stat);
             this.Controls.Add(this.nom);
             this.Controls.Add(this.dog);
@@ -1682,6 +1682,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление";
             this.otzPanel.ResumeLayout(false);
             this.otzPanel.PerformLayout();
