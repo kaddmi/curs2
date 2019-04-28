@@ -17,14 +17,14 @@ namespace WindowsFormsApp1
         public string list;
         public string list2 = "";
         bool f = false;
-        int index;
+        string index;
         public string sql;
         public Filter()
         {
             InitializeComponent();
 
         }
-        public Filter(int i)
+        public Filter(string i)
         {
             InitializeComponent();
             f = true;
@@ -41,12 +41,12 @@ namespace WindowsFormsApp1
             cb.DataSource = ds2.Tables[table];
         }
 
-        private void func(SqlConnection connection, int ind)
+        private void func(SqlConnection connection, string ind)
         {
             string com1;
             switch (ind)
             {
-                case 0:
+                case "Суммарная информация по статье в выпуске":
                     {
                         switch (listBox1.SelectedItem.ToString())
                         {
@@ -88,19 +88,25 @@ namespace WindowsFormsApp1
                         }
                     }
                     break;
-                case 1:
+                case "Рейтинг читателей по отзывам":
                     {
+                        label1.Text = "Год отзыва";
+                        comboBox1.DataSource = null;
+                        comboBox1.Visible = true;
+                        com1 = "select distinct YEAR(ДатаОтзыва) as ДатаОтзыва from Отзыв";
+                        combBox(comboBox1, "Отзыв", "ДатаОтзыва", com1, connection);
+                        button1.Location = new Point(86, 184);
 
                     }
                     break;
             }
         }
 
-        private void funcB(int ind)
+        private void funcB(string ind)
         {
             switch (ind)
             {
-                case 0:
+                case "Суммарная информация по статье в выпуске":
                     {
                         switch (listBox1.SelectedItem.ToString())
                         {
@@ -138,6 +144,17 @@ namespace WindowsFormsApp1
                                 }
                                 break;
                         }
+                    }
+                    break;
+                case "Рейтинг читателей по отзывам":
+                    {
+                        SqlParameter value = new SqlParameter
+                        {
+                            ParameterName = "@y",
+                            Value = comboBox1.SelectedValue.ToString()
+                        };
+                        command.Parameters.Add(value);
+                        list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
                     }
                     break;
             }
@@ -261,7 +278,7 @@ namespace WindowsFormsApp1
                                 {
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
-                                    com1 = "select Код, YEAR(Дата) as Дата from НомерГазеты";
+                                    com1 = "select distinct YEAR(Дата) as Дата from НомерГазеты";
                                     combBox(comboBox1, "НомерГазеты", "Дата", com1, connection);
                                 }
                                 break;

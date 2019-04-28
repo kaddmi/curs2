@@ -520,7 +520,22 @@ namespace WindowsFormsApp1
                 checkBox2.Visible = true;
                 checkBox2.Checked = true;
                 changeFilter.Visible = false;
-            }              
+                switch (curTable)
+                {
+                    case "Статья":
+                        checkBox2.Text = "Статьи сотрудника";
+                        break;
+                    case "Отзыв":
+                        checkBox2.Text = "Отзывы читателя";
+                        break;
+                    case "Объявление":
+                        checkBox2.Text = "Объявления читателя";
+                        break;
+                    case "Фото":
+                        checkBox2.Text = "Фото сотрудника";
+                        break;
+                }
+            }
             else
             {
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";

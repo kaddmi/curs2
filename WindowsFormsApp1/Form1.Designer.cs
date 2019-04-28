@@ -28,162 +28,162 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Добавить рубрику");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Раздел рубрик", new System.Windows.Forms.TreeNode[] {
-            treeNode84,
-            treeNode85});
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Добавить выпуск газеты");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Редактировать или удалить выпуск");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Раздел выпусков", new System.Windows.Forms.TreeNode[] {
-            treeNode87,
-            treeNode88});
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Добавить статью в выпуск");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Изменить или удалить статью");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Раздел статей", new System.Windows.Forms.TreeNode[] {
-            treeNode90,
-            treeNode91});
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Добавить снимок в статью");
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("Удалить или редактировать данные о фото");
-            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("Раздел фотогрфий", new System.Windows.Forms.TreeNode[] {
-            treeNode93,
-            treeNode94});
-            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("Редакция газеты", new System.Windows.Forms.TreeNode[] {
-            treeNode86,
-            treeNode89,
-            treeNode92,
-            treeNode95});
-            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("Написать отзыв на статью");
-            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("Редактировать или удалить отзыв");
-            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("Отзывы", new System.Windows.Forms.TreeNode[] {
-            treeNode97,
-            treeNode98});
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("Добавить объявление в выпуск");
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("Редактировать или удалить объявление");
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("Объявления", new System.Windows.Forms.TreeNode[] {
-            treeNode100,
-            treeNode101});
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("Работа с читателями", new System.Windows.Forms.TreeNode[] {
-            treeNode99,
-            treeNode102});
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("Добавить заказчика");
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("Редактировать данные или удалить заказчика");
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("Заказчики", new System.Windows.Forms.TreeNode[] {
-            treeNode104,
-            treeNode105});
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("Заключить договор");
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("Изменить условия или расторгнуть договор");
-            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("Договоры", new System.Windows.Forms.TreeNode[] {
-            treeNode107,
-            treeNode108});
-            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("Разместить рекламу в выпуске");
-            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("Редактировать данные или убрать рекламу");
-            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("Размещение рекламы", new System.Windows.Forms.TreeNode[] {
-            treeNode110,
-            treeNode111});
-            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("Рекламный отдел", new System.Windows.Forms.TreeNode[] {
-            treeNode106,
-            treeNode109,
-            treeNode112});
-            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("Нанять сотрудника");
-            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("Уволить или поменять данные");
-            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("Отдел кадров", new System.Windows.Forms.TreeNode[] {
-            treeNode114,
-            treeNode115});
-            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("Добавить заказчика");
-            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("Редактировать данные или удалить заказчика");
-            System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("Заказчики", new System.Windows.Forms.TreeNode[] {
-            treeNode117,
-            treeNode118});
-            System.Windows.Forms.TreeNode treeNode120 = new System.Windows.Forms.TreeNode("Заключить договор");
-            System.Windows.Forms.TreeNode treeNode121 = new System.Windows.Forms.TreeNode("Изменить условия или расторгнуть договор");
-            System.Windows.Forms.TreeNode treeNode122 = new System.Windows.Forms.TreeNode("Договоры", new System.Windows.Forms.TreeNode[] {
-            treeNode120,
-            treeNode121});
-            System.Windows.Forms.TreeNode treeNode123 = new System.Windows.Forms.TreeNode("Разместить рекламу в выпуске");
-            System.Windows.Forms.TreeNode treeNode124 = new System.Windows.Forms.TreeNode("Редактировать данные или убрать рекламу");
-            System.Windows.Forms.TreeNode treeNode125 = new System.Windows.Forms.TreeNode("Размещение рекламы", new System.Windows.Forms.TreeNode[] {
-            treeNode123,
-            treeNode124});
-            System.Windows.Forms.TreeNode treeNode126 = new System.Windows.Forms.TreeNode("Рекламный отдел", new System.Windows.Forms.TreeNode[] {
-            treeNode119,
-            treeNode122,
-            treeNode125});
-            System.Windows.Forms.TreeNode treeNode127 = new System.Windows.Forms.TreeNode("Написать отзыв на статью");
-            System.Windows.Forms.TreeNode treeNode128 = new System.Windows.Forms.TreeNode("Редактировать или удалить отзыв");
-            System.Windows.Forms.TreeNode treeNode129 = new System.Windows.Forms.TreeNode("Отзывы", new System.Windows.Forms.TreeNode[] {
-            treeNode127,
-            treeNode128});
-            System.Windows.Forms.TreeNode treeNode130 = new System.Windows.Forms.TreeNode("Добавить объявление в выпуск");
-            System.Windows.Forms.TreeNode treeNode131 = new System.Windows.Forms.TreeNode("Редактировать или удалить объявление");
-            System.Windows.Forms.TreeNode treeNode132 = new System.Windows.Forms.TreeNode("Объявления", new System.Windows.Forms.TreeNode[] {
-            treeNode130,
-            treeNode131});
-            System.Windows.Forms.TreeNode treeNode133 = new System.Windows.Forms.TreeNode("Работа с читателями", new System.Windows.Forms.TreeNode[] {
-            treeNode129,
-            treeNode132});
-            System.Windows.Forms.TreeNode treeNode134 = new System.Windows.Forms.TreeNode("Нанять сотрудника");
-            System.Windows.Forms.TreeNode treeNode135 = new System.Windows.Forms.TreeNode("Уволить или поменять данные");
-            System.Windows.Forms.TreeNode treeNode136 = new System.Windows.Forms.TreeNode("Отдел кадров", new System.Windows.Forms.TreeNode[] {
-            treeNode134,
-            treeNode135});
-            System.Windows.Forms.TreeNode treeNode137 = new System.Windows.Forms.TreeNode("Добавить рубрику");
-            System.Windows.Forms.TreeNode treeNode138 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую");
-            System.Windows.Forms.TreeNode treeNode139 = new System.Windows.Forms.TreeNode("Раздел рубрик", new System.Windows.Forms.TreeNode[] {
-            treeNode137,
-            treeNode138});
-            System.Windows.Forms.TreeNode treeNode140 = new System.Windows.Forms.TreeNode("Добавить выпуск газеты");
-            System.Windows.Forms.TreeNode treeNode141 = new System.Windows.Forms.TreeNode("Редактировать или удалить выпуск");
-            System.Windows.Forms.TreeNode treeNode142 = new System.Windows.Forms.TreeNode("Раздел выпусков", new System.Windows.Forms.TreeNode[] {
-            treeNode140,
-            treeNode141});
-            System.Windows.Forms.TreeNode treeNode143 = new System.Windows.Forms.TreeNode("Добавить статью в выпуск");
-            System.Windows.Forms.TreeNode treeNode144 = new System.Windows.Forms.TreeNode("Изменить или удалить статью");
-            System.Windows.Forms.TreeNode treeNode145 = new System.Windows.Forms.TreeNode("Раздел статей", new System.Windows.Forms.TreeNode[] {
-            treeNode143,
-            treeNode144});
-            System.Windows.Forms.TreeNode treeNode146 = new System.Windows.Forms.TreeNode("Добавить снимок в статью");
-            System.Windows.Forms.TreeNode treeNode147 = new System.Windows.Forms.TreeNode("Удалить или редактировать данные о фото");
-            System.Windows.Forms.TreeNode treeNode148 = new System.Windows.Forms.TreeNode("Раздел фотогрфий", new System.Windows.Forms.TreeNode[] {
-            treeNode146,
-            treeNode147});
-            System.Windows.Forms.TreeNode treeNode149 = new System.Windows.Forms.TreeNode("Редакция газеты", new System.Windows.Forms.TreeNode[] {
-            treeNode139,
-            treeNode142,
-            treeNode145,
-            treeNode148});
-            System.Windows.Forms.TreeNode treeNode150 = new System.Windows.Forms.TreeNode("Добавить заказчика");
-            System.Windows.Forms.TreeNode treeNode151 = new System.Windows.Forms.TreeNode("Редактировать данные или удалить заказчика");
-            System.Windows.Forms.TreeNode treeNode152 = new System.Windows.Forms.TreeNode("Заказчики", new System.Windows.Forms.TreeNode[] {
-            treeNode150,
-            treeNode151});
-            System.Windows.Forms.TreeNode treeNode153 = new System.Windows.Forms.TreeNode("Заключить договор");
-            System.Windows.Forms.TreeNode treeNode154 = new System.Windows.Forms.TreeNode("Изменить условия или расторгнуть договор");
-            System.Windows.Forms.TreeNode treeNode155 = new System.Windows.Forms.TreeNode("Договоры", new System.Windows.Forms.TreeNode[] {
-            treeNode153,
-            treeNode154});
-            System.Windows.Forms.TreeNode treeNode156 = new System.Windows.Forms.TreeNode("Разместить рекламу в выпуске");
-            System.Windows.Forms.TreeNode treeNode157 = new System.Windows.Forms.TreeNode("Редактировать данные или убрать рекламу");
-            System.Windows.Forms.TreeNode treeNode158 = new System.Windows.Forms.TreeNode("Размещение рекламы", new System.Windows.Forms.TreeNode[] {
-            treeNode156,
-            treeNode157});
-            System.Windows.Forms.TreeNode treeNode159 = new System.Windows.Forms.TreeNode("Рекламный отдел", new System.Windows.Forms.TreeNode[] {
-            treeNode152,
-            treeNode155,
-            treeNode158});
-            System.Windows.Forms.TreeNode treeNode160 = new System.Windows.Forms.TreeNode("Добавить статью в выпуск");
-            System.Windows.Forms.TreeNode treeNode161 = new System.Windows.Forms.TreeNode("Изменить или удалить статью");
-            System.Windows.Forms.TreeNode treeNode162 = new System.Windows.Forms.TreeNode("Раздел статей", new System.Windows.Forms.TreeNode[] {
-            treeNode160,
-            treeNode161});
-            System.Windows.Forms.TreeNode treeNode163 = new System.Windows.Forms.TreeNode("Добавить снимок в статью");
-            System.Windows.Forms.TreeNode treeNode164 = new System.Windows.Forms.TreeNode("Удалить или редактировать данные о фото");
-            System.Windows.Forms.TreeNode treeNode165 = new System.Windows.Forms.TreeNode("Раздел фотогрфий", new System.Windows.Forms.TreeNode[] {
-            treeNode163,
-            treeNode164});
-            System.Windows.Forms.TreeNode treeNode166 = new System.Windows.Forms.TreeNode("Редакция газеты", new System.Windows.Forms.TreeNode[] {
-            treeNode162,
-            treeNode165});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Добавить рубрику");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Раздел рубрик", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Добавить выпуск газеты");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Редактировать или удалить выпуск");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Раздел выпусков", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Добавить статью в выпуск");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Изменить или удалить статью");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Раздел статей", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Добавить снимок в статью");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Удалить или редактировать данные о фото");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Раздел фотографий", new System.Windows.Forms.TreeNode[] {
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Редакция газеты", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode6,
+            treeNode9,
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Написать отзыв на статью");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Редактировать или удалить отзыв");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Отзывы", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Добавить объявление в выпуск");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Редактировать или удалить объявление");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Объявления", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Работа с читателями", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode19});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Добавить заказчика");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Редактировать данные или удалить заказчика");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Заказчики", new System.Windows.Forms.TreeNode[] {
+            treeNode21,
+            treeNode22});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Заключить договор");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Изменить условия или расторгнуть договор");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Договоры", new System.Windows.Forms.TreeNode[] {
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Разместить рекламу в выпуске");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Редактировать данные или убрать рекламу");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Размещение рекламы", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28});
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Рекламный отдел", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode26,
+            treeNode29});
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Нанять сотрудника");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Уволить или поменять данные");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Отдел кадров", new System.Windows.Forms.TreeNode[] {
+            treeNode31,
+            treeNode32});
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Добавить заказчика");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Редактировать данные или удалить заказчика");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Заказчики", new System.Windows.Forms.TreeNode[] {
+            treeNode34,
+            treeNode35});
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Заключить договор");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Изменить условия или расторгнуть договор");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Договоры", new System.Windows.Forms.TreeNode[] {
+            treeNode37,
+            treeNode38});
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Разместить рекламу в выпуске");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Редактировать данные или убрать рекламу");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Размещение рекламы", new System.Windows.Forms.TreeNode[] {
+            treeNode40,
+            treeNode41});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Рекламный отдел", new System.Windows.Forms.TreeNode[] {
+            treeNode36,
+            treeNode39,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Написать отзыв на статью");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Редактировать или удалить отзыв");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Отзывы", new System.Windows.Forms.TreeNode[] {
+            treeNode44,
+            treeNode45});
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Добавить объявление в выпуск");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Редактировать или удалить объявление");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Объявления", new System.Windows.Forms.TreeNode[] {
+            treeNode47,
+            treeNode48});
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Работа с читателями", new System.Windows.Forms.TreeNode[] {
+            treeNode46,
+            treeNode49});
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Нанять сотрудника");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Уволить или поменять данные");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Отдел кадров", new System.Windows.Forms.TreeNode[] {
+            treeNode51,
+            treeNode52});
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Добавить рубрику");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Раздел рубрик", new System.Windows.Forms.TreeNode[] {
+            treeNode54,
+            treeNode55});
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Добавить выпуск газеты");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Редактировать или удалить выпуск");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Раздел выпусков", new System.Windows.Forms.TreeNode[] {
+            treeNode57,
+            treeNode58});
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Добавить статью в выпуск");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Изменить или удалить статью");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Раздел статей", new System.Windows.Forms.TreeNode[] {
+            treeNode60,
+            treeNode61});
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Добавить снимок в статью");
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Удалить или редактировать данные о фото");
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Раздел фотографий", new System.Windows.Forms.TreeNode[] {
+            treeNode63,
+            treeNode64});
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Редакция газеты", new System.Windows.Forms.TreeNode[] {
+            treeNode56,
+            treeNode59,
+            treeNode62,
+            treeNode65});
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Добавить заказчика");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Редактировать данные или удалить заказчика");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Заказчики", new System.Windows.Forms.TreeNode[] {
+            treeNode67,
+            treeNode68});
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Заключить договор");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Изменить условия или расторгнуть договор");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Договоры", new System.Windows.Forms.TreeNode[] {
+            treeNode70,
+            treeNode71});
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Разместить рекламу в выпуске");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Редактировать данные или убрать рекламу");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Размещение рекламы", new System.Windows.Forms.TreeNode[] {
+            treeNode73,
+            treeNode74});
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Рекламный отдел", new System.Windows.Forms.TreeNode[] {
+            treeNode69,
+            treeNode72,
+            treeNode75});
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Добавить статью в выпуск");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Изменить или удалить статью");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Раздел статей", new System.Windows.Forms.TreeNode[] {
+            treeNode77,
+            treeNode78});
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Добавить снимок в статью");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Удалить или редактировать данные о фото");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Раздел фотографий", new System.Windows.Forms.TreeNode[] {
+            treeNode80,
+            treeNode81});
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Редакция газеты", new System.Windows.Forms.TreeNode[] {
+            treeNode79,
+            treeNode82});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -191,10 +191,7 @@
             this.отчётыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фунционалToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.работаСТаблицамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.историяИзмененияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.admView = new System.Windows.Forms.TreeView();
-            this.treeColumn1 = new Aga.Controls.Tree.TreeColumn();
-            this.treeColumn2 = new Aga.Controls.Tree.TreeColumn();
             this.reklView = new System.Windows.Forms.TreeView();
             this.chitView = new System.Windows.Forms.TreeView();
             this.kadrView = new System.Windows.Forms.TreeView();
@@ -252,28 +249,22 @@
             this.отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
             this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(76, 25);
             this.отчётыToolStripMenuItem.Text = "Отчёты";
+            this.отчётыToolStripMenuItem.Click += new System.EventHandler(this.ОтчётыToolStripMenuItem_Click);
             // 
             // фунционалToolStripMenuItem
             // 
             this.фунционалToolStripMenuItem.Name = "фунционалToolStripMenuItem";
-            this.фунционалToolStripMenuItem.Size = new System.Drawing.Size(104, 25);
-            this.фунционалToolStripMenuItem.Text = "Фунционал";
+            this.фунционалToolStripMenuItem.Size = new System.Drawing.Size(102, 25);
+            this.фунционалToolStripMenuItem.Text = "Статистика";
             this.фунционалToolStripMenuItem.Click += new System.EventHandler(this.ФунционалToolStripMenuItem_Click);
             // 
             // работаСТаблицамиToolStripMenuItem
             // 
-            this.работаСТаблицамиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.историяИзмененияToolStripMenuItem});
             this.работаСТаблицамиToolStripMenuItem.Name = "работаСТаблицамиToolStripMenuItem";
-            this.работаСТаблицамиToolStripMenuItem.Size = new System.Drawing.Size(166, 25);
-            this.работаСТаблицамиToolStripMenuItem.Text = "Работа с таблицами";
-            // 
-            // историяИзмененияToolStripMenuItem
-            // 
-            this.историяИзмененияToolStripMenuItem.Name = "историяИзмененияToolStripMenuItem";
-            this.историяИзмененияToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
-            this.историяИзмененияToolStripMenuItem.Text = "История изменения  ";
-            this.историяИзмененияToolStripMenuItem.Click += new System.EventHandler(this.ИсторияИзмененияToolStripMenuItem_Click);
+            this.работаСТаблицамиToolStripMenuItem.Size = new System.Drawing.Size(177, 25);
+            this.работаСТаблицамиToolStripMenuItem.Text = "Журнал изменений    ";
+            this.работаСТаблицамиToolStripMenuItem.Visible = false;
+            this.работаСТаблицамиToolStripMenuItem.Click += new System.EventHandler(this.ИсторияИзмененияToolStripMenuItem_Click);
             // 
             // admView
             // 
@@ -281,93 +272,81 @@
             this.admView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.admView.Location = new System.Drawing.Point(0, 32);
             this.admView.Name = "admView";
-            treeNode84.Name = "addR";
-            treeNode84.Text = "Добавить рубрику";
-            treeNode85.Name = "edR";
-            treeNode85.Text = "Изменить/удалить существующую";
-            treeNode86.Name = "Рубрика";
-            treeNode86.Text = "Раздел рубрик";
-            treeNode87.Name = "addNom";
-            treeNode87.Text = "Добавить выпуск газеты";
-            treeNode88.Name = "edNom";
-            treeNode88.Text = "Редактировать или удалить выпуск";
-            treeNode89.Name = "НомерГазеты";
-            treeNode89.Text = "Раздел выпусков";
-            treeNode90.Name = "addSt";
-            treeNode90.Text = "Добавить статью в выпуск";
-            treeNode91.Name = "edSt";
-            treeNode91.Text = "Изменить или удалить статью";
-            treeNode92.Name = "Статья";
-            treeNode92.Text = "Раздел статей";
-            treeNode93.Name = "addF";
-            treeNode93.Text = "Добавить снимок в статью";
-            treeNode94.Name = "edF";
-            treeNode94.Text = "Удалить или редактировать данные о фото";
-            treeNode95.Name = "Фото";
-            treeNode95.Text = "Раздел фотогрфий";
-            treeNode96.Name = "Узел0";
-            treeNode96.Text = "Редакция газеты";
-            treeNode97.Name = "addOtz";
-            treeNode97.Text = "Написать отзыв на статью";
-            treeNode98.Name = "edOtz";
-            treeNode98.Text = "Редактировать или удалить отзыв";
-            treeNode99.Name = "Отзыв";
-            treeNode99.Text = "Отзывы";
-            treeNode100.Name = "addOb";
-            treeNode100.Text = "Добавить объявление в выпуск";
-            treeNode101.Name = "edOb";
-            treeNode101.Text = "Редактировать или удалить объявление";
-            treeNode102.Name = "Объявление";
-            treeNode102.Text = "Объявления";
-            treeNode103.Name = "Узел14";
-            treeNode103.Text = "Работа с читателями";
-            treeNode104.Name = "addZ";
-            treeNode104.Text = "Добавить заказчика";
-            treeNode105.Name = "edZ";
-            treeNode105.Text = "Редактировать данные или удалить заказчика";
-            treeNode106.Name = "Заказчик";
-            treeNode106.Text = "Заказчики";
-            treeNode107.Name = "addD";
-            treeNode107.Text = "Заключить договор";
-            treeNode108.Name = "edD";
-            treeNode108.Text = "Изменить условия или расторгнуть договор";
-            treeNode109.Name = "Договор";
-            treeNode109.Text = "Договоры";
-            treeNode110.Name = "addRekl";
-            treeNode110.Text = "Разместить рекламу в выпуске";
-            treeNode111.Name = "edRekl";
-            treeNode111.Text = "Редактировать данные или убрать рекламу";
-            treeNode112.Name = "Реклама";
-            treeNode112.Text = "Размещение рекламы";
-            treeNode113.Name = "Узел22";
-            treeNode113.Text = "Рекламный отдел";
-            treeNode114.Name = "addSotr";
-            treeNode114.Text = "Нанять сотрудника";
-            treeNode115.Name = "edSotr";
-            treeNode115.Text = "Уволить или поменять данные";
-            treeNode116.Name = "Сотрудник";
-            treeNode116.Text = "Отдел кадров";
+            treeNode1.Name = "addR";
+            treeNode1.Text = "Добавить рубрику";
+            treeNode2.Name = "edR";
+            treeNode2.Text = "Изменить/удалить существующую";
+            treeNode3.Name = "Рубрика";
+            treeNode3.Text = "Раздел рубрик";
+            treeNode4.Name = "addNom";
+            treeNode4.Text = "Добавить выпуск газеты";
+            treeNode5.Name = "edNom";
+            treeNode5.Text = "Редактировать или удалить выпуск";
+            treeNode6.Name = "НомерГазеты";
+            treeNode6.Text = "Раздел выпусков";
+            treeNode7.Name = "addSt";
+            treeNode7.Text = "Добавить статью в выпуск";
+            treeNode8.Name = "edSt";
+            treeNode8.Text = "Изменить или удалить статью";
+            treeNode9.Name = "Статья";
+            treeNode9.Text = "Раздел статей";
+            treeNode10.Name = "addF";
+            treeNode10.Text = "Добавить снимок в статью";
+            treeNode11.Name = "edF";
+            treeNode11.Text = "Удалить или редактировать данные о фото";
+            treeNode12.Name = "Фото";
+            treeNode12.Text = "Раздел фотографий";
+            treeNode13.Name = "Узел0";
+            treeNode13.Text = "Редакция газеты";
+            treeNode14.Name = "addOtz";
+            treeNode14.Text = "Написать отзыв на статью";
+            treeNode15.Name = "edOtz";
+            treeNode15.Text = "Редактировать или удалить отзыв";
+            treeNode16.Name = "Отзыв";
+            treeNode16.Text = "Отзывы";
+            treeNode17.Name = "addOb";
+            treeNode17.Text = "Добавить объявление в выпуск";
+            treeNode18.Name = "edOb";
+            treeNode18.Text = "Редактировать или удалить объявление";
+            treeNode19.Name = "Объявление";
+            treeNode19.Text = "Объявления";
+            treeNode20.Name = "Узел14";
+            treeNode20.Text = "Работа с читателями";
+            treeNode21.Name = "addZ";
+            treeNode21.Text = "Добавить заказчика";
+            treeNode22.Name = "edZ";
+            treeNode22.Text = "Редактировать данные или удалить заказчика";
+            treeNode23.Name = "Заказчик";
+            treeNode23.Text = "Заказчики";
+            treeNode24.Name = "addD";
+            treeNode24.Text = "Заключить договор";
+            treeNode25.Name = "edD";
+            treeNode25.Text = "Изменить условия или расторгнуть договор";
+            treeNode26.Name = "Договор";
+            treeNode26.Text = "Договоры";
+            treeNode27.Name = "addRekl";
+            treeNode27.Text = "Разместить рекламу в выпуске";
+            treeNode28.Name = "edRekl";
+            treeNode28.Text = "Редактировать данные или убрать рекламу";
+            treeNode29.Name = "Реклама";
+            treeNode29.Text = "Размещение рекламы";
+            treeNode30.Name = "Узел22";
+            treeNode30.Text = "Рекламный отдел";
+            treeNode31.Name = "addSotr";
+            treeNode31.Text = "Нанять сотрудника";
+            treeNode32.Name = "edSotr";
+            treeNode32.Text = "Уволить или поменять данные";
+            treeNode33.Name = "Сотрудник";
+            treeNode33.Text = "Отдел кадров";
             this.admView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode96,
-            treeNode103,
-            treeNode113,
-            treeNode116});
+            treeNode13,
+            treeNode20,
+            treeNode30,
+            treeNode33});
             this.admView.Size = new System.Drawing.Size(489, 772);
             this.admView.TabIndex = 66;
             this.admView.Visible = false;
             this.admView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeView1_NodeMouseClick);
-            // 
-            // treeColumn1
-            // 
-            this.treeColumn1.Header = "u";
-            this.treeColumn1.SortOrder = System.Windows.Forms.SortOrder.None;
-            this.treeColumn1.TooltipText = null;
-            // 
-            // treeColumn2
-            // 
-            this.treeColumn2.Header = "";
-            this.treeColumn2.SortOrder = System.Windows.Forms.SortOrder.None;
-            this.treeColumn2.TooltipText = null;
             // 
             // reklView
             // 
@@ -375,28 +354,28 @@
             this.reklView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.reklView.Location = new System.Drawing.Point(0, 32);
             this.reklView.Name = "reklView";
-            treeNode117.Name = "addZ";
-            treeNode117.Text = "Добавить заказчика";
-            treeNode118.Name = "edZ";
-            treeNode118.Text = "Редактировать данные или удалить заказчика";
-            treeNode119.Name = "Заказчик";
-            treeNode119.Text = "Заказчики";
-            treeNode120.Name = "addD";
-            treeNode120.Text = "Заключить договор";
-            treeNode121.Name = "edD";
-            treeNode121.Text = "Изменить условия или расторгнуть договор";
-            treeNode122.Name = "Договор";
-            treeNode122.Text = "Договоры";
-            treeNode123.Name = "addRekl";
-            treeNode123.Text = "Разместить рекламу в выпуске";
-            treeNode124.Name = "edRekl";
-            treeNode124.Text = "Редактировать данные или убрать рекламу";
-            treeNode125.Name = "Реклама";
-            treeNode125.Text = "Размещение рекламы";
-            treeNode126.Name = "Узел22";
-            treeNode126.Text = "Рекламный отдел";
+            treeNode34.Name = "addZ";
+            treeNode34.Text = "Добавить заказчика";
+            treeNode35.Name = "edZ";
+            treeNode35.Text = "Редактировать данные или удалить заказчика";
+            treeNode36.Name = "Заказчик";
+            treeNode36.Text = "Заказчики";
+            treeNode37.Name = "addD";
+            treeNode37.Text = "Заключить договор";
+            treeNode38.Name = "edD";
+            treeNode38.Text = "Изменить условия или расторгнуть договор";
+            treeNode39.Name = "Договор";
+            treeNode39.Text = "Договоры";
+            treeNode40.Name = "addRekl";
+            treeNode40.Text = "Разместить рекламу в выпуске";
+            treeNode41.Name = "edRekl";
+            treeNode41.Text = "Редактировать данные или убрать рекламу";
+            treeNode42.Name = "Реклама";
+            treeNode42.Text = "Размещение рекламы";
+            treeNode43.Name = "Узел22";
+            treeNode43.Text = "Рекламный отдел";
             this.reklView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode126});
+            treeNode43});
             this.reklView.Size = new System.Drawing.Size(489, 295);
             this.reklView.TabIndex = 67;
             this.reklView.Visible = false;
@@ -408,22 +387,22 @@
             this.chitView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chitView.Location = new System.Drawing.Point(0, 32);
             this.chitView.Name = "chitView";
-            treeNode127.Name = "addOtz";
-            treeNode127.Text = "Написать отзыв на статью";
-            treeNode128.Name = "edOtz";
-            treeNode128.Text = "Редактировать или удалить отзыв";
-            treeNode129.Name = "Отзыв";
-            treeNode129.Text = "Отзывы";
-            treeNode130.Name = "addOb";
-            treeNode130.Text = "Добавить объявление в выпуск";
-            treeNode131.Name = "edOb";
-            treeNode131.Text = "Редактировать или удалить объявление";
-            treeNode132.Name = "Объявление";
-            treeNode132.Text = "Объявления";
-            treeNode133.Name = "Узел14";
-            treeNode133.Text = "Работа с читателями";
+            treeNode44.Name = "addOtz";
+            treeNode44.Text = "Написать отзыв на статью";
+            treeNode45.Name = "edOtz";
+            treeNode45.Text = "Редактировать или удалить отзыв";
+            treeNode46.Name = "Отзыв";
+            treeNode46.Text = "Отзывы";
+            treeNode47.Name = "addOb";
+            treeNode47.Text = "Добавить объявление в выпуск";
+            treeNode48.Name = "edOb";
+            treeNode48.Text = "Редактировать или удалить объявление";
+            treeNode49.Name = "Объявление";
+            treeNode49.Text = "Объявления";
+            treeNode50.Name = "Узел14";
+            treeNode50.Text = "Работа с читателями";
             this.chitView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode133});
+            treeNode50});
             this.chitView.Size = new System.Drawing.Size(489, 245);
             this.chitView.TabIndex = 68;
             this.chitView.Visible = false;
@@ -435,14 +414,14 @@
             this.kadrView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.kadrView.Location = new System.Drawing.Point(0, 32);
             this.kadrView.Name = "kadrView";
-            treeNode134.Name = "addSotr";
-            treeNode134.Text = "Нанять сотрудника";
-            treeNode135.Name = "edSotr";
-            treeNode135.Text = "Уволить или поменять данные";
-            treeNode136.Name = "Сотрудник";
-            treeNode136.Text = "Отдел кадров";
+            treeNode51.Name = "addSotr";
+            treeNode51.Text = "Нанять сотрудника";
+            treeNode52.Name = "edSotr";
+            treeNode52.Text = "Уволить или поменять данные";
+            treeNode53.Name = "Сотрудник";
+            treeNode53.Text = "Отдел кадров";
             this.kadrView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode136});
+            treeNode53});
             this.kadrView.Size = new System.Drawing.Size(489, 245);
             this.kadrView.TabIndex = 69;
             this.kadrView.Visible = false;
@@ -454,55 +433,55 @@
             this.redView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.redView.Location = new System.Drawing.Point(0, 32);
             this.redView.Name = "redView";
-            treeNode137.Name = "addR";
-            treeNode137.Text = "Добавить рубрику";
-            treeNode138.Name = "edR";
-            treeNode138.Text = "Изменить/удалить существующую";
-            treeNode139.Name = "Рубрика";
-            treeNode139.Text = "Раздел рубрик";
-            treeNode140.Name = "addNom";
-            treeNode140.Text = "Добавить выпуск газеты";
-            treeNode141.Name = "edNom";
-            treeNode141.Text = "Редактировать или удалить выпуск";
-            treeNode142.Name = "НомерГазеты";
-            treeNode142.Text = "Раздел выпусков";
-            treeNode143.Name = "addSt";
-            treeNode143.Text = "Добавить статью в выпуск";
-            treeNode144.Name = "edSt";
-            treeNode144.Text = "Изменить или удалить статью";
-            treeNode145.Name = "Статья";
-            treeNode145.Text = "Раздел статей";
-            treeNode146.Name = "addF";
-            treeNode146.Text = "Добавить снимок в статью";
-            treeNode147.Name = "edF";
-            treeNode147.Text = "Удалить или редактировать данные о фото";
-            treeNode148.Name = "Фото";
-            treeNode148.Text = "Раздел фотогрфий";
-            treeNode149.Name = "Узел0";
-            treeNode149.Text = "Редакция газеты";
-            treeNode150.Name = "addZ";
-            treeNode150.Text = "Добавить заказчика";
-            treeNode151.Name = "edZ";
-            treeNode151.Text = "Редактировать данные или удалить заказчика";
-            treeNode152.Name = "Заказчик";
-            treeNode152.Text = "Заказчики";
-            treeNode153.Name = "addD";
-            treeNode153.Text = "Заключить договор";
-            treeNode154.Name = "edD";
-            treeNode154.Text = "Изменить условия или расторгнуть договор";
-            treeNode155.Name = "Договор";
-            treeNode155.Text = "Договоры";
-            treeNode156.Name = "addRekl";
-            treeNode156.Text = "Разместить рекламу в выпуске";
-            treeNode157.Name = "edRekl";
-            treeNode157.Text = "Редактировать данные или убрать рекламу";
-            treeNode158.Name = "Реклама";
-            treeNode158.Text = "Размещение рекламы";
-            treeNode159.Name = "Узел22";
-            treeNode159.Text = "Рекламный отдел";
+            treeNode54.Name = "addR";
+            treeNode54.Text = "Добавить рубрику";
+            treeNode55.Name = "edR";
+            treeNode55.Text = "Изменить/удалить существующую";
+            treeNode56.Name = "Рубрика";
+            treeNode56.Text = "Раздел рубрик";
+            treeNode57.Name = "addNom";
+            treeNode57.Text = "Добавить выпуск газеты";
+            treeNode58.Name = "edNom";
+            treeNode58.Text = "Редактировать или удалить выпуск";
+            treeNode59.Name = "НомерГазеты";
+            treeNode59.Text = "Раздел выпусков";
+            treeNode60.Name = "addSt";
+            treeNode60.Text = "Добавить статью в выпуск";
+            treeNode61.Name = "edSt";
+            treeNode61.Text = "Изменить или удалить статью";
+            treeNode62.Name = "Статья";
+            treeNode62.Text = "Раздел статей";
+            treeNode63.Name = "addF";
+            treeNode63.Text = "Добавить снимок в статью";
+            treeNode64.Name = "edF";
+            treeNode64.Text = "Удалить или редактировать данные о фото";
+            treeNode65.Name = "Фото";
+            treeNode65.Text = "Раздел фотографий";
+            treeNode66.Name = "Узел0";
+            treeNode66.Text = "Редакция газеты";
+            treeNode67.Name = "addZ";
+            treeNode67.Text = "Добавить заказчика";
+            treeNode68.Name = "edZ";
+            treeNode68.Text = "Редактировать данные или удалить заказчика";
+            treeNode69.Name = "Заказчик";
+            treeNode69.Text = "Заказчики";
+            treeNode70.Name = "addD";
+            treeNode70.Text = "Заключить договор";
+            treeNode71.Name = "edD";
+            treeNode71.Text = "Изменить условия или расторгнуть договор";
+            treeNode72.Name = "Договор";
+            treeNode72.Text = "Договоры";
+            treeNode73.Name = "addRekl";
+            treeNode73.Text = "Разместить рекламу в выпуске";
+            treeNode74.Name = "edRekl";
+            treeNode74.Text = "Редактировать данные или убрать рекламу";
+            treeNode75.Name = "Реклама";
+            treeNode75.Text = "Размещение рекламы";
+            treeNode76.Name = "Узел22";
+            treeNode76.Text = "Рекламный отдел";
             this.redView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode149,
-            treeNode159});
+            treeNode66,
+            treeNode76});
             this.redView.Size = new System.Drawing.Size(489, 451);
             this.redView.TabIndex = 70;
             this.redView.Visible = false;
@@ -514,22 +493,22 @@
             this.zurView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.zurView.Location = new System.Drawing.Point(0, 32);
             this.zurView.Name = "zurView";
-            treeNode160.Name = "addSt";
-            treeNode160.Text = "Добавить статью в выпуск";
-            treeNode161.Name = "edSt";
-            treeNode161.Text = "Изменить или удалить статью";
-            treeNode162.Name = "Статья";
-            treeNode162.Text = "Раздел статей";
-            treeNode163.Name = "addF";
-            treeNode163.Text = "Добавить снимок в статью";
-            treeNode164.Name = "edF";
-            treeNode164.Text = "Удалить или редактировать данные о фото";
-            treeNode165.Name = "Фото";
-            treeNode165.Text = "Раздел фотогрфий";
-            treeNode166.Name = "Узел0";
-            treeNode166.Text = "Редакция газеты";
+            treeNode77.Name = "addSt";
+            treeNode77.Text = "Добавить статью в выпуск";
+            treeNode78.Name = "edSt";
+            treeNode78.Text = "Изменить или удалить статью";
+            treeNode79.Name = "Статья";
+            treeNode79.Text = "Раздел статей";
+            treeNode80.Name = "addF";
+            treeNode80.Text = "Добавить снимок в статью";
+            treeNode81.Name = "edF";
+            treeNode81.Text = "Удалить или редактировать данные о фото";
+            treeNode82.Name = "Фото";
+            treeNode82.Text = "Раздел фотографий";
+            treeNode83.Name = "Узел0";
+            treeNode83.Text = "Редакция газеты";
             this.zurView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode166});
+            treeNode83});
             this.zurView.Size = new System.Drawing.Size(489, 230);
             this.zurView.TabIndex = 71;
             this.zurView.Visible = false;
@@ -559,6 +538,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Приложение";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -572,10 +552,7 @@
         private System.Windows.Forms.ToolStripMenuItem отчётыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem фунционалToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem работаСТаблицамиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem историяИзмененияToolStripMenuItem;
         private System.Windows.Forms.TreeView admView;
-        private Aga.Controls.Tree.TreeColumn treeColumn1;
-        private Aga.Controls.Tree.TreeColumn treeColumn2;
         private System.Windows.Forms.TreeView reklView;
         private System.Windows.Forms.TreeView chitView;
         private System.Windows.Forms.TreeView kadrView;

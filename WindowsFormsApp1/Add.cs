@@ -39,6 +39,7 @@ namespace WindowsFormsApp1
                                 combBox(stNames, "Сотрудник", "ФИО", com1, connection);
                                 combBox(stNumbers, "НомерГазеты", "Номер", com2, connection);
                                 combBox(stR, "Рубрика", "Название", com3, connection);
+                                stType.Select();
                             }
                             break;
                         case "Заказчик":
@@ -47,6 +48,7 @@ namespace WindowsFormsApp1
                         case "Договор":
                             {
                                 dogPanel.Visible = true;
+                                dogZak.Select();
                                 com1 = "select Код, Название from Заказчик";
                                 combBox(dogZak, "Заказчик", "Название", com1, connection);
                             }
@@ -56,9 +58,11 @@ namespace WindowsFormsApp1
                             break;
                         case "Сотрудник":
                             sotrPanel.Visible = true;
+                            sotrName.Select();
                             break;
                         case "НомерГазеты":
                             newspPanel.Visible = true;
+                            newspNumber.Select();
                             break;
                     }
                 }
@@ -68,7 +72,13 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
+        private void dogPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) | (e.KeyChar == Convert.ToChar(".")) | e.KeyChar == '\b')
+                return;
+            else
+                e.Handled = true;
+        }
         public void combBox(ComboBox cb, string table, string dispMember, string com1, SqlConnection connection)
         {
             SqlDataAdapter da2 = new SqlDataAdapter(com1, connection);

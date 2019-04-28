@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
             switch (role)
             {
                 case "системный администратор":
+                    работаСТаблицамиToolStripMenuItem.Visible = true;
                     admView.Visible = true;
                     admView.Nodes[0].Expand();
                     admView.Nodes[1].Expand();
@@ -221,11 +222,49 @@ namespace WindowsFormsApp1
 
         private void ФунционалToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Func funcForm = new Func();
+            Статистика funcForm = new Статистика(role);
+            switch (role)
+            {
+                case "системный администратор":
+                    funcForm.listBox1.Items.Add("Суммарная информация по статье в выпуске");
+                    funcForm.listBox1.Items.Add("Количество статей сотрудника");
+                    funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
+                    funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    break;
+                case "главный редактор":
+                    funcForm.listBox1.Items.Add("Суммарная информация по статье в выпуске");
+                    funcForm.listBox1.Items.Add("Количество статей сотрудника");
+                    funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
+                    funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    break;
+                case "журналист":
+                    funcForm.listBox1.Items.Add("Суммарная информация по статье в выпуске");
+                    funcForm.listBox1.Items.Add("Количество статей сотрудника");
+                    break;
+                case "читатель":
+                    funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    break;
+                case "специалист по кадрам":
+                    funcForm.listBox1.Items.Add("Количество статей сотрудника");
+                    break;
+                case "работник рекламного отдела":
+                    
+                    break;
+            }
             if (funcForm.ShowDialog(this) == DialogResult.Cancel)
             {
                 funcForm.Close();
             }
+        }
+
+        private void ОтчётыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     } 
 }

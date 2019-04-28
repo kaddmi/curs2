@@ -62,6 +62,7 @@ namespace WindowsFormsApp1
                                 else
                                 {
                                     stPanel.Location = new Point(3, 42);
+                                    this.Size = new Size(855,100);
                                 }
                             }
                             break;
@@ -121,6 +122,7 @@ namespace WindowsFormsApp1
                                 {
                                     obPanel.Location = new Point(3, 42);
                                     obZak.Text = log;
+                                    this.Size = new Size(0, 0);
                                 }
                                    
                             }
@@ -162,6 +164,7 @@ namespace WindowsFormsApp1
                                 {
                                     otzPanel.Location = new Point(3, 42);
                                     otzName.Text = log;
+                                    this.Size = new Size(0, 0);
                                 }
                             }
                             break;

@@ -102,7 +102,7 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
@@ -123,8 +123,9 @@
             this.dogPanel.RowCount = 2;
             this.dogPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dogPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.dogPanel.Size = new System.Drawing.Size(1080, 103);
+            this.dogPanel.Size = new System.Drawing.Size(1071, 103);
             this.dogPanel.TabIndex = 67;
+            this.dogPanel.TabStop = true;
             this.dogPanel.Visible = false;
             // 
             // dogDateB
@@ -135,7 +136,7 @@
             this.dogDateB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogDateB.Name = "dogDateB";
             this.dogDateB.Size = new System.Drawing.Size(125, 26);
-            this.dogDateB.TabIndex = 28;
+            this.dogDateB.TabIndex = 2;
             // 
             // label39
             // 
@@ -145,23 +146,22 @@
             this.label39.Location = new System.Drawing.Point(900, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(188, 47);
+            this.label39.Size = new System.Drawing.Size(191, 47);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dogAdd
             // 
-            this.dogAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dogAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dogAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.dogAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dogAdd.Location = new System.Drawing.Point(900, 58);
             this.dogAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogAdd.Name = "dogAdd";
-            this.dogAdd.Size = new System.Drawing.Size(188, 37);
-            this.dogAdd.TabIndex = 9;
+            this.dogAdd.Size = new System.Drawing.Size(163, 37);
+            this.dogAdd.TabIndex = 6;
             this.dogAdd.Text = "Добавить";
             this.dogAdd.UseVisualStyleBackColor = true;
             this.dogAdd.Click += new System.EventHandler(this.dogAdd_Click);
@@ -216,7 +216,7 @@
             this.dogDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogDate.Name = "dogDate";
             this.dogDate.Size = new System.Drawing.Size(124, 26);
-            this.dogDate.TabIndex = 21;
+            this.dogDate.TabIndex = 1;
             // 
             // dogDateE
             // 
@@ -226,7 +226,7 @@
             this.dogDateE.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogDateE.Name = "dogDateE";
             this.dogDateE.Size = new System.Drawing.Size(122, 26);
-            this.dogDateE.TabIndex = 23;
+            this.dogDateE.TabIndex = 3;
             // 
             // dogZak
             // 
@@ -237,7 +237,7 @@
             this.dogZak.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogZak.Name = "dogZak";
             this.dogZak.Size = new System.Drawing.Size(172, 28);
-            this.dogZak.TabIndex = 24;
+            this.dogZak.TabIndex = 0;
             // 
             // label41
             // 
@@ -273,7 +273,8 @@
             this.dogPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogPrice.Name = "dogPrice";
             this.dogPrice.Size = new System.Drawing.Size(96, 26);
-            this.dogPrice.TabIndex = 25;
+            this.dogPrice.TabIndex = 4;
+            this.dogPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
             // label38
             // 
@@ -294,7 +295,7 @@
             this.dogText.Location = new System.Drawing.Point(708, 56);
             this.dogText.Name = "dogText";
             this.dogText.Size = new System.Drawing.Size(182, 40);
-            this.dogText.TabIndex = 27;
+            this.dogText.TabIndex = 5;
             this.dogText.Text = "";
             // 
             // newspPanel
@@ -324,6 +325,7 @@
             this.newspPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.newspPanel.Size = new System.Drawing.Size(617, 91);
             this.newspPanel.TabIndex = 64;
+            this.newspPanel.TabStop = true;
             this.newspPanel.Visible = false;
             // 
             // newspPrice
@@ -332,7 +334,7 @@
             this.newspPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.newspPrice.Name = "newspPrice";
             this.newspPrice.Size = new System.Drawing.Size(114, 26);
-            this.newspPrice.TabIndex = 0;
+            this.newspPrice.TabIndex = 1;
             // 
             // label13
             // 
@@ -373,7 +375,7 @@
             this.newspAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.newspAdd.Name = "newspAdd";
             this.newspAdd.Size = new System.Drawing.Size(147, 31);
-            this.newspAdd.TabIndex = 3;
+            this.newspAdd.TabIndex = 4;
             this.newspAdd.Text = "Добавить";
             this.newspAdd.UseVisualStyleBackColor = true;
             this.newspAdd.Click += new System.EventHandler(this.newspAdd_Click);
@@ -398,7 +400,8 @@
             this.newspNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.newspNumber.Name = "newspNumber";
             this.newspNumber.Size = new System.Drawing.Size(70, 26);
-            this.newspNumber.TabIndex = 4;
+            this.newspNumber.TabIndex = 0;
+            this.newspNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
             // label16
             // 
@@ -422,7 +425,7 @@
             this.newspDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.newspDate.Name = "newspDate";
             this.newspDate.Size = new System.Drawing.Size(124, 26);
-            this.newspDate.TabIndex = 7;
+            this.newspDate.TabIndex = 2;
             this.newspDate.Value = new System.DateTime(2019, 4, 16, 16, 52, 45, 0);
             // 
             // label49
@@ -439,7 +442,8 @@
             this.nomKol.Location = new System.Drawing.Point(347, 50);
             this.nomKol.Name = "nomKol";
             this.nomKol.Size = new System.Drawing.Size(100, 26);
-            this.nomKol.TabIndex = 10;
+            this.nomKol.TabIndex = 3;
+            this.nomKol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
             // sotrPanel
             // 
@@ -462,6 +466,7 @@
             this.sotrPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.sotrPanel.Size = new System.Drawing.Size(551, 103);
             this.sotrPanel.TabIndex = 63;
+            this.sotrPanel.TabStop = true;
             this.sotrPanel.Visible = false;
             // 
             // sotrName
@@ -470,7 +475,7 @@
             this.sotrName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sotrName.Name = "sotrName";
             this.sotrName.Size = new System.Drawing.Size(162, 26);
-            this.sotrName.TabIndex = 4;
+            this.sotrName.TabIndex = 0;
             // 
             // sotrDol
             // 
@@ -478,7 +483,7 @@
             this.sotrDol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sotrDol.Name = "sotrDol";
             this.sotrDol.Size = new System.Drawing.Size(176, 26);
-            this.sotrDol.TabIndex = 0;
+            this.sotrDol.TabIndex = 1;
             // 
             // label10
             // 
@@ -519,7 +524,7 @@
             this.sotrAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sotrAdd.Name = "sotrAdd";
             this.sotrAdd.Size = new System.Drawing.Size(177, 37);
-            this.sotrAdd.TabIndex = 3;
+            this.sotrAdd.TabIndex = 2;
             this.sotrAdd.Text = "Добавить";
             this.sotrAdd.UseVisualStyleBackColor = true;
             this.sotrAdd.Click += new System.EventHandler(this.sotrAdd_Click);
@@ -556,6 +561,7 @@
             this.rPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.rPanel.Size = new System.Drawing.Size(431, 103);
             this.rPanel.TabIndex = 62;
+            this.rPanel.TabStop = true;
             this.rPanel.Visible = false;
             // 
             // rName
@@ -605,7 +611,7 @@
             this.rAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rAdd.Name = "rAdd";
             this.rAdd.Size = new System.Drawing.Size(176, 37);
-            this.rAdd.TabIndex = 3;
+            this.rAdd.TabIndex = 1;
             this.rAdd.Text = "Добавить";
             this.rAdd.UseVisualStyleBackColor = true;
             this.rAdd.Click += new System.EventHandler(this.rAdd_Click);
@@ -618,8 +624,8 @@
             this.zPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.zPanel.Controls.Add(this.zAdd, 1, 1);
             this.zPanel.Controls.Add(this.d, 1, 0);
-            this.zPanel.Controls.Add(this.label7, 0, 0);
             this.zPanel.Controls.Add(this.zakName, 0, 1);
+            this.zPanel.Controls.Add(this.label7, 0, 0);
             this.zPanel.Location = new System.Drawing.Point(6, 14);
             this.zPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.zPanel.Name = "zPanel";
@@ -629,6 +635,7 @@
             this.zPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.zPanel.Size = new System.Drawing.Size(405, 103);
             this.zPanel.TabIndex = 61;
+            this.zPanel.TabStop = true;
             this.zPanel.Visible = false;
             // 
             // zAdd
@@ -642,7 +649,7 @@
             this.zAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.zAdd.Name = "zAdd";
             this.zAdd.Size = new System.Drawing.Size(150, 37);
-            this.zAdd.TabIndex = 3;
+            this.zAdd.TabIndex = 1;
             this.zAdd.Text = "Добавить";
             this.zAdd.UseVisualStyleBackColor = true;
             this.zAdd.Click += new System.EventHandler(this.zAdd_Click);
@@ -718,6 +725,7 @@
             this.stPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.stPanel.Size = new System.Drawing.Size(849, 100);
             this.stPanel.TabIndex = 60;
+            this.stPanel.TabStop = true;
             this.stPanel.Visible = false;
             // 
             // stNames
@@ -729,7 +737,7 @@
             this.stNames.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stNames.Name = "stNames";
             this.stNames.Size = new System.Drawing.Size(143, 28);
-            this.stNames.TabIndex = 0;
+            this.stNames.TabIndex = 2;
             // 
             // stNumbers
             // 
@@ -740,7 +748,7 @@
             this.stNumbers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stNumbers.Name = "stNumbers";
             this.stNumbers.Size = new System.Drawing.Size(85, 28);
-            this.stNumbers.TabIndex = 1;
+            this.stNumbers.TabIndex = 3;
             // 
             // stR
             // 
@@ -751,7 +759,7 @@
             this.stR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stR.Name = "stR";
             this.stR.Size = new System.Drawing.Size(142, 28);
-            this.stR.TabIndex = 2;
+            this.stR.TabIndex = 4;
             // 
             // stAdd
             // 
@@ -764,7 +772,7 @@
             this.stAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stAdd.Name = "stAdd";
             this.stAdd.Size = new System.Drawing.Size(107, 36);
-            this.stAdd.TabIndex = 3;
+            this.stAdd.TabIndex = 5;
             this.stAdd.Text = "Добавить";
             this.stAdd.UseVisualStyleBackColor = true;
             this.stAdd.Click += new System.EventHandler(this.stAdd_Click);
@@ -778,7 +786,7 @@
             this.stType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stType.Name = "stType";
             this.stType.Size = new System.Drawing.Size(142, 26);
-            this.stType.TabIndex = 4;
+            this.stType.TabIndex = 0;
             // 
             // stTitle
             // 
@@ -786,7 +794,7 @@
             this.stTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stTitle.Name = "stTitle";
             this.stTitle.Size = new System.Drawing.Size(161, 26);
-            this.stTitle.TabIndex = 5;
+            this.stTitle.TabIndex = 1;
             // 
             // label2
             // 
@@ -878,7 +886,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(352, 129);
+            this.ClientSize = new System.Drawing.Size(308, 131);
             this.Controls.Add(this.dogPanel);
             this.Controls.Add(this.newspPanel);
             this.Controls.Add(this.sotrPanel);

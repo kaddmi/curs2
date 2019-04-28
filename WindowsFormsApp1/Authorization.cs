@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
                 try
                 {
                     connection.Open();
-                    string command1 = "select count(*) from users2 where Логин='" + textBox1.Text + "'";
+                    string command1 = "select count(*) from Пользователи where Логин='" + textBox1.Text + "'";
                     SqlCommand myCommand1 = new SqlCommand(command1, connection);
                     object number = myCommand1.ExecuteScalar();
                     if (number.ToString() != "1")
@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        string command2 = "select Должность from users2 where Логин='" + textBox1.Text + "' and Пароль='" + textBox2.Text + "'";
+                        string command2 = "select Должность from Пользователи where Логин='" + textBox1.Text + "' and Пароль='" + textBox2.Text + "'";
                         SqlCommand command = new SqlCommand(command2, connection);
                         SqlDataReader reader = command.ExecuteReader();
                         if (reader.HasRows)
