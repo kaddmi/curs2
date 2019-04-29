@@ -231,7 +231,7 @@
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
             this.otzPanel.Controls.Add(this.otzDate, 5, 1);
             this.otzPanel.Controls.Add(this.label32, 5, 0);
             this.otzPanel.Controls.Add(this.otzAdd, 6, 1);
@@ -284,7 +284,6 @@
             // 
             this.otzAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.otzAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.otzAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.otzAdd.Location = new System.Drawing.Point(770, 56);
             this.otzAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -383,7 +382,7 @@
             this.label31.Location = new System.Drawing.Point(770, 3);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(215, 45);
+            this.label31.Size = new System.Drawing.Size(218, 45);
             this.label31.TabIndex = 4;
             this.label31.Text = "Добавить";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -433,7 +432,7 @@
             this.reklPanel.ColumnCount = 3;
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.92263F));
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.07737F));
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
             this.reklPanel.Controls.Add(this.label36, 0, 0);
             this.reklPanel.Controls.Add(this.label34, 2, 0);
             this.reklPanel.Controls.Add(this.label35, 1, 0);
@@ -459,7 +458,7 @@
             this.label36.Location = new System.Drawing.Point(7, 3);
             this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(91, 45);
+            this.label36.Size = new System.Drawing.Size(90, 45);
             this.label36.TabIndex = 6;
             this.label36.Text = "Номер выпуска";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -470,10 +469,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(512, 3);
+            this.label34.Location = new System.Drawing.Point(508, 3);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(245, 45);
+            this.label34.Size = new System.Drawing.Size(249, 45);
             this.label34.TabIndex = 2;
             this.label34.Text = "Добавить";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -484,10 +483,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(109, 3);
+            this.label35.Location = new System.Drawing.Point(108, 3);
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(392, 45);
+            this.label35.Size = new System.Drawing.Size(389, 45);
             this.label35.TabIndex = 5;
             this.label35.Text = "Текст рекламы";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -497,10 +496,10 @@
             this.reklText.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.reklText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reklText.FormattingEnabled = true;
-            this.reklText.Location = new System.Drawing.Point(109, 56);
+            this.reklText.Location = new System.Drawing.Point(108, 56);
             this.reklText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklText.Name = "reklText";
-            this.reklText.Size = new System.Drawing.Size(392, 28);
+            this.reklText.Size = new System.Drawing.Size(389, 28);
             this.reklText.TabIndex = 1;
             // 
             // reklNumber
@@ -519,12 +518,11 @@
             this.reklAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.reklAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.reklAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reklAdd.Location = new System.Drawing.Point(512, 56);
+            this.reklAdd.Location = new System.Drawing.Point(508, 56);
             this.reklAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklAdd.Name = "reklAdd";
-            this.reklAdd.Size = new System.Drawing.Size(245, 36);
+            this.reklAdd.Size = new System.Drawing.Size(249, 36);
             this.reklAdd.TabIndex = 2;
             this.reklAdd.Text = "Добавить";
             this.reklAdd.UseVisualStyleBackColor = true;
@@ -540,7 +538,7 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 208F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
@@ -584,7 +582,7 @@
             this.label39.Location = new System.Drawing.Point(900, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(200, 47);
+            this.label39.Size = new System.Drawing.Size(203, 47);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -593,7 +591,6 @@
             // 
             this.dogAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dogAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.dogAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dogAdd.Location = new System.Drawing.Point(900, 58);
             this.dogAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -842,7 +839,6 @@
             this.obAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.obAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.obAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.obAdd.Location = new System.Drawing.Point(673, 58);
             this.obAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1023,7 +1019,6 @@
             this.photoAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.photoAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.photoAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.photoAdd.Location = new System.Drawing.Point(680, 58);
             this.photoAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1146,7 +1141,6 @@
             this.newspAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.newspAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.newspAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newspAdd.Location = new System.Drawing.Point(460, 58);
             this.newspAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1295,7 +1289,6 @@
             this.sotrAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sotrAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.sotrAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sotrAdd.Location = new System.Drawing.Point(367, 58);
             this.sotrAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1382,7 +1375,6 @@
             this.rAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.rAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rAdd.Location = new System.Drawing.Point(248, 58);
             this.rAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1420,7 +1412,6 @@
             this.zAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.zAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.zAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.zAdd.Location = new System.Drawing.Point(248, 58);
             this.zAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1543,7 +1534,6 @@
             this.stAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.stAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.stAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stAdd.Location = new System.Drawing.Point(735, 56);
             this.stAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

@@ -74,8 +74,6 @@ D:\curs2_0\WindowsFormsApp1\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
-D:\curs2_0\WindowsFormsApp1\bin\Debug\Aga.Controls.dll
-D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Статистика.resources
 D:\curs2_0\WindowsFormsApp1\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 D:\curs2_0\WindowsFormsApp1\bin\Debug\LibExcel.dll
 D:\curs2_0\WindowsFormsApp1\bin\Debug\Stimulsoft.Base.dll
@@ -178,3 +176,5 @@ D:\curs2_0\WindowsFormsApp1\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resourc
 D:\curs2_0\WindowsFormsApp1\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\curs2_0\WindowsFormsApp1\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\curs2_0\WindowsFormsApp1\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Reports.resources
+D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Func.resources

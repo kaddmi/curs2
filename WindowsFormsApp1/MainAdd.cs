@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         string curTable;
         string r;
         string log;
+        public bool ok = false;
         public MainAdd(string currTable, SqlCredential credd, string role, string user)
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace WindowsFormsApp1
                                 combBox(stNames, "Сотрудник", "ФИО", com1, connection);
                                 combBox(stNumbers, "НомерГазеты", "Номер", com2, connection);
                                 combBox(stR, "Рубрика", "Название", com3, connection);
+                                this.AcceptButton = stAdd;
                                 if (String.Compare(r, "журналист") != 0)
                                 {
                                     sotr.Visible = true;
@@ -69,6 +71,7 @@ namespace WindowsFormsApp1
                         case "Заказчик":
                             zPanel.Location = new Point(3, 42);
                             zPanel.Visible = true;
+                            this.AcceptButton = zAdd;
                             break;
                         case "Договор":
                             {
@@ -78,6 +81,7 @@ namespace WindowsFormsApp1
                                 com1 = "select Код, Название from Заказчик";
                                 combBox(dogZak, "Заказчик", "Название", com1, connection);
                                 zak.Visible = true;
+                                this.AcceptButton = dogAdd;
                             }
                             break;
                         case "Реклама":
@@ -91,21 +95,25 @@ namespace WindowsFormsApp1
                                 combBox(reklText, "Догoвор", "ТекстРекламы", com2, connection, "ТекстРекламы");
                                 nom.Visible = true;
                                 dog.Visible = true;
+                                this.AcceptButton = reklAdd;
                             }
                             break;
                         case "Рубрика":
                             rPanel.Location = new Point(3, 42);
                             rPanel.Visible = true;
+                            this.AcceptButton = rAdd;
                             break;
                         case "Сотрудник":
                             sotrPanel.Location = new Point(3, 42);
                             sotrPanel.Visible = true;
+                            this.AcceptButton = sotrAdd;
                             sotrName.Select();
                             break;
                         case "НомерГазеты":
                             newspPanel.Location = new Point(3, 42);
                             newspPanel.Visible = true;
                             newspNumber.Select();
+                            this.AcceptButton = newspAdd;
                             break;
                         case "Объявление":
                             {
@@ -124,7 +132,8 @@ namespace WindowsFormsApp1
                                     obZak.Text = log;
                                     this.Size = new Size(0, 0);
                                 }
-                                   
+                                this.AcceptButton = obAdd;
+
                             }
                             break;
                         case "Фото":
@@ -145,7 +154,8 @@ namespace WindowsFormsApp1
                                     stat.Location = new Point(3, 42);
                                     stat.Visible = true;
                                 }
-                                    
+                                this.AcceptButton = photoAdd;
+
                             }
                             break;
                         case "Отзыв":
@@ -166,6 +176,7 @@ namespace WindowsFormsApp1
                                     otzName.Text = log;
                                     this.Size = new Size(0, 0);
                                 }
+                                this.AcceptButton = otzAdd;
                             }
                             break;
                     }
@@ -211,7 +222,7 @@ namespace WindowsFormsApp1
         {
             if (stType.Text == "" || stTitle.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (stTitle.Text == "")
                     stTitle.Focus();
                 if (stType.Text == "")
@@ -224,6 +235,7 @@ namespace WindowsFormsApp1
                 Add(command);
                 stTitle.Clear();
                 stType.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -231,7 +243,7 @@ namespace WindowsFormsApp1
         {
             if (zakName.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 zakName.Focus();
                 return;
             }
@@ -240,6 +252,7 @@ namespace WindowsFormsApp1
                 string command = "insert into Заказчик(Название) values ('" + zakName.Text + "')";
                 Add(command);
                 zakName.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -247,7 +260,7 @@ namespace WindowsFormsApp1
         {
             if (rName.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 rName.Focus();
                 return;
             }
@@ -256,6 +269,7 @@ namespace WindowsFormsApp1
                 string command = "insert into Рубрика values ('" + rName.Text + "')";
                 Add(command);
                 rName.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -263,7 +277,7 @@ namespace WindowsFormsApp1
         {
             if (sotrName.Text == "" || sotrDol.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (sotrName.Text == "")
                     sotrName.Focus();
                 if (sotrDol.Text == "")
@@ -276,6 +290,7 @@ namespace WindowsFormsApp1
                 Add(command);
                 sotrName.Clear();
                 sotrDol.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -283,7 +298,7 @@ namespace WindowsFormsApp1
         {
             if (newspNumber.Text == "" || newspPrice.Text == "" || nomKol.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (newspNumber.Text == "")
                     newspNumber.Focus();
                 if (newspPrice.Text == "")
@@ -299,6 +314,7 @@ namespace WindowsFormsApp1
                 newspNumber.Clear();
                 newspPrice.Clear();
                 nomKol.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -306,7 +322,7 @@ namespace WindowsFormsApp1
         {
             if (photoF.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 photoF.Focus();
                 return;
             }
@@ -315,6 +331,7 @@ namespace WindowsFormsApp1
                 string command = "insert into Фото values ('" + photoF.Text + "', " + photoName.SelectedValue.ToString() + ", " + photoTitle.SelectedValue.ToString() + ",'" + photoDate.Value + "')";
                 Add(command);
                 photoF.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -322,7 +339,7 @@ namespace WindowsFormsApp1
         {
             if (obText.Text == "" || obZak.Text == "" || obCat.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (obText.Text == "")
                     obText.Focus();
                 if (obZak.Text == "")
@@ -338,6 +355,7 @@ namespace WindowsFormsApp1
                 obText.Clear();
                 obZak.Clear();
                 obCat.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -349,7 +367,7 @@ namespace WindowsFormsApp1
             else i = 0;
             if (otzText.Text == "" || otzName.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (otzText.Text == "")
                     otzText.Focus();
                 if (otzName.Text == "")
@@ -362,6 +380,7 @@ namespace WindowsFormsApp1
                 Add(command);
                 otzText.Clear();
                 otzName.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -369,13 +388,14 @@ namespace WindowsFormsApp1
         {
             string command = "insert into Перечень_реклам (НомерВыпуска, ТекстРекламы) values (" + reklNumber.SelectedValue.ToString() + ", '" + reklText.SelectedValue.ToString() + "')";
             Add(command);
+            DialogResult = DialogResult.OK;
         }
 
         private void dogAdd_Click(object sender, EventArgs e)
         {
             if (dogText.Text == "" || dogPrice.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (dogText.Text == "")
                     dogText.Focus();
                 if (dogPrice.Text == "")
@@ -388,6 +408,7 @@ namespace WindowsFormsApp1
                 Add(command);
                 dogText.Clear();
                 dogPrice.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 

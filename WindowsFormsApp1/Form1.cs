@@ -80,7 +80,7 @@ namespace WindowsFormsApp1
             MainAdd add = new MainAdd(cT, cred, role, loginToolStripMenuItem.Text);
             if (add.ShowDialog(this) == DialogResult.OK)
             {
-                //add.Close();
+
             }
         }
 
@@ -222,7 +222,7 @@ namespace WindowsFormsApp1
 
         private void ФунционалToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Статистика funcForm = new Статистика(role);
+            Func funcForm = new Func(role);
             switch (role)
             {
                 case "системный администратор":
@@ -230,12 +230,20 @@ namespace WindowsFormsApp1
                     funcForm.listBox1.Items.Add("Количество статей сотрудника");
                     funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
                     funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    funcForm.listBox1.Items.Add("Сумма по договорам за период");
+                    funcForm.listBox1.Items.Add("Количество объявлений по категориям");
+                    funcForm.listBox1.Items.Add("Стаж работников");
+                    funcForm.listBox1.Items.Add("Статистика по увольнению и найму сотрудников");
                     break;
                 case "главный редактор":
                     funcForm.listBox1.Items.Add("Суммарная информация по статье в выпуске");
                     funcForm.listBox1.Items.Add("Количество статей сотрудника");
                     funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
                     funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    funcForm.listBox1.Items.Add("Сумма по договорам за период");
+                    funcForm.listBox1.Items.Add("Количество объявлений по категориям");
+                    funcForm.listBox1.Items.Add("Стаж работников");
+                    funcForm.listBox1.Items.Add("Статистика по увольнению и найму сотрудников");
                     break;
                 case "журналист":
                     funcForm.listBox1.Items.Add("Суммарная информация по статье в выпуске");
@@ -243,12 +251,16 @@ namespace WindowsFormsApp1
                     break;
                 case "читатель":
                     funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    funcForm.listBox1.Items.Add("Количество объявлений по категориям");
                     break;
                 case "специалист по кадрам":
                     funcForm.listBox1.Items.Add("Количество статей сотрудника");
+                    funcForm.listBox1.Items.Add("Стаж работников");
+                    funcForm.listBox1.Items.Add("Статистика по увольнению и найму сотрудников");
                     break;
                 case "работник рекламного отдела":
-                    
+                    funcForm.listBox1.Items.Add("Сумма по договорам за период");
+                    funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
                     break;
             }
             if (funcForm.ShowDialog(this) == DialogResult.Cancel)
@@ -259,12 +271,17 @@ namespace WindowsFormsApp1
 
         private void ОтчётыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Reports rep = new Reports();
+            if (rep.ShowDialog(this) == DialogResult.Cancel)
+            {
+                rep.Close();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+           
         }
     } 
 }

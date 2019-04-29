@@ -99,6 +99,17 @@ namespace WindowsFormsApp1
 
                     }
                     break;
+                case "Количество объявлений по категориям":
+                    {
+                        label1.Text = "Номер выпуска газеты";
+                        comboBox1.DataSource = null;
+                        comboBox1.Visible = true;
+                        com1 = "select Код, Номер from НомерГазеты";
+                        combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
+                        this.Size = new Size(338, 264);
+                        button1.Location = new Point(86, 184);
+                    }
+                    break;
             }
         }
 
@@ -151,6 +162,17 @@ namespace WindowsFormsApp1
                         SqlParameter value = new SqlParameter
                         {
                             ParameterName = "@y",
+                            Value = comboBox1.SelectedValue.ToString()
+                        };
+                        command.Parameters.Add(value);
+                        list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                    }
+                    break;
+                case "Количество объявлений по категориям":
+                    {
+                        SqlParameter value = new SqlParameter
+                        {
+                            ParameterName = "@nom",
                             Value = comboBox1.SelectedValue.ToString()
                         };
                         command.Parameters.Add(value);
