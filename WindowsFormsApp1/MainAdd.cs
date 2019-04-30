@@ -90,9 +90,9 @@ namespace WindowsFormsApp1
                                 reklPanel.Visible = true;
                                 reklNumber.Select();
                                 com1 = "select Код, Номер from НомерГазеты";
-                                com2 = "select Код, ТекстРекламы from Договор";
+                                com2 = "select Код, Название from Заказчик where Код in (select КодЗаказчика from Договор)";
                                 combBox(reklNumber, "НомерГазеты", "Номер", com1, connection, "Номер");
-                                combBox(reklText, "Догoвор", "ТекстРекламы", com2, connection, "ТекстРекламы");
+                                combBox(reklZak, "Заказчик", "Название", com2, connection);
                                 nom.Visible = true;
                                 dog.Visible = true;
                                 this.AcceptButton = reklAdd;
@@ -450,6 +450,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message);
                 }
             }
+
         }
 
         private void Dog_Click(object sender, EventArgs e)
@@ -512,6 +513,26 @@ namespace WindowsFormsApp1
                 return;
             else
                 e.Handled = true;
+        }
+
+        private void ReklZak_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    string com1 = "";
+                    com1 = "select Код, ТекстРекламы from Договор where КодЗаказчика=" + reklZak.SelectedValue.ToString();
+                    combBox(reklText, "Договор", "ТекстРекламы", com1, connection);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

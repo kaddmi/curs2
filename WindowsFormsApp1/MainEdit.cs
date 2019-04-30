@@ -111,7 +111,7 @@ namespace WindowsFormsApp1
                                 e.Cancel = true;
                                 SqlCommand myCommand = new SqlCommand(command, connection);
                                 int number = myCommand.ExecuteNonQuery();
-                                string command1 = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник";
+                                string command1 = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник order by Код desc";
                                 SqlCommand myCommand1 = new SqlCommand(command1, connection);
                                 SqlDataReader dr = myCommand1.ExecuteReader();
                                 DataTable dt = new DataTable();
@@ -299,11 +299,15 @@ namespace WindowsFormsApp1
 
         public void combBox(ComboBox cb, string table, string dispMember, string com1, SqlConnection connection, string valM = "Код")
         {
+            
             SqlDataAdapter da2 = new SqlDataAdapter(com1, connection);
             DataSet ds2 = new DataSet();
             da2.Fill(ds2, table);
             cb.DisplayMember = dispMember;
-            cb.ValueMember = valM;
+            if (valM is null)
+                cb.ValueMember = dispMember;
+            else
+                cb.ValueMember = "Код";
             cb.DataSource = ds2.Tables[table];
         }
 
@@ -338,7 +342,7 @@ namespace WindowsFormsApp1
                                                         modalDialog.label1.Text = "ФИО сотрудника";
                                                         colName = "КодСотрудника";
                                                         com1 = "select Код, ФИО from Сотрудник";
-                                                        combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                        combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection, "1");
                                                     }
                                                 }
                                                 break;
@@ -348,7 +352,7 @@ namespace WindowsFormsApp1
                                                     modalDialog.label1.Text = "Номер выпуска";
                                                     colName = "КодВыпуска";
                                                     com1 = "select Код, Номер from НомерГазеты";
-                                                    combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                                    combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection, "1");
                                                 }
                                                 break;
                                             case 5:
@@ -357,7 +361,7 @@ namespace WindowsFormsApp1
                                                     modalDialog.label1.Text = "Название рубрики";
                                                     colName = "КодРубрики";
                                                     com1 = "select Код, Название from Рубрика";
-                                                    combBox(modalDialog.comboBox1, "Рубрика", "Название", com1, connection);
+                                                    combBox(modalDialog.comboBox1, "Рубрика", "Название", com1, connection, "1");
                                                 }
                                                 break;
                                         }
@@ -373,7 +377,7 @@ namespace WindowsFormsApp1
                                                 modalDialog.label1.Text = "Название заказчика";
                                                 colName = "КодЗаказчика";
                                                 com1 = "select Код, Название from Заказчик";
-                                                combBox(modalDialog.comboBox1, "Заказчик", "Название", com1, connection);
+                                                combBox(modalDialog.comboBox1, "Заказчик", "Название", com1, connection, "1");
                                             }
                                             break;
                                     }
@@ -389,7 +393,7 @@ namespace WindowsFormsApp1
                                                 modalDialog.label1.Text = "Номер выпуска";
                                                 colName = "КодВыпуска";
                                                 com1 = "select Код, Номер from НомерГазеты";
-                                                combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                                combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection, "1");
                                             }
                                             break;
                                         case 2:
@@ -398,7 +402,7 @@ namespace WindowsFormsApp1
                                                 modalDialog.label1.Text = "Текст рекламы";
                                                 colName = "КодДоговора";
                                                 com1 = "select Код, ТекстРекламы from Договор";
-                                                combBox(modalDialog.comboBox1, "Догoвор", "ТекстРекламы", com1, connection);
+                                                combBox(modalDialog.comboBox1, "Догoвор", "ТекстРекламы", com1, connection, "1");
                                             }
                                             break;
                                     }
@@ -416,7 +420,7 @@ namespace WindowsFormsApp1
                                                     modalDialog.label1.Text = "Номер выпуска";
                                                     colName = "КодВыпуска";
                                                     com1 = "select Код, Номер from НомерГазеты";
-                                                    combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                                    combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection, "1");
                                                 }
                                                 break;
                                         }
@@ -435,7 +439,7 @@ namespace WindowsFormsApp1
                                                         modalDialog.label1.Text = "ФИО сотрудника";
                                                         colName = "КодСотрудника";
                                                         com1 = "select Код, ФИО from Сотрудник";
-                                                        combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                                        combBox(modalDialog.comboBox1, "Сотрудник", "ФИО", com1, connection, "1");
                                                     }
                                                 }
                                                 break;
@@ -445,7 +449,7 @@ namespace WindowsFormsApp1
                                                     modalDialog.label1.Text = "Заголовок статьи";
                                                     colName = "КодСтатьи";
                                                     com1 = "select Код, Заголовок from Статья";
-                                                    combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection);
+                                                    combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection, "1");
                                                 }
                                                 break;
                                         }
@@ -463,7 +467,7 @@ namespace WindowsFormsApp1
                                                     modalDialog.label1.Text = "Заголовок статьи";
                                                     colName = "КодСтатьи";
                                                     com1 = "select Код, Заголовок from Статья";
-                                                    combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection);
+                                                    combBox(modalDialog.comboBox1, "Статья", "Заголовок", com1, connection, "1");
                                                 }
                                                 break;
                                         }
@@ -482,6 +486,7 @@ namespace WindowsFormsApp1
                                 SqlCommand myCommand = new SqlCommand(com1, connection);
                                 int number = myCommand.ExecuteNonQuery();
                             }
+                            MainEdit_Shown(sender, e);
                         }
                     }
                     catch (Exception ex)
@@ -551,16 +556,18 @@ namespace WindowsFormsApp1
                                 checkBox1.Visible = true;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
-                                command = "select * from Перечень_статей";
-                                dataGridView1.Size = new System.Drawing.Size(750, 194);
+                                command = "select * from Перечень_статей order by Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(1070, 332);
+                                this.Size = new Size(1085, 641);
                                 break;
                             case "Заказчик":
-                                command = "select Код, Название from Заказчик";
+                                command = "select Код, Название from Заказчик order by Код desc";
                                 checkBox1.Visible = false;
                                 checkedListBox1.Enabled = false;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = false;
-                                dataGridView1.Size = new System.Drawing.Size(200, 194);
+                                dataGridView1.Size = new System.Drawing.Size(327, 332);
+                                this.Size = new Size(325, 332);
                                 break;
                             case "Договор":
                                 checkBox1.Visible = true;
@@ -568,38 +575,43 @@ namespace WindowsFormsApp1
                                 button2.Visible = true;
                                 command = "select Договор.Код as Код, Название as НазваниеЗаказчика, ДатаДоговора, ДатаНачала, ДатаКонца, Стоимость, ТекстРекламы " +
                                           "from Заказчик, Договор " +
-                                          "where КодЗаказчика=Заказчик.Код";
-                                dataGridView1.Size = new System.Drawing.Size(1050, 194);
+                                          "where КодЗаказчика=Заказчик.Код order by Договор.Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(1270, 332);
+                                this.Size = new Size(1285, 641);
                                 break;
                             case "Реклама":
                                 checkBox1.Visible = true;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 view = true;
-                                command = "select * from Перечень_реклам";
-                                dataGridView1.Size = new System.Drawing.Size(520, 194);
+                                command = "select * from Перечень_реклам order by Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(670, 332);
+                                this.Size = new Size(685, 641);
                                 break;
                             case "Рубрика":
-                                command = "select Код, Название from Рубрика";
+                                command = "select Код, Название from Рубрика order by Код desc";
                                 checkedListBox1.Enabled = false;
-                                checkedListBox1.Visible = true;
+                                checkedListBox1.Visible = false;
                                 checkBox1.Visible = false;
                                 button2.Visible = false;
-                                dataGridView1.Size = new System.Drawing.Size(200, 194);
+                                dataGridView1.Size = new System.Drawing.Size(171, 332);
+                                this.Size = new Size(325, 332);
                                 break;
                             case "Сотрудник":
                                 checkBox1.Visible = true;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
-                                command = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник";
-                                dataGridView1.Size = new System.Drawing.Size(620, 194);
+                                command = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник order by Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(711, 332);
+                                this.Size = new Size(726, 641);
                                 break;
                             case "НомерГазеты":
                                 checkBox1.Visible = true;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
-                                command = "select Код, Номер, Ценa, Дата, КоличествоПроданных from НомерГазеты";
-                                dataGridView1.Size = new System.Drawing.Size(520, 194);
+                                command = "select Код, Номер, Ценa, Дата, КоличествоПроданных from НомерГазеты order by Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(520, 332);
+                                this.Size = new Size(535, 641);
                                 break;
                             case "Объявление":
                                 checkBox1.Visible = true;
@@ -607,15 +619,17 @@ namespace WindowsFormsApp1
                                 button2.Visible = true;
                                 command = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
                                               "from НомерГазеты, Объявление " +
-                                              "where НомерГазеты.Код=КодВыпуска";
-                                dataGridView1.Size = new System.Drawing.Size(700, 194);
+                                              "where НомерГазеты.Код=КодВыпуска order by Объявление.Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(940, 332);
+                                this.Size = new Size(955, 641);
                                 break;
                             case "Фото":
                                 checkBox1.Visible = true;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
-                                command = "select * from Перечень_фото";
-                                dataGridView1.Size = new System.Drawing.Size(640, 194);
+                                command = "select * from Перечень_фото order by Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(887, 332);
+                                this.Size = new Size(900, 645);
                                 break;
                             case "Отзыв":
                                 checkBox1.Visible = true;
@@ -623,8 +637,9 @@ namespace WindowsFormsApp1
                                 button2.Visible = true;
                                 command = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
                                           "from Отзыв, Статья " +
-                                          "where КодСтатьи=Статья.Код";
-                                dataGridView1.Size = new System.Drawing.Size(960, 194);
+                                          "where КодСтатьи=Статья.Код order by Отзыв.Код desc";
+                                dataGridView1.Size = new System.Drawing.Size(1480, 332);
+                                this.Size = new Size(1495, 641);
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);
@@ -735,7 +750,7 @@ namespace WindowsFormsApp1
                             case "Отзыв":
                                 command = "select Отзыв.Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
                                           "from Отзыв, Статья " +
-                                          "where КодСтатьи=Статья.Код and ФИО='" + log + "'";
+                                          "where КодСтатьи=Статья.Код and ФИО='" + log + "' order by Отзыв.Код desc";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(960, 194);
@@ -744,21 +759,21 @@ namespace WindowsFormsApp1
                             case "Объявление":
                                 command = "select Объявление.Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
                                           "from НомерГазеты, Объявление " +
-                                          "where НомерГазеты.Код=КодВыпуска and Заказчик='" + log + "'";
+                                          "where НомерГазеты.Код=КодВыпуска and Заказчик='" + log + "' Объявление.Код";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(700, 194);
                                 richTextBox1.Text = "Заказчик = " + log;
                                 break;
                             case "Статья":
-                                command = "select * from Перечень_статей where ФИОСотрудника='" + log + "'";
+                                command = "select * from Перечень_статей where ФИОСотрудника='" + log + "' order by Код desc";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(750, 194);
                                 richTextBox1.Text = "ФИОСотрудника = " + log;
                                 break;
                             case "Фото":
-                                command = "select * from Перечень_фото where ФИОСотрудника='" + log + "'";
+                                command = "select * from Перечень_фото where ФИОСотрудника='" + log + "' order by Код desc";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(640, 194);
@@ -782,6 +797,16 @@ namespace WindowsFormsApp1
             }
             else
                 MainEdit_Shown(sender, e);
+        }
+
+        private void MainEdit_SizeChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.Size.ToString());
         }
     }
 }

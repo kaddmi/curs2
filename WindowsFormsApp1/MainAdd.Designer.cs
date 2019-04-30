@@ -137,6 +137,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.reklZak = new System.Windows.Forms.ComboBox();
             this.otzPanel.SuspendLayout();
             this.reklPanel.SuspendLayout();
             this.dogPanel.SuspendLayout();
@@ -226,12 +228,12 @@
             this.otzPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.otzPanel.ColumnCount = 7;
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 370F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 186F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.otzPanel.Controls.Add(this.otzDate, 5, 1);
             this.otzPanel.Controls.Add(this.label32, 5, 0);
             this.otzPanel.Controls.Add(this.otzAdd, 6, 1);
@@ -251,7 +253,7 @@
             this.otzPanel.RowCount = 2;
             this.otzPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.otzPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.otzPanel.Size = new System.Drawing.Size(987, 100);
+            this.otzPanel.Size = new System.Drawing.Size(1239, 100);
             this.otzPanel.TabIndex = 80;
             this.otzPanel.TabStop = true;
             this.otzPanel.Visible = false;
@@ -260,10 +262,10 @@
             // 
             this.otzDate.CustomFormat = "yyyy-MM-dd";
             this.otzDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.otzDate.Location = new System.Drawing.Point(647, 56);
+            this.otzDate.Location = new System.Drawing.Point(897, 56);
             this.otzDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.otzDate.Name = "otzDate";
-            this.otzDate.Size = new System.Drawing.Size(112, 26);
+            this.otzDate.Size = new System.Drawing.Size(125, 26);
             this.otzDate.TabIndex = 5;
             // 
             // label32
@@ -272,10 +274,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(647, 3);
+            this.label32.Location = new System.Drawing.Point(897, 3);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(112, 45);
+            this.label32.Size = new System.Drawing.Size(125, 45);
             this.label32.TabIndex = 14;
             this.label32.Text = "Дата отзыва";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,10 +287,10 @@
             this.otzAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.otzAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.otzAdd.Location = new System.Drawing.Point(770, 56);
+            this.otzAdd.Location = new System.Drawing.Point(1033, 56);
             this.otzAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.otzAdd.Name = "otzAdd";
-            this.otzAdd.Size = new System.Drawing.Size(212, 36);
+            this.otzAdd.Size = new System.Drawing.Size(199, 36);
             this.otzAdd.TabIndex = 6;
             this.otzAdd.Text = "Добавить";
             this.otzAdd.UseVisualStyleBackColor = true;
@@ -300,19 +302,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(368, 3);
+            this.label28.Location = new System.Drawing.Point(608, 3);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(92, 45);
+            this.label28.Size = new System.Drawing.Size(89, 45);
             this.label28.TabIndex = 13;
             this.label28.Text = "Жалоба";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // otzText
             // 
-            this.otzText.Location = new System.Drawing.Point(470, 54);
+            this.otzText.Location = new System.Drawing.Point(707, 54);
             this.otzText.Name = "otzText";
-            this.otzText.Size = new System.Drawing.Size(167, 40);
+            this.otzText.Size = new System.Drawing.Size(180, 40);
             this.otzText.TabIndex = 4;
             this.otzText.Text = "";
             // 
@@ -321,16 +323,16 @@
             this.otzTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.otzTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.otzTitle.FormattingEnabled = true;
-            this.otzTitle.Location = new System.Drawing.Point(225, 56);
+            this.otzTitle.Location = new System.Drawing.Point(235, 56);
             this.otzTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.otzTitle.Name = "otzTitle";
-            this.otzTitle.Size = new System.Drawing.Size(132, 28);
+            this.otzTitle.Size = new System.Drawing.Size(362, 28);
             this.otzTitle.TabIndex = 2;
             // 
             // otz
             // 
             this.otz.AutoSize = true;
-            this.otz.Location = new System.Drawing.Point(368, 56);
+            this.otz.Location = new System.Drawing.Point(608, 56);
             this.otz.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.otz.Name = "otz";
             this.otz.Size = new System.Drawing.Size(87, 24);
@@ -343,10 +345,10 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.Location = new System.Drawing.Point(225, 3);
+            this.label29.Location = new System.Drawing.Point(235, 3);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(132, 45);
+            this.label29.Size = new System.Drawing.Size(362, 45);
             this.label29.TabIndex = 2;
             this.label29.Text = "Заголовок статьи";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -367,7 +369,7 @@
             this.label33.Location = new System.Drawing.Point(143, 3);
             this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(71, 45);
+            this.label33.Size = new System.Drawing.Size(81, 45);
             this.label33.TabIndex = 18;
             this.label33.Text = "Номер выпуска";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -379,10 +381,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(770, 3);
+            this.label31.Location = new System.Drawing.Point(1033, 3);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(218, 45);
+            this.label31.Size = new System.Drawing.Size(199, 45);
             this.label31.TabIndex = 4;
             this.label31.Text = "Добавить";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -395,7 +397,7 @@
             this.otzNumber.Location = new System.Drawing.Point(143, 56);
             this.otzNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.otzNumber.Name = "otzNumber";
-            this.otzNumber.Size = new System.Drawing.Size(71, 28);
+            this.otzNumber.Size = new System.Drawing.Size(81, 28);
             this.otzNumber.TabIndex = 1;
             this.otzNumber.SelectedIndexChanged += new System.EventHandler(this.otzNumber_SelectedIndexChanged);
             // 
@@ -405,10 +407,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(471, 3);
+            this.label30.Location = new System.Drawing.Point(708, 3);
             this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(165, 45);
+            this.label30.Size = new System.Drawing.Size(178, 45);
             this.label30.TabIndex = 3;
             this.label30.Text = "Текст";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -429,22 +431,25 @@
             // reklPanel
             // 
             this.reklPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.reklPanel.ColumnCount = 3;
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.92263F));
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.07737F));
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
-            this.reklPanel.Controls.Add(this.label36, 0, 0);
-            this.reklPanel.Controls.Add(this.label34, 2, 0);
-            this.reklPanel.Controls.Add(this.label35, 1, 0);
-            this.reklPanel.Controls.Add(this.reklText, 1, 1);
+            this.reklPanel.ColumnCount = 4;
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 570F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.reklPanel.Controls.Add(this.label34, 3, 0);
+            this.reklPanel.Controls.Add(this.label35, 2, 0);
+            this.reklPanel.Controls.Add(this.reklText, 2, 1);
             this.reklPanel.Controls.Add(this.reklNumber, 0, 1);
-            this.reklPanel.Controls.Add(this.reklAdd, 2, 1);
+            this.reklPanel.Controls.Add(this.reklAdd, 3, 1);
+            this.reklPanel.Controls.Add(this.label46, 1, 0);
+            this.reklPanel.Controls.Add(this.reklZak, 1, 1);
+            this.reklPanel.Controls.Add(this.label36, 0, 0);
             this.reklPanel.Location = new System.Drawing.Point(216, 42);
             this.reklPanel.Name = "reklPanel";
             this.reklPanel.RowCount = 2;
             this.reklPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.reklPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.reklPanel.Size = new System.Drawing.Size(764, 100);
+            this.reklPanel.Size = new System.Drawing.Size(1063, 100);
             this.reklPanel.TabIndex = 79;
             this.reklPanel.TabStop = true;
             this.reklPanel.Visible = false;
@@ -458,7 +463,7 @@
             this.label36.Location = new System.Drawing.Point(7, 3);
             this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(90, 45);
+            this.label36.Size = new System.Drawing.Size(75, 45);
             this.label36.TabIndex = 6;
             this.label36.Text = "Номер выпуска";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -469,10 +474,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(508, 3);
+            this.label34.Location = new System.Drawing.Point(829, 3);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(249, 45);
+            this.label34.Size = new System.Drawing.Size(227, 45);
             this.label34.TabIndex = 2;
             this.label34.Text = "Добавить";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -483,10 +488,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(108, 3);
+            this.label35.Location = new System.Drawing.Point(256, 3);
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(389, 45);
+            this.label35.Size = new System.Drawing.Size(562, 45);
             this.label35.TabIndex = 5;
             this.label35.Text = "Текст рекламы";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -496,10 +501,10 @@
             this.reklText.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.reklText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reklText.FormattingEnabled = true;
-            this.reklText.Location = new System.Drawing.Point(108, 56);
+            this.reklText.Location = new System.Drawing.Point(256, 56);
             this.reklText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklText.Name = "reklText";
-            this.reklText.Size = new System.Drawing.Size(389, 28);
+            this.reklText.Size = new System.Drawing.Size(562, 28);
             this.reklText.TabIndex = 1;
             // 
             // reklNumber
@@ -510,7 +515,7 @@
             this.reklNumber.Location = new System.Drawing.Point(7, 56);
             this.reklNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklNumber.Name = "reklNumber";
-            this.reklNumber.Size = new System.Drawing.Size(90, 28);
+            this.reklNumber.Size = new System.Drawing.Size(75, 28);
             this.reklNumber.TabIndex = 0;
             // 
             // reklAdd
@@ -519,10 +524,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reklAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reklAdd.Location = new System.Drawing.Point(508, 56);
+            this.reklAdd.Location = new System.Drawing.Point(829, 56);
             this.reklAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklAdd.Name = "reklAdd";
-            this.reklAdd.Size = new System.Drawing.Size(249, 36);
+            this.reklAdd.Size = new System.Drawing.Size(227, 36);
             this.reklAdd.TabIndex = 2;
             this.reklAdd.Text = "Добавить";
             this.reklAdd.UseVisualStyleBackColor = true;
@@ -538,12 +543,11 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
             this.dogPanel.Controls.Add(this.label40, 3, 0);
-            this.dogPanel.Controls.Add(this.label43, 0, 0);
             this.dogPanel.Controls.Add(this.label44, 1, 0);
             this.dogPanel.Controls.Add(this.dogDate, 1, 1);
             this.dogPanel.Controls.Add(this.dogDateE, 3, 1);
@@ -553,6 +557,7 @@
             this.dogPanel.Controls.Add(this.dogPrice, 4, 1);
             this.dogPanel.Controls.Add(this.label38, 2, 0);
             this.dogPanel.Controls.Add(this.dogText, 5, 1);
+            this.dogPanel.Controls.Add(this.label43, 0, 0);
             this.dogPanel.Location = new System.Drawing.Point(216, 42);
             this.dogPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dogPanel.Name = "dogPanel";
@@ -582,7 +587,7 @@
             this.label39.Location = new System.Drawing.Point(900, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(203, 47);
+            this.label39.Size = new System.Drawing.Size(206, 47);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -888,11 +893,11 @@
             // 
             this.photoPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.photoPanel.ColumnCount = 6;
-            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
-            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
-            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
+            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 424F));
+            this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.photoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.photoPanel.Controls.Add(this.photoDate, 4, 1);
             this.photoPanel.Controls.Add(this.label17, 0, 0);
@@ -912,7 +917,7 @@
             this.photoPanel.RowCount = 2;
             this.photoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.photoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.photoPanel.Size = new System.Drawing.Size(832, 103);
+            this.photoPanel.Size = new System.Drawing.Size(1106, 103);
             this.photoPanel.TabIndex = 76;
             this.photoPanel.TabStop = true;
             this.photoPanel.Visible = false;
@@ -921,7 +926,7 @@
             // 
             this.photoDate.CustomFormat = "yyyy-MM-dd ";
             this.photoDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.photoDate.Location = new System.Drawing.Point(545, 58);
+            this.photoDate.Location = new System.Drawing.Point(799, 58);
             this.photoDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.photoDate.Name = "photoDate";
             this.photoDate.Size = new System.Drawing.Size(124, 26);
@@ -937,7 +942,7 @@
             this.label17.Location = new System.Drawing.Point(7, 3);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 47);
+            this.label17.Size = new System.Drawing.Size(93, 47);
             this.label17.TabIndex = 0;
             this.label17.Text = "Формат";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -948,10 +953,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(375, 3);
+            this.label19.Location = new System.Drawing.Point(372, 3);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(159, 47);
+            this.label19.Size = new System.Drawing.Size(416, 47);
             this.label19.TabIndex = 2;
             this.label19.Text = "Заголовок статьи";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -962,10 +967,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(545, 3);
+            this.label20.Location = new System.Drawing.Point(799, 3);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(124, 47);
+            this.label20.Size = new System.Drawing.Size(127, 47);
             this.label20.TabIndex = 3;
             this.label20.Text = "Дата съёмки";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -976,10 +981,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(680, 3);
+            this.label21.Location = new System.Drawing.Point(937, 3);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(145, 47);
+            this.label21.Size = new System.Drawing.Size(162, 47);
             this.label21.TabIndex = 4;
             this.label21.Text = "Добавить";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -989,7 +994,7 @@
             this.photoF.Location = new System.Drawing.Point(7, 58);
             this.photoF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.photoF.Name = "photoF";
-            this.photoF.Size = new System.Drawing.Size(94, 26);
+            this.photoF.Size = new System.Drawing.Size(93, 26);
             this.photoF.TabIndex = 0;
             // 
             // photoName
@@ -997,10 +1002,10 @@
             this.photoName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.photoName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.photoName.FormattingEnabled = true;
-            this.photoName.Location = new System.Drawing.Point(112, 58);
+            this.photoName.Location = new System.Drawing.Point(111, 58);
             this.photoName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.photoName.Name = "photoName";
-            this.photoName.Size = new System.Drawing.Size(148, 28);
+            this.photoName.Size = new System.Drawing.Size(145, 28);
             this.photoName.TabIndex = 1;
             // 
             // photoTitle
@@ -1008,10 +1013,10 @@
             this.photoTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.photoTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.photoTitle.FormattingEnabled = true;
-            this.photoTitle.Location = new System.Drawing.Point(375, 58);
+            this.photoTitle.Location = new System.Drawing.Point(372, 58);
             this.photoTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.photoTitle.Name = "photoTitle";
-            this.photoTitle.Size = new System.Drawing.Size(159, 28);
+            this.photoTitle.Size = new System.Drawing.Size(416, 28);
             this.photoTitle.TabIndex = 3;
             // 
             // photoAdd
@@ -1020,10 +1025,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.photoAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.photoAdd.Location = new System.Drawing.Point(680, 58);
+            this.photoAdd.Location = new System.Drawing.Point(937, 58);
             this.photoAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.photoAdd.Name = "photoAdd";
-            this.photoAdd.Size = new System.Drawing.Size(145, 37);
+            this.photoAdd.Size = new System.Drawing.Size(162, 37);
             this.photoAdd.TabIndex = 5;
             this.photoAdd.Text = "Добавить";
             this.photoAdd.UseVisualStyleBackColor = true;
@@ -1035,10 +1040,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(112, 3);
+            this.label18.Location = new System.Drawing.Point(111, 3);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(148, 47);
+            this.label18.Size = new System.Drawing.Size(145, 47);
             this.label18.TabIndex = 1;
             this.label18.Text = "ФИО сотрудника";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1049,10 +1054,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(271, 3);
+            this.label37.Location = new System.Drawing.Point(267, 3);
             this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(93, 47);
+            this.label37.Size = new System.Drawing.Size(94, 47);
             this.label37.TabIndex = 19;
             this.label37.Text = "Номер выпуска";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1062,7 +1067,7 @@
             this.photoNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.photoNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.photoNumber.FormattingEnabled = true;
-            this.photoNumber.Location = new System.Drawing.Point(271, 58);
+            this.photoNumber.Location = new System.Drawing.Point(267, 58);
             this.photoNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.photoNumber.Name = "photoNumber";
             this.photoNumber.Size = new System.Drawing.Size(93, 28);
@@ -1656,13 +1661,37 @@
             this.label45.TabIndex = 70;
             this.label45.Text = "Добавление";
             // 
+            // label46
+            // 
+            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(92, 3);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(154, 45);
+            this.label46.TabIndex = 7;
+            this.label46.Text = "Название заказчика";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // reklZak
+            // 
+            this.reklZak.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.reklZak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reklZak.FormattingEnabled = true;
+            this.reklZak.Location = new System.Drawing.Point(92, 54);
+            this.reklZak.Name = "reklZak";
+            this.reklZak.Size = new System.Drawing.Size(154, 28);
+            this.reklZak.TabIndex = 8;
+            this.reklZak.SelectedIndexChanged += new System.EventHandler(this.ReklZak_SelectedIndexChanged);
+            // 
             // MainAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(208, 177);
+            this.ClientSize = new System.Drawing.Size(205, 180);
             this.Controls.Add(this.stat);
             this.Controls.Add(this.nom);
             this.Controls.Add(this.dog);
@@ -1821,5 +1850,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.ComboBox reklZak;
     }
 }
