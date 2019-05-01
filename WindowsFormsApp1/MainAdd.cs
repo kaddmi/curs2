@@ -17,13 +17,15 @@ namespace WindowsFormsApp1
         string curTable;
         string r;
         string log;
-        public MainAdd(string currTable, SqlCredential credd, string role, string user)
+        public bool ok = false;
+        public MainAdd(string l, string currTable, SqlCredential credd, string role, string user)
         {
             InitializeComponent();
             curTable = currTable;
             cred = credd;
             r = role;
             log = user;
+            label45.Text = l;
             Add();
         }
 
@@ -53,6 +55,7 @@ namespace WindowsFormsApp1
                                 combBox(stNames, "Сотрудник", "ФИО", com1, connection);
                                 combBox(stNumbers, "НомерГазеты", "Номер", com2, connection);
                                 combBox(stR, "Рубрика", "Название", com3, connection);
+                                this.AcceptButton = stAdd;
                                 if (String.Compare(r, "журналист") != 0)
                                 {
                                     sotr.Visible = true;
@@ -69,6 +72,7 @@ namespace WindowsFormsApp1
                         case "Заказчик":
                             zPanel.Location = new Point(3, 42);
                             zPanel.Visible = true;
+                            this.AcceptButton = zAdd;
                             break;
                         case "Договор":
                             {
@@ -78,6 +82,7 @@ namespace WindowsFormsApp1
                                 com1 = "select Код, Название from Заказчик";
                                 combBox(dogZak, "Заказчик", "Название", com1, connection);
                                 zak.Visible = true;
+                                this.AcceptButton = dogAdd;
                             }
                             break;
                         case "Реклама":
@@ -86,26 +91,30 @@ namespace WindowsFormsApp1
                                 reklPanel.Visible = true;
                                 reklNumber.Select();
                                 com1 = "select Код, Номер from НомерГазеты";
-                                com2 = "select Код, ТекстРекламы from Договор";
+                                com2 = "select Код, Название from Заказчик where Код in (select КодЗаказчика from Договор)";
                                 combBox(reklNumber, "НомерГазеты", "Номер", com1, connection, "Номер");
-                                combBox(reklText, "Догoвор", "ТекстРекламы", com2, connection, "ТекстРекламы");
+                                combBox(reklZak, "Заказчик", "Название", com2, connection);
                                 nom.Visible = true;
                                 dog.Visible = true;
+                                this.AcceptButton = reklAdd;
                             }
                             break;
                         case "Рубрика":
                             rPanel.Location = new Point(3, 42);
                             rPanel.Visible = true;
+                            this.AcceptButton = rAdd;
                             break;
                         case "Сотрудник":
                             sotrPanel.Location = new Point(3, 42);
                             sotrPanel.Visible = true;
+                            this.AcceptButton = sotrAdd;
                             sotrName.Select();
                             break;
                         case "НомерГазеты":
                             newspPanel.Location = new Point(3, 42);
                             newspPanel.Visible = true;
                             newspNumber.Select();
+                            this.AcceptButton = newspAdd;
                             break;
                         case "Объявление":
                             {
@@ -124,7 +133,8 @@ namespace WindowsFormsApp1
                                     obZak.Text = log;
                                     this.Size = new Size(0, 0);
                                 }
-                                   
+                                this.AcceptButton = obAdd;
+
                             }
                             break;
                         case "Фото":
@@ -145,7 +155,8 @@ namespace WindowsFormsApp1
                                     stat.Location = new Point(3, 42);
                                     stat.Visible = true;
                                 }
-                                    
+                                this.AcceptButton = photoAdd;
+
                             }
                             break;
                         case "Отзыв":
@@ -166,6 +177,14 @@ namespace WindowsFormsApp1
                                     otzName.Text = log;
                                     this.Size = new Size(0, 0);
                                 }
+                                this.AcceptButton = otzAdd;
+                            }
+                            break;
+                        case "Админ":
+                            {
+                                admPanel.Location = new Point(3, 42);
+                                admPanel.Visible = true;
+                                this.AcceptButton = admAdd;
                             }
                             break;
                     }
@@ -211,7 +230,7 @@ namespace WindowsFormsApp1
         {
             if (stType.Text == "" || stTitle.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (stTitle.Text == "")
                     stTitle.Focus();
                 if (stType.Text == "")
@@ -224,6 +243,7 @@ namespace WindowsFormsApp1
                 Add(command);
                 stTitle.Clear();
                 stType.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -231,7 +251,7 @@ namespace WindowsFormsApp1
         {
             if (zakName.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 zakName.Focus();
                 return;
             }
@@ -240,6 +260,7 @@ namespace WindowsFormsApp1
                 string command = "insert into Заказчик(Название) values ('" + zakName.Text + "')";
                 Add(command);
                 zakName.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -247,7 +268,7 @@ namespace WindowsFormsApp1
         {
             if (rName.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 rName.Focus();
                 return;
             }
@@ -256,6 +277,7 @@ namespace WindowsFormsApp1
                 string command = "insert into Рубрика values ('" + rName.Text + "')";
                 Add(command);
                 rName.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -263,7 +285,7 @@ namespace WindowsFormsApp1
         {
             if (sotrName.Text == "" || sotrDol.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (sotrName.Text == "")
                     sotrName.Focus();
                 if (sotrDol.Text == "")
@@ -276,6 +298,7 @@ namespace WindowsFormsApp1
                 Add(command);
                 sotrName.Clear();
                 sotrDol.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -283,7 +306,7 @@ namespace WindowsFormsApp1
         {
             if (newspNumber.Text == "" || newspPrice.Text == "" || nomKol.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (newspNumber.Text == "")
                     newspNumber.Focus();
                 if (newspPrice.Text == "")
@@ -299,6 +322,7 @@ namespace WindowsFormsApp1
                 newspNumber.Clear();
                 newspPrice.Clear();
                 nomKol.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -306,7 +330,7 @@ namespace WindowsFormsApp1
         {
             if (photoF.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 photoF.Focus();
                 return;
             }
@@ -315,6 +339,7 @@ namespace WindowsFormsApp1
                 string command = "insert into Фото values ('" + photoF.Text + "', " + photoName.SelectedValue.ToString() + ", " + photoTitle.SelectedValue.ToString() + ",'" + photoDate.Value + "')";
                 Add(command);
                 photoF.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -322,7 +347,7 @@ namespace WindowsFormsApp1
         {
             if (obText.Text == "" || obZak.Text == "" || obCat.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (obText.Text == "")
                     obText.Focus();
                 if (obZak.Text == "")
@@ -338,6 +363,7 @@ namespace WindowsFormsApp1
                 obText.Clear();
                 obZak.Clear();
                 obCat.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -349,7 +375,7 @@ namespace WindowsFormsApp1
             else i = 0;
             if (otzText.Text == "" || otzName.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (otzText.Text == "")
                     otzText.Focus();
                 if (otzName.Text == "")
@@ -362,20 +388,23 @@ namespace WindowsFormsApp1
                 Add(command);
                 otzText.Clear();
                 otzName.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
         public void reklAdd_Click(object sender, EventArgs e)
         {
             string command = "insert into Перечень_реклам (НомерВыпуска, ТекстРекламы) values (" + reklNumber.SelectedValue.ToString() + ", '" + reklText.SelectedValue.ToString() + "')";
+            MessageBox.Show(command);
             Add(command);
+            DialogResult = DialogResult.OK;
         }
 
         private void dogAdd_Click(object sender, EventArgs e)
         {
             if (dogText.Text == "" || dogPrice.Text == "")
             {
-                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (dogText.Text == "")
                     dogText.Focus();
                 if (dogPrice.Text == "")
@@ -388,6 +417,7 @@ namespace WindowsFormsApp1
                 Add(command);
                 dogText.Clear();
                 dogPrice.Clear();
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -429,6 +459,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message);
                 }
             }
+
         }
 
         private void Dog_Click(object sender, EventArgs e)
@@ -436,7 +467,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Договор", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-               
+                Add();
             }
         }
 
@@ -445,7 +476,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("НомерГазеты", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -454,7 +485,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Статья", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-               
+                Add();
             }
         }
 
@@ -463,7 +494,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Заказчик", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -472,7 +503,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Рубрика", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -481,7 +512,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Сотрудник", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -491,6 +522,87 @@ namespace WindowsFormsApp1
                 return;
             else
                 e.Handled = true;
+        }
+
+        private void ReklZak_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    string com1 = "";
+                    com1 = "select Код, ТекстРекламы from Договор where КодЗаказчика=" + reklZak.SelectedValue.ToString();
+                    combBox(reklText, "Договор", "ТекстРекламы", com1, connection, "ТекстРекламы");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void AdmAdd_Click(object sender, EventArgs e)
+        {
+            if (admLog.Text == "" || admD.Text == "" || admp1.Text == "" || admp2.Text == "")
+            {
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
+                if (admLog.Text == "")
+                    admLog.Focus();               
+                if (admp1.Text == "")
+                    admp1.Focus();
+                if (admp2.Text == "")
+                    admp2.Focus();
+                if (admD.Text == "")
+                    admD.Focus();
+                return;
+            }
+            else
+            {
+                if (admp1.Text != admp2.Text)
+                {
+                    MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.RetryCancel);
+                    admp1.Focus();
+                    return;
+                }
+                else
+                {
+                    string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
+                    SqlConnection connection = new SqlConnection(connectionString);
+                    connection.Credential = cred;
+                    using (connection)
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string command1 = "CREATE LOGIN " + admLog.Text + " WITH PASSWORD = '" + admp1.Text + "'";
+                            SqlCommand myCommand1 = new SqlCommand(command1, connection);
+                            int number = myCommand1.ExecuteNonQuery();
+                            string command2 = "EXEC sp_addsrvrolemember '" + admLog.Text + "', 'sysadmin';";
+                            SqlCommand myCommand2 = new SqlCommand(command2, connection);
+                            number = myCommand2.ExecuteNonQuery();
+                            string command3 = "CREATE USER " + admLog.Text + " FOR LOGIN " + admLog.Text;
+                            SqlCommand myCommand3 = new SqlCommand(command3, connection);
+                            number = myCommand3.ExecuteNonQuery();
+                            string command4 = "insert into Пользователи values ('" + admLog.Text + "', '" + admp1.Text + "', '" + admD.Text + "')";
+                            SqlCommand myCommand4 = new SqlCommand(command4, connection);
+                            number = myCommand4.ExecuteNonQuery();
+                            DialogResult = DialogResult.OK;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            return;
+                        }
+                    }
+                    
+                }
+               
+
+            }          
         }
     }
 }

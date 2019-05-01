@@ -24,6 +24,8 @@ namespace WindowsFormsApp1
 
             InitializeComponent();
             textBox1.Select();
+            textBox1.Text = "user1";
+            textBox2.Text = "password1";
         }
 
         private void Button1_Click(object sender, EventArgs e)

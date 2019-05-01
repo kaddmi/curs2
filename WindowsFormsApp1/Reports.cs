@@ -16,5 +16,15 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void Reports_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ReportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

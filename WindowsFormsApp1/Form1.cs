@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         string role;
+        string lbl;
         public SqlCredential cred;
         public Form1()
         {
@@ -36,11 +37,11 @@ namespace WindowsFormsApp1
             switch (role)
             {
                 case "системный администратор":
-                    работаСТаблицамиToolStripMenuItem.Visible = true;
                     admView.Visible = true;
                     admView.Nodes[0].Expand();
                     admView.Nodes[1].Expand();
                     admView.Nodes[2].Expand();
+                    admView.Nodes[3].Expand();
                     break;
                 case "главный редактор":
                     redView.Visible = true;
@@ -68,7 +69,7 @@ namespace WindowsFormsApp1
 
         private void edit(string cT, bool view)
         {
-            MainEdit edit = new MainEdit(cT, cred, view, role, loginToolStripMenuItem.Text);
+            MainEdit edit = new MainEdit(lbl, cT, cred, view, role, loginToolStripMenuItem.Text);
             if (edit.ShowDialog(this) == DialogResult.OK)
             {
                 //add.Close();
@@ -77,22 +78,24 @@ namespace WindowsFormsApp1
 
         private void add(string cT)
         {
-            MainAdd add = new MainAdd(cT, cred, role, loginToolStripMenuItem.Text);
+            MainAdd add = new MainAdd(lbl, cT, cred, role, loginToolStripMenuItem.Text);
             if (add.ShowDialog(this) == DialogResult.OK)
             {
-                //add.Close();
+
             }
         }
 
         private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             int k = e.Node.Level;
+            lbl = e.Node.Text;
             if (k != 0)
                 switch (e.Node.Parent.Name)
                 {
                     case "Статья":
                         if (e.Node.Name == "addSt")
                         {
+                            
                             add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edSt")
@@ -190,6 +193,18 @@ namespace WindowsFormsApp1
                             edit(e.Node.Parent.Name, false);
                         }
                         break;
+                    case "Админ":
+                        {
+                            if (e.Node.Name == "addUser")
+                            {
+                                add(e.Node.Parent.Name);
+                            }
+                            if (e.Node.Name == "zurnal")
+                            {
+                                ИсторияИзмененияToolStripMenuItem_Click(sender, e);
+                            }
+                        }
+                        break;
                 }
         }
 
@@ -222,7 +237,7 @@ namespace WindowsFormsApp1
 
         private void ФунционалToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Статистика funcForm = new Статистика(role);
+            Func funcForm = new Func(role);
             switch (role)
             {
                 case "системный администратор":
@@ -230,12 +245,20 @@ namespace WindowsFormsApp1
                     funcForm.listBox1.Items.Add("Количество статей сотрудника");
                     funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
                     funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    funcForm.listBox1.Items.Add("Сумма по договорам за период");
+                    funcForm.listBox1.Items.Add("Количество объявлений по категориям");
+                    funcForm.listBox1.Items.Add("Стаж работников");
+                    funcForm.listBox1.Items.Add("Статистика по увольнению и найму сотрудников");
                     break;
                 case "главный редактор":
                     funcForm.listBox1.Items.Add("Суммарная информация по статье в выпуске");
                     funcForm.listBox1.Items.Add("Количество статей сотрудника");
                     funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
                     funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    funcForm.listBox1.Items.Add("Сумма по договорам за период");
+                    funcForm.listBox1.Items.Add("Количество объявлений по категориям");
+                    funcForm.listBox1.Items.Add("Стаж работников");
+                    funcForm.listBox1.Items.Add("Статистика по увольнению и найму сотрудников");
                     break;
                 case "журналист":
                     funcForm.listBox1.Items.Add("Суммарная информация по статье в выпуске");
@@ -243,12 +266,16 @@ namespace WindowsFormsApp1
                     break;
                 case "читатель":
                     funcForm.listBox1.Items.Add("Рейтинг читателей по отзывам");
+                    funcForm.listBox1.Items.Add("Количество объявлений по категориям");
                     break;
                 case "специалист по кадрам":
                     funcForm.listBox1.Items.Add("Количество статей сотрудника");
+                    funcForm.listBox1.Items.Add("Стаж работников");
+                    funcForm.listBox1.Items.Add("Статистика по увольнению и найму сотрудников");
                     break;
                 case "работник рекламного отдела":
-                    
+                    funcForm.listBox1.Items.Add("Сумма по договорам за период");
+                    funcForm.listBox1.Items.Add("Выручка с выпусков по годам");
                     break;
             }
             if (funcForm.ShowDialog(this) == DialogResult.Cancel)
@@ -259,12 +286,17 @@ namespace WindowsFormsApp1
 
         private void ОтчётыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Reports rep = new Reports();
+            if (rep.ShowDialog(this) == DialogResult.Cancel)
+            {
+                rep.Close();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+           
         }
     } 
 }

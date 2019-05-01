@@ -13,10 +13,10 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WindowsFormsApp1
 {
-    public partial class Статистика : Form
+    public partial class Func : Form
     {
         string role;
-        public Статистика(string role)
+        public Func(string role)
         {
             InitializeComponent();
         }
@@ -43,6 +43,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
         private void CountStatya()
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
@@ -159,142 +160,169 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void adRating()
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    string sql = "Объявления";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader dr = command.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    dataGridView1.DataSource = dt.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        
+        private void sumDog()
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    string sql = "select dbo.СуммаДоговоров('" + dateTimePicker1.Value.ToString() + "', '" + dateTimePicker2.Value.ToString() + "')";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    object count = command.ExecuteScalar();
+                    label3.Visible = true;
+                    textBox1.Visible = true;
+                    textBox1.Text = count.ToString();
+                    if (textBox1.Text == "")
+                        textBox1.Text = "0";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
 
-        /*  public void f()
-          {
-              Filter filterDialog = new Filter();
-              filterDialog.comboBox2.Visible = false;
-              filterDialog.comboBox1.Visible = false;
-              filterDialog.label1.Visible = false;
-              filterDialog.label2.Visible = false;
+        private void Stazh()
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    string sql = "Стаж";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader dr = command.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    dataGridView1.DataSource = dt.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
 
-              if (checkBox1.Checked == true)
-              {
-                  filterDialog.listBox1.Items.Clear();
-                  string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
-                  SqlConnection connection = new SqlConnection(connectionString);
-                  switch (curTable)
-                  {
-                      case "Статья":
-                          {
-                              filterDialog.listBox1.Items.Add("Номер выпуска газеты");
-                              filterDialog.listBox1.Items.Add("Название рубрики");
-                              filterDialog.listBox1.Items.Add("ФИО сотрудника");
-                              filterDialog.listBox1.Items.Add("Номер выпуска и название рубрики");
-                          }
-                          break;
-                      case "Договор":
-                          {
-                              filterDialog.listBox1.Items.Add("Название заказчика");
-                              filterDialog.listBox1.Items.Add("Дата действия договора");
-                          }
-                          break;
-                      case "Реклама":
-                          {
-                              filterDialog.listBox1.Items.Add("Номер выпуска газеты");
-                          }
-                          break;
-                      case "Сотрудник":
-                          {
-                              filterDialog.listBox1.Items.Add("Должность");
-                          }
-                          break;
-                      case "НомерГазеты":
-                          {
-                              filterDialog.listBox1.Items.Add("Год");
-                          }
-                          break;
-                      case "Объявление":
-                          {
-                              filterDialog.listBox1.Items.Add("Номер выпуска газеты");
-                              filterDialog.listBox1.Items.Add("Название категории");
-                          }
-                          break;
-                      case "Фото":
-                          {
-                              filterDialog.listBox1.Items.Add("Номер выпуска газеты");
-                              filterDialog.listBox1.Items.Add("ФИО сотрудника");
-                          }
-                          break;
-                      case "Отзыв":
-                          {
-                              filterDialog.listBox1.Items.Add("Жалоба или похвальный отзыв");
-                              filterDialog.listBox1.Items.Add("Заголовок статьи");
-                          }
-                          break;
-                  }
-                  if (filterDialog.ShowDialog(this) == DialogResult.OK)
-                  {
-                      connection = new SqlConnection(connectionString);
-                      using (connection)
-                      {
-                          try
-                          {
-                              connection.Open();
-                              string sqlExpression = "Filter";
-                              filterDialog.command.CommandText = sqlExpression;
-                              filterDialog.command.Connection = connection;
-                              filterDialog.command.CommandType = CommandType.StoredProcedure;
-                              SqlParameter table = new SqlParameter
-                              {
-                                  ParameterName = "@table",
-                                  Value = curTable
-                              };
-                              filterDialog.command.Parameters.Add(table);
-                              SqlDataReader dr = filterDialog.command.ExecuteReader();
-                              DataTable dt = new DataTable();
-                              dt.Load(dr);
-                              dataGridView1.DataSource = dt.DefaultView;
-                              dataGridView1.Columns["Код"].Visible = false;
-                              changeFilter.Visible = true;
-                              richTextBox1.Visible = true;
-                              richTextBox1.Text = filterDialog.list + "\n" + filterDialog.list2;
-                          }
-                          catch (Exception ex)
-                          {
-                              MessageBox.Show(ex.Message);
-                          }
-                          finally
-                          {
-                              //filterDialog.Dispose();
-                          }
-                      }
-                  }
-                  else
-                      checkBox1.Checked = false;
-              }
-              else
-              {
-                  // listBox1_SelectedIndexChanged(sender, e);
-                  checkBox1.Checked = false;
-                  MainEdit_Shown(sender, e);
-              }
-          }*/
+        private void Statistics()
+        {
+            if (textBox2.Text == "" || textBox3.Text == "")
+            {
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.OK);
+                if (textBox2.Text == "")
+                    textBox2.Focus();
+                if (textBox3.Text == "")
+                    textBox3.Focus();
+                return;
+            }
+            else
+            {
+                string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+                SqlConnection connection = new SqlConnection(connectionString);
+                using (connection)
+                {
+                    try
+                    {
+                        connection.Open();
+                        string sql = "Статистика";
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        command.CommandType = CommandType.StoredProcedure;
+                        SqlParameter yB = new SqlParameter
+                        {
+                            ParameterName = "@yB",
+                            Value = textBox2.Text
+                        };
+                        command.Parameters.Add(yB);
+                        SqlParameter yE = new SqlParameter
+                        {
+                            ParameterName = "@yE",
+                            Value = textBox3.Text
+                        };
+                        command.Parameters.Add(yE);
+                        SqlDataReader dr = command.ExecuteReader();
+                        dataGridView1.Visible = true;
+                        DataTable dt = new DataTable();
+                        dt.Load(dr);
+                        dataGridView1.DataSource = dt.DefaultView;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void dogPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) | (e.KeyChar == Convert.ToChar(".")) | e.KeyChar == '\b')
+                return;
+            else
+                e.Handled = true;
+        }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             richTextBox1.Clear();
             richTextBox1.Visible = false;
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+            textBox1.Visible = false;
+            textBox2.Visible = false;
+            textBox3.Visible = false;
+            dataGridView1.Visible = false;
+            dateTimePicker1.Visible = false;
+            dateTimePicker2.Visible = false;
+            chart1.Visible = false;
+            if (listBox1.SelectedItem == null)
+                return;
             switch (listBox1.SelectedItem.ToString())
             {
                 case "Суммарная информация по статье в выпуске":
                     dataGridView1.Visible = true;
                     richTextBox1.Visible = true;
                     button1.Visible = true;
-                    chart1.Visible = false;
                     SumInfoAboutStatya();
-                    this.Size = new Size(647, 488);
+                    this.Size = new Size(795, 650);
                     break;
                 case "Количество статей сотрудника":
-                    dataGridView1.Visible = false;
-                    button1.Visible = false;
                     CountStatya();
                     chart1.Visible = true;
                     this.Size = new Size(448, 585);
                     break;
                 case "Выручка с выпусков по годам":
-                    dataGridView1.Visible = false;
-                    button1.Visible = false;
                     Revenue();
                     chart1.Visible = true;
                     this.Size = new Size(448, 585);
@@ -302,24 +330,55 @@ namespace WindowsFormsApp1
                 case "Рейтинг читателей по отзывам":
                     dataGridView1.Visible = true;
                     button1.Visible = true;
-                    chart1.Visible = false;
                     richTextBox1.Visible = true;
                     readerRating();
                     this.Size = new Size(730, 488);
                     break;
-
+                case "Сумма по договорам за период":
+                    button2.Visible = true;
+                    label1.Visible = true;
+                    label1.Text = "Дата начала периода";
+                    label2.Text = "Дата конца периода";
+                    label2.Visible = true;
+                    dateTimePicker1.Visible = true;
+                    dateTimePicker2.Visible = true;
+                    this.Size = new Size(656, 245);
+                    break;
+                case "Количество объявлений по категориям":
+                    dataGridView1.Visible = true;
+                    button1.Visible = true;
+                    richTextBox1.Visible = true;
+                    adRating();
+                    this.Size = new Size(647, 488);
+                    break;
+                case "Стаж работников":
+                    dataGridView1.Visible = true;
+                    Stazh();
+                    this.Size = new Size(448, 488);
+                    break;
+                case "Статистика по увольнению и найму сотрудников":                 
+                    button2.Visible = true;
+                    label1.Visible = true;
+                    label2.Visible = true;
+                    label1.Text = "Год начала периода";
+                    label2.Text = "Год конца периода";
+                    textBox2.Visible = true;
+                    textBox3.Visible = true;
+                    this.Size = new Size(659, 488);
+                    break;
             }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
-          //  SqlConnection connection = new SqlConnection(connectionString);
             Filter filterDialog = new Filter(listBox1.SelectedItem.ToString());
             filterDialog.comboBox2.Visible = false;
             filterDialog.comboBox1.Visible = false;
             filterDialog.label1.Visible = false;
             filterDialog.label2.Visible = false;
+            if (listBox1.SelectedItem == null)
+                return;
             switch (listBox1.SelectedItem.ToString())
             {
                 case "Суммарная информация по статье в выпуске":
@@ -329,6 +388,9 @@ namespace WindowsFormsApp1
                     break;
                 case "Рейтинг читателей по отзывам":
                     filterDialog.listBox1.Items.Add("Год");
+                    break;
+                case "Количество объявлений по категориям":
+                    filterDialog.listBox1.Items.Add("Номер выпуска газеты");
                     break;
             }
             if (filterDialog.ShowDialog(this) == DialogResult.OK)
@@ -356,6 +418,15 @@ namespace WindowsFormsApp1
                             SqlDataReader dr = filterDialog.command.ExecuteReader();
                             dt.Load(dr);
                         }
+                        if (listBox1.SelectedItem.ToString() == "Количество объявлений по категориям")
+                        {
+                            string sqlExpression = "Объявления";
+                            filterDialog.command.CommandText = sqlExpression;
+                            filterDialog.command.Connection = connection;
+                            filterDialog.command.CommandType = CommandType.StoredProcedure;
+                            SqlDataReader dr = filterDialog.command.ExecuteReader();
+                            dt.Load(dr);
+                        }
                         dataGridView1.DataSource = dt.DefaultView;
                         richTextBox1.Visible = true;
                         richTextBox1.Text = filterDialog.list + "\n" + filterDialog.list2;
@@ -369,6 +440,22 @@ namespace WindowsFormsApp1
                         //filterDialog.Dispose();
                     }
                 }
+            }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem == null)
+                return;
+            switch (listBox1.SelectedItem.ToString())
+            {               
+                case "Сумма по договорам за период":
+                    sumDog();
+                    break;              
+                case "Статистика по увольнению и найму сотрудников":
+                    Statistics();
+                    break;
+
             }
         }
     }
