@@ -18,13 +18,14 @@ namespace WindowsFormsApp1
         string r;
         string log;
         public bool ok = false;
-        public MainAdd(string currTable, SqlCredential credd, string role, string user)
+        public MainAdd(string l, string currTable, SqlCredential credd, string role, string user)
         {
             InitializeComponent();
             curTable = currTable;
             cred = credd;
             r = role;
             log = user;
+            label45.Text = l;
             Add();
         }
 

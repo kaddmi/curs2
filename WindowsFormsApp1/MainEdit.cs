@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         bool zur = false;      
         bool first = true;
         string command;
-        public MainEdit(string currTable, SqlCredential credd, bool v, string r, string login)
+        public MainEdit(string l, string currTable, SqlCredential credd, bool v, string r, string login)
         {
             InitializeComponent();
             curTable = currTable;
@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
             if (String.Compare(r, "журналист") == 0)
                 zur = true;
             log = login;
+            label46.Text = l;
         }
 
         public void edit(string tableName)
@@ -824,15 +825,11 @@ namespace WindowsFormsApp1
             else
                 MainEdit_Shown(sender, e);
         }
-
-        private void MainEdit_SizeChanged(object sender, EventArgs e)
-        {
-           
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show(this.Size.ToString());
+            MessageBox.Show("Для удаления выделите строку и нажмите del \nДля редактирования нажмите на ячейку и введите новые данные", "Помощь", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

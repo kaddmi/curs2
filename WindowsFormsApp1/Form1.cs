@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         string role;
+        string lbl;
         public SqlCredential cred;
         public Form1()
         {
@@ -68,7 +69,7 @@ namespace WindowsFormsApp1
 
         private void edit(string cT, bool view)
         {
-            MainEdit edit = new MainEdit(cT, cred, view, role, loginToolStripMenuItem.Text);
+            MainEdit edit = new MainEdit(lbl, cT, cred, view, role, loginToolStripMenuItem.Text);
             if (edit.ShowDialog(this) == DialogResult.OK)
             {
                 //add.Close();
@@ -77,7 +78,7 @@ namespace WindowsFormsApp1
 
         private void add(string cT)
         {
-            MainAdd add = new MainAdd(cT, cred, role, loginToolStripMenuItem.Text);
+            MainAdd add = new MainAdd(lbl, cT, cred, role, loginToolStripMenuItem.Text);
             if (add.ShowDialog(this) == DialogResult.OK)
             {
 
@@ -87,12 +88,14 @@ namespace WindowsFormsApp1
         private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             int k = e.Node.Level;
+            lbl = e.Node.Text;
             if (k != 0)
                 switch (e.Node.Parent.Name)
                 {
                     case "Статья":
                         if (e.Node.Name == "addSt")
                         {
+                            
                             add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edSt")
