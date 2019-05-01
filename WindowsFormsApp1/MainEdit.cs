@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         string log;
         string role;
         bool chit = false;
-        bool zur = false;
+        bool zur = false;      
         bool first = true;
         string command;
         public MainEdit(string currTable, SqlCredential credd, bool v, string r, string login)
@@ -187,7 +187,11 @@ namespace WindowsFormsApp1
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            Filter filterDialog = new Filter();
+            Filter filterDialog;
+            if (!chit && !zur)
+                filterDialog = new Filter();
+            else
+                filterDialog = new Filter(checkBox2.Checked, curTable, log);
             filterDialog.comboBox2.Visible = false;
             filterDialog.comboBox1.Visible = false;
             filterDialog.label1.Visible = false;
@@ -204,8 +208,10 @@ namespace WindowsFormsApp1
                         {
                             filterDialog.listBox1.Items.Add("Номер выпуска газеты");
                             filterDialog.listBox1.Items.Add("Название рубрики");
-                            filterDialog.listBox1.Items.Add("ФИО сотрудника");
-                            filterDialog.listBox1.Items.Add("Номер выпуска и название рубрики");
+                            if (!zur)
+                                filterDialog.listBox1.Items.Add("ФИО сотрудника");
+                            if (!zur)
+                                filterDialog.listBox1.Items.Add("Номер выпуска и название рубрики");
                         }
                         break;
                     case "Договор":
@@ -238,13 +244,17 @@ namespace WindowsFormsApp1
                     case "Фото":
                         {
                             filterDialog.listBox1.Items.Add("Номер выпуска газеты");
-                            filterDialog.listBox1.Items.Add("ФИО сотрудника");
+                            if (!zur)
+                                filterDialog.listBox1.Items.Add("ФИО сотрудника");
                         }
                         break;
                     case "Отзыв":
                         {
                             filterDialog.listBox1.Items.Add("Жалоба или похвальный отзыв");
-                            filterDialog.listBox1.Items.Add("Заголовок статьи");
+                            if (!chit)
+                                filterDialog.listBox1.Items.Add("Заголовок статьи");
+                            if (chit)
+                                filterDialog.listBox1.Items.Add("Номер выпуска газеты");
                         }
                         break;
                 }
@@ -254,26 +264,42 @@ namespace WindowsFormsApp1
                     using (connection)
                     {
                         try
-                        {
+                        {                          
                             connection.Open();
-                            string sqlExpression = "Filter";
-                            filterDialog.command.CommandText = sqlExpression;
-                            filterDialog.command.Connection = connection;
-                            filterDialog.command.CommandType = CommandType.StoredProcedure;
-                            SqlParameter table = new SqlParameter
+                            if (!zur && !chit)
                             {
-                                ParameterName = "@table",
-                                Value = curTable
-                            };
-                            filterDialog.command.Parameters.Add(table);
-                            SqlDataReader dr = filterDialog.command.ExecuteReader();
-                            DataTable dt = new DataTable();
-                            dt.Load(dr);
-                            dataGridView1.DataSource = dt.DefaultView;
-                            dataGridView1.Columns["Код"].Visible = false;
-                            changeFilter.Visible = true;
-                            richTextBox1.Visible = true;
-                            richTextBox1.Text = filterDialog.list + "\n" + filterDialog.list2;
+                                
+                                string sqlExpression = "Filter";
+                                filterDialog.command.CommandText = sqlExpression;
+                                filterDialog.command.Connection = connection;
+                                filterDialog.command.CommandType = CommandType.StoredProcedure;
+                                SqlParameter table = new SqlParameter
+                                {
+                                    ParameterName = "@table",
+                                    Value = curTable
+                                };
+                                filterDialog.command.Parameters.Add(table);
+                                SqlDataReader dr = filterDialog.command.ExecuteReader();
+                                DataTable dt = new DataTable();
+                                dt.Load(dr);
+                                dataGridView1.DataSource = dt.DefaultView;
+                                dataGridView1.Columns["Код"].Visible = false;
+                                changeFilter.Visible = true;
+                                richTextBox1.Visible = true;
+                                richTextBox1.Text = filterDialog.list + "\n" + filterDialog.list2;
+                            }
+                            else
+                            {
+                                SqlCommand command = new SqlCommand(filterDialog.sql, connection);
+                                SqlDataReader dr = command.ExecuteReader();
+                                DataTable dt = new DataTable();
+                                dt.Load(dr);
+                                dataGridView1.DataSource = dt.DefaultView;
+                                dataGridView1.Columns["Код"].Visible = false;
+                                changeFilter.Visible = true;
+                                richTextBox1.Visible = true;
+                                richTextBox1.Text =  filterDialog.list + "\n" + filterDialog.list2;
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -521,7 +547,7 @@ namespace WindowsFormsApp1
             checkedListBox1.Items.Clear();
             if ((chit || zur) && first)
             {
-                checkBox1.Visible = false;
+               // checkBox1.Visible = false;
                 checkBox2.Visible = true;
                 checkBox2.Checked = true;
                 changeFilter.Visible = false;
@@ -575,7 +601,7 @@ namespace WindowsFormsApp1
                                 button2.Visible = true;
                                 command = "select Договор.Код as Код, Название as НазваниеЗаказчика, ДатаДоговора, ДатаНачала, ДатаКонца, Стоимость, ТекстРекламы " +
                                           "from Заказчик, Договор " +
-                                          "where КодЗаказчика=Заказчик.Код order by Договор.Код desc";
+                                          "where КодЗаказчика=Заказчик.Код order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(1270, 332);
                                 this.Size = new Size(1285, 641);
                                 break;
@@ -619,7 +645,7 @@ namespace WindowsFormsApp1
                                 button2.Visible = true;
                                 command = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
                                               "from НомерГазеты, Объявление " +
-                                              "where НомерГазеты.Код=КодВыпуска order by Объявление.Код desc";
+                                              "where НомерГазеты.Код=КодВыпуска order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(940, 332);
                                 this.Size = new Size(955, 641);
                                 break;
@@ -637,7 +663,7 @@ namespace WindowsFormsApp1
                                 button2.Visible = true;
                                 command = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
                                           "from Отзыв, Статья " +
-                                          "where КодСтатьи=Статья.Код order by Отзыв.Код desc";
+                                          "where КодСтатьи=Статья.Код order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(1480, 332);
                                 this.Size = new Size(1495, 641);
                                 break;
@@ -759,7 +785,7 @@ namespace WindowsFormsApp1
                             case "Объявление":
                                 command = "select Объявление.Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
                                           "from НомерГазеты, Объявление " +
-                                          "where НомерГазеты.Код=КодВыпуска and Заказчик='" + log + "' Объявление.Код";
+                                          "where НомерГазеты.Код=КодВыпуска and Заказчик='" + log + "' order by Код desc";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(700, 194);

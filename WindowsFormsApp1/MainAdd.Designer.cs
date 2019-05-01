@@ -50,18 +50,19 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.reklPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.reklText = new System.Windows.Forms.ComboBox();
             this.reklNumber = new System.Windows.Forms.ComboBox();
             this.reklAdd = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.reklZak = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.dogPanel = new System.Windows.Forms.TableLayoutPanel();
             this.dogDateB = new System.Windows.Forms.DateTimePicker();
             this.label39 = new System.Windows.Forms.Label();
             this.dogAdd = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.dogDate = new System.Windows.Forms.DateTimePicker();
             this.dogDateE = new System.Windows.Forms.DateTimePicker();
@@ -71,6 +72,7 @@
             this.dogPrice = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.dogText = new System.Windows.Forms.RichTextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.obPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -137,8 +139,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.reklZak = new System.Windows.Forms.ComboBox();
+            this.admPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.admp1 = new System.Windows.Forms.TextBox();
+            this.admLog = new System.Windows.Forms.TextBox();
+            this.admD = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.admp2 = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.admAdd = new System.Windows.Forms.Button();
+            this.label52 = new System.Windows.Forms.Label();
             this.otzPanel.SuspendLayout();
             this.reklPanel.SuspendLayout();
             this.dogPanel.SuspendLayout();
@@ -149,6 +160,7 @@
             this.rPanel.SuspendLayout();
             this.zPanel.SuspendLayout();
             this.stPanel.SuspendLayout();
+            this.admPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // stat
@@ -233,7 +245,7 @@
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 186F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 216F));
             this.otzPanel.Controls.Add(this.otzDate, 5, 1);
             this.otzPanel.Controls.Add(this.label32, 5, 0);
             this.otzPanel.Controls.Add(this.otzAdd, 6, 1);
@@ -253,6 +265,7 @@
             this.otzPanel.RowCount = 2;
             this.otzPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.otzPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.otzPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.otzPanel.Size = new System.Drawing.Size(1239, 100);
             this.otzPanel.TabIndex = 80;
             this.otzPanel.TabStop = true;
@@ -384,7 +397,7 @@
             this.label31.Location = new System.Drawing.Point(1033, 3);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(199, 45);
+            this.label31.Size = new System.Drawing.Size(208, 45);
             this.label31.TabIndex = 4;
             this.label31.Text = "Добавить";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,7 +448,7 @@
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 570F));
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
             this.reklPanel.Controls.Add(this.label34, 3, 0);
             this.reklPanel.Controls.Add(this.label35, 2, 0);
             this.reklPanel.Controls.Add(this.reklText, 2, 1);
@@ -454,20 +467,6 @@
             this.reklPanel.TabStop = true;
             this.reklPanel.Visible = false;
             // 
-            // label36
-            // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(7, 3);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(75, 45);
-            this.label36.TabIndex = 6;
-            this.label36.Text = "Номер выпуска";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label34
             // 
             this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -477,7 +476,7 @@
             this.label34.Location = new System.Drawing.Point(829, 3);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(227, 45);
+            this.label34.Size = new System.Drawing.Size(236, 45);
             this.label34.TabIndex = 2;
             this.label34.Text = "Добавить";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -527,11 +526,49 @@
             this.reklAdd.Location = new System.Drawing.Point(829, 56);
             this.reklAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklAdd.Name = "reklAdd";
-            this.reklAdd.Size = new System.Drawing.Size(227, 36);
+            this.reklAdd.Size = new System.Drawing.Size(236, 36);
             this.reklAdd.TabIndex = 2;
             this.reklAdd.Text = "Добавить";
             this.reklAdd.UseVisualStyleBackColor = true;
             this.reklAdd.Click += new System.EventHandler(this.reklAdd_Click);
+            // 
+            // label46
+            // 
+            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(92, 3);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(154, 45);
+            this.label46.TabIndex = 7;
+            this.label46.Text = "Название заказчика";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // reklZak
+            // 
+            this.reklZak.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.reklZak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reklZak.FormattingEnabled = true;
+            this.reklZak.Location = new System.Drawing.Point(92, 54);
+            this.reklZak.Name = "reklZak";
+            this.reklZak.Size = new System.Drawing.Size(154, 28);
+            this.reklZak.TabIndex = 8;
+            this.reklZak.SelectedIndexChanged += new System.EventHandler(this.ReklZak_SelectedIndexChanged);
+            // 
+            // label36
+            // 
+            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(7, 3);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(75, 45);
+            this.label36.TabIndex = 6;
+            this.label36.Text = "Номер выпуска";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dogPanel
             // 
@@ -543,7 +580,7 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
@@ -587,7 +624,7 @@
             this.label39.Location = new System.Drawing.Point(900, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(206, 47);
+            this.label39.Size = new System.Drawing.Size(215, 47);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -619,20 +656,6 @@
             this.label40.TabIndex = 13;
             this.label40.Text = "Дата конца договора";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label43
-            // 
-            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(7, 3);
-            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(174, 47);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "Название заказчика";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label44
             // 
@@ -737,6 +760,20 @@
             this.dogText.Size = new System.Drawing.Size(182, 40);
             this.dogText.TabIndex = 5;
             this.dogText.Text = "";
+            // 
+            // label43
+            // 
+            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(7, 3);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(174, 47);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "Название заказчика";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // obPanel
             // 
@@ -1661,29 +1698,154 @@
             this.label45.TabIndex = 70;
             this.label45.Text = "Добавление";
             // 
-            // label46
+            // admPanel
             // 
-            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.admPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.admPanel.ColumnCount = 5;
+            this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
+            this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
+            this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 231F));
+            this.admPanel.Controls.Add(this.admp1, 0, 1);
+            this.admPanel.Controls.Add(this.admLog, 0, 1);
+            this.admPanel.Controls.Add(this.admD, 0, 1);
+            this.admPanel.Controls.Add(this.label47, 0, 0);
+            this.admPanel.Controls.Add(this.label48, 3, 0);
+            this.admPanel.Controls.Add(this.admp2, 0, 1);
+            this.admPanel.Controls.Add(this.label50, 1, 0);
+            this.admPanel.Controls.Add(this.label51, 2, 0);
+            this.admPanel.Controls.Add(this.admAdd, 4, 1);
+            this.admPanel.Controls.Add(this.label52, 4, 0);
+            this.admPanel.Location = new System.Drawing.Point(216, 42);
+            this.admPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admPanel.Name = "admPanel";
+            this.admPanel.RowCount = 2;
+            this.admPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.admPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.admPanel.Size = new System.Drawing.Size(970, 103);
+            this.admPanel.TabIndex = 87;
+            this.admPanel.TabStop = true;
+            this.admPanel.Visible = false;
+            // 
+            // admp1
+            // 
+            this.admp1.Location = new System.Drawing.Point(162, 58);
+            this.admp1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admp1.Name = "admp1";
+            this.admp1.PasswordChar = '*';
+            this.admp1.Size = new System.Drawing.Size(156, 26);
+            this.admp1.TabIndex = 1;
+            // 
+            // admLog
+            // 
+            this.admLog.Location = new System.Drawing.Point(7, 58);
+            this.admLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admLog.Name = "admLog";
+            this.admLog.Size = new System.Drawing.Size(144, 26);
+            this.admLog.TabIndex = 0;
+            // 
+            // admD
+            // 
+            this.admD.Location = new System.Drawing.Point(505, 58);
+            this.admD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admD.Name = "admD";
+            this.admD.Size = new System.Drawing.Size(227, 26);
+            this.admD.TabIndex = 3;
+            // 
+            // label47
+            // 
+            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(92, 3);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(154, 45);
-            this.label46.TabIndex = 7;
-            this.label46.Text = "Название заказчика";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(7, 3);
+            this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(144, 47);
+            this.label47.TabIndex = 0;
+            this.label47.Text = "Логин";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // reklZak
+            // label48
             // 
-            this.reklZak.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.reklZak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reklZak.FormattingEnabled = true;
-            this.reklZak.Location = new System.Drawing.Point(92, 54);
-            this.reklZak.Name = "reklZak";
-            this.reklZak.Size = new System.Drawing.Size(154, 28);
-            this.reklZak.TabIndex = 8;
-            this.reklZak.SelectedIndexChanged += new System.EventHandler(this.ReklZak_SelectedIndexChanged);
+            this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(505, 3);
+            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(227, 47);
+            this.label48.TabIndex = 2;
+            this.label48.Text = "Должность";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // admp2
+            // 
+            this.admp2.Location = new System.Drawing.Point(329, 58);
+            this.admp2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admp2.Name = "admp2";
+            this.admp2.PasswordChar = '*';
+            this.admp2.Size = new System.Drawing.Size(165, 26);
+            this.admp2.TabIndex = 2;
+            // 
+            // label50
+            // 
+            this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(162, 3);
+            this.label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(156, 47);
+            this.label50.TabIndex = 1;
+            this.label50.Text = "Пароль";
+            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label51
+            // 
+            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(329, 3);
+            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(165, 47);
+            this.label51.TabIndex = 19;
+            this.label51.Text = "Повторить пароль";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // admAdd
+            // 
+            this.admAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.admAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admAdd.Location = new System.Drawing.Point(743, 58);
+            this.admAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admAdd.Name = "admAdd";
+            this.admAdd.Size = new System.Drawing.Size(223, 37);
+            this.admAdd.TabIndex = 4;
+            this.admAdd.Text = "Добавить";
+            this.admAdd.UseVisualStyleBackColor = true;
+            this.admAdd.Click += new System.EventHandler(this.AdmAdd_Click);
+            // 
+            // label52
+            // 
+            this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(743, 3);
+            this.label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(223, 47);
+            this.label52.TabIndex = 4;
+            this.label52.Text = "Добавить";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainAdd
             // 
@@ -1691,7 +1853,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(205, 180);
+            this.ClientSize = new System.Drawing.Size(211, 176);
+            this.Controls.Add(this.admPanel);
             this.Controls.Add(this.stat);
             this.Controls.Add(this.nom);
             this.Controls.Add(this.dog);
@@ -1734,6 +1897,8 @@
             this.zPanel.PerformLayout();
             this.stPanel.ResumeLayout(false);
             this.stPanel.PerformLayout();
+            this.admPanel.ResumeLayout(false);
+            this.admPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1796,18 +1961,13 @@
         private System.Windows.Forms.TextBox obZak;
         private System.Windows.Forms.RichTextBox obText;
         private System.Windows.Forms.TableLayoutPanel photoPanel;
-        private System.Windows.Forms.DateTimePicker photoDate;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox photoF;
-        private System.Windows.Forms.ComboBox photoName;
-        private System.Windows.Forms.ComboBox photoTitle;
         private System.Windows.Forms.Button photoAdd;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.ComboBox photoNumber;
         private System.Windows.Forms.TableLayoutPanel newspPanel;
         private System.Windows.Forms.TextBox newspPrice;
         private System.Windows.Forms.Label label13;
@@ -1852,5 +2012,21 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.ComboBox reklZak;
+        private System.Windows.Forms.DateTimePicker photoDate;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox photoName;
+        private System.Windows.Forms.ComboBox photoTitle;
+        private System.Windows.Forms.ComboBox photoNumber;
+        private System.Windows.Forms.TableLayoutPanel admPanel;
+        private System.Windows.Forms.TextBox admp1;
+        private System.Windows.Forms.TextBox admLog;
+        private System.Windows.Forms.TextBox admD;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox admp2;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Button admAdd;
+        private System.Windows.Forms.Label label52;
     }
 }

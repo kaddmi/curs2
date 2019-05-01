@@ -183,7 +183,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                string command = "insert into Сотрудник values ('" + sotrName.Text + "', '" + sotrDol.Text + "', null, null)";
+                string command = "insert into Сотрудник(ФИО, Должность) values ('" + sotrName.Text + "', '" + sotrDol.Text + "')";
                 Adding(command);
                 sotrName.Clear();
                 sotrDol.Clear();

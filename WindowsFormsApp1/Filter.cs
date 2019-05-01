@@ -16,8 +16,12 @@ namespace WindowsFormsApp1
         public SqlCommand command = new SqlCommand();
         public string list;
         public string list2 = "";
+        public bool c;
+        string login;
         bool f = false;
+        bool z = false;
         string index;
+        string curTable;
         public string sql;
         public Filter()
         {
@@ -29,6 +33,15 @@ namespace WindowsFormsApp1
             InitializeComponent();
             f = true;
             index = i;
+        }
+
+        public Filter(bool check, string curT, string log)
+        {
+            InitializeComponent();
+            c = check;
+            z = true;
+            curTable = curT;
+            login = log;
         }
 
         public void combBox(ComboBox cb, string table, string dispMember, string com1, SqlConnection connection)
@@ -213,13 +226,17 @@ namespace WindowsFormsApp1
                                     comboBox1.Visible = true;
                                     com1 = "select Код, Номер from НомерГазеты";
                                     combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
-                                    SqlParameter column = new SqlParameter
+                                    if (!z)
                                     {
-                                        ParameterName = "@column",
-                                        Value = "НомерГазеты.Номер"
-                                    };
-                                    if (!command.Parameters.Contains("@column"))
-                                        command.Parameters.Add(column);
+                                        SqlParameter column = new SqlParameter
+                                        {
+                                            ParameterName = "@column",
+                                            Value = "НомерГазеты.Номер"
+                                        };
+                                        if (!command.Parameters.Contains("@column"))
+                                            command.Parameters.Add(column);
+                                    }
+
                                 }
                                 break;
                             case "Название рубрики":
@@ -368,24 +385,130 @@ namespace WindowsFormsApp1
                 {
                     case "Номер выпуска газеты":
                         {
-                            SqlParameter value = new SqlParameter
+                            if (!z)
                             {
-                                ParameterName = "@valueI",
-                                Value = comboBox1.SelectedValue.ToString()
-                            };
-                            command.Parameters.Add(value);
-                            list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                SqlParameter value = new SqlParameter
+                                {
+                                    ParameterName = "@valueI",
+                                    Value = comboBox1.SelectedValue.ToString()
+                                };
+                                command.Parameters.Add(value);
+                                list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                            }
+                            else
+                            {
+                                
+                                if (curTable == "Отзыв")
+                                {
+                                    if (c)
+                                    {
+                                        sql = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
+                                              "from Отзыв, Статья " +
+                                              "where КодСтатьи=Статья.Код and ФИО='" + login +
+                                              "' and КодВыпуска in (select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ") order by Код desc";
+                                        list = "ФИО читателя = " + login;
+                                        list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }                                       
+                                    else
+                                    {
+                                        sql = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
+                                              "from Отзыв, Статья " +
+                                              "where КодСтатьи=Статья.Код and " +
+                                              "КодВыпуска in (select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ") order by Код desc";
+                                        list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }                                      
+                                }
+                                if (curTable == "Статья")
+                                {
+                                    if (c)
+                                    {
+                                        sql = "select * from Перечень_статей where ФИОСотрудника='" + login +
+                                              "' and НомерВыпуска=" + comboBox1.SelectedValue.ToString() + " order by Код desc";
+                                        list = "ФИО журналиста = " + login;
+                                        list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }
+                                        
+                                    else
+                                    {
+                                        sql = "select * from Перечень_статей where " +
+                                              "НомерВыпуска=" + comboBox1.SelectedValue.ToString() + " order by Код desc";
+                                        list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }                                        
+                                }
+                                if (curTable == "Объявление")
+                                {
+                                    if (c)
+                                    {
+                                        sql = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
+                                              "from НомерГазеты, Объявление " +
+                                              "where НомерГазеты.Код=КодВыпуска and Заказчик='" + login +
+                                              "' and КодВыпуска in (select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ") order by Код desc";
+                                        list = "Заказчик = " + login;
+                                        list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }
+
+                                    else
+                                    {
+                                        sql = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
+                                              "from НомерГазеты, Объявление " +
+                                              "where НомерГазеты.Код=КодВыпуска and " +
+                                               "КодВыпуска in (select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ") order by Код desc";
+                                        list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }
+                                }
+                                if (curTable == "Фото")
+                                {
+                                    if (c)
+                                    {
+                                        sql = "select * from Перечень_фото where ФИОСотрудника='" + login +
+                                              "' and ЗаголовокСтатьи in (select Заголовок from Статья where КодВыпуска in (select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ")) " +
+                                              "order by Код desc";
+                                        list = "ФИО журналиста = " + login;
+                                        list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }
+
+                                    else
+                                    {
+                                        sql = "select * from Перечень_фото where " +
+                                              "ЗаголовокСтатьи in (select Заголовок from Статья where КодВыпуска in (select Код from НомерГазеты where Номер = " + comboBox1.SelectedValue.ToString() + ")) " +
+                                              "order by Код desc";
+                                        list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                    }
+                                }
+
+                            }
                         }
                         break;
                     case "Название рубрики":
                         {
-                            SqlParameter value = new SqlParameter
+                            if (!z)
                             {
-                                ParameterName = "@valueC",
-                                Value = comboBox1.SelectedValue.ToString()
-                            };
-                            command.Parameters.Add(value);
-                            list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                SqlParameter value = new SqlParameter
+                                {
+                                    ParameterName = "@valueC",
+                                    Value = comboBox1.SelectedValue.ToString()
+                                };
+                                command.Parameters.Add(value);
+                                list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                            }
+                            else
+                            {
+                                if (c)
+                                {
+                                    sql = "select * from Перечень_статей where ФИОСотрудника='" + login +
+                                          "' and НазваниеРубрики='" + comboBox1.SelectedValue.ToString() + "' order by Код desc";
+                                    list = "ФИО журналиста = " + login;
+                                    list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                }
+
+                                else
+                                {
+                                    sql = "select * from Перечень_статей where " +
+                                          "НазваниеРубрики='" + comboBox1.SelectedValue.ToString() + "' order by Код desc";
+                                    list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                }
+                            }
+                            
                         }
                         break;
                     case "ФИО сотрудника":
@@ -463,13 +586,35 @@ namespace WindowsFormsApp1
                         break;
                     case "Название категории":
                         {
-                            SqlParameter value = new SqlParameter
+                            if (!z)
                             {
-                                ParameterName = "@valueC",
-                                Value = comboBox1.SelectedValue.ToString()
-                            };
-                            command.Parameters.Add(value);
-                            list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                SqlParameter value = new SqlParameter
+                                {
+                                    ParameterName = "@valueC",
+                                    Value = comboBox1.SelectedValue.ToString()
+                                };
+                                command.Parameters.Add(value);
+                                list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                            }
+                            else
+                                if (c)
+                                {
+                                    sql = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
+                                          "from НомерГазеты, Объявление " +
+                                          "where НомерГазеты.Код=КодВыпуска and Заказчик='" + login +
+                                          "' and Категория='" + comboBox1.SelectedValue.ToString() + "' order by Код desc";
+                                    list = "Заказчик = " + login;
+                                    list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                }
+
+                                else
+                                {
+                                    sql = "select Объявление.Код as Код, Номер as НомерВыпуска, Категория, Заказчик, Текст " +
+                                          "from НомерГазеты, Объявление " +
+                                          "where НомерГазеты.Код=КодВыпуска and " +
+                                          "Категория='" + comboBox1.SelectedValue.ToString() + "' order by Код desc";
+                                    list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                                }                           
                         }
                         break;
                     case "Жалоба или похвальный отзыв":
@@ -481,13 +626,38 @@ namespace WindowsFormsApp1
                                 i = 1;
                                 s = "Жалоба";
                             }
-                            SqlParameter value = new SqlParameter
+                            if (!z)
                             {
-                                ParameterName = "@valueI",
-                                Value = i.ToString()
-                            };
-                            command.Parameters.Add(value);
-                            list = s;
+                                SqlParameter value = new SqlParameter
+                                {
+                                    ParameterName = "@valueI",
+                                    Value = i.ToString()
+                                };
+                                command.Parameters.Add(value);
+                                list = s;
+                            }    
+                            else
+                            {
+                                if (c)
+                                {
+                                    sql = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
+                                          "from Отзыв, Статья " +
+                                          "where КодСтатьи=Статья.Код and ФИО='" + login +
+                                           "' and Жалоба=" + i + " order by Код desc";
+                                    list = "Заказчик = " + login;
+                                    list2 = s;
+                                }
+
+                                else
+                                {
+                                    sql = "select Отзыв.Код as Код, ФИО, Заголовок as ЗаголовокСтатьи, Жалоба, Текст, ДатаОтзыва " +
+                                          "from Отзыв, Статья " +
+                                          "where КодСтатьи=Статья.Код and "+
+                                          "Жалоба=" + i + " order by Код desc";
+                                    list = s;
+                                }
+                            }
+                            
                         }
                         break;
                     case "Заголовок статьи":

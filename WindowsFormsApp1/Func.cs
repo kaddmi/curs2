@@ -315,7 +315,7 @@ namespace WindowsFormsApp1
                     richTextBox1.Visible = true;
                     button1.Visible = true;
                     SumInfoAboutStatya();
-                    this.Size = new Size(647, 488);
+                    this.Size = new Size(795, 650);
                     break;
                 case "Количество статей сотрудника":
                     CountStatya();

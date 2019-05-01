@@ -36,11 +36,11 @@ namespace WindowsFormsApp1
             switch (role)
             {
                 case "системный администратор":
-                    работаСТаблицамиToolStripMenuItem.Visible = true;
                     admView.Visible = true;
                     admView.Nodes[0].Expand();
                     admView.Nodes[1].Expand();
                     admView.Nodes[2].Expand();
+                    admView.Nodes[3].Expand();
                     break;
                 case "главный редактор":
                     redView.Visible = true;
@@ -188,6 +188,18 @@ namespace WindowsFormsApp1
                         if (e.Node.Name == "edOtz")
                         {
                             edit(e.Node.Parent.Name, false);
+                        }
+                        break;
+                    case "Админ":
+                        {
+                            if (e.Node.Name == "addUser")
+                            {
+                                add(e.Node.Parent.Name);
+                            }
+                            if (e.Node.Name == "zurnal")
+                            {
+                                ИсторияИзмененияToolStripMenuItem_Click(sender, e);
+                            }
                         }
                         break;
                 }

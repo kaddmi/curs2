@@ -179,6 +179,13 @@ namespace WindowsFormsApp1
                                 this.AcceptButton = otzAdd;
                             }
                             break;
+                        case "Админ":
+                            {
+                                admPanel.Location = new Point(3, 42);
+                                admPanel.Visible = true;
+                                this.AcceptButton = admAdd;
+                            }
+                            break;
                     }
                 }
                 catch (Exception ex)
@@ -387,6 +394,7 @@ namespace WindowsFormsApp1
         public void reklAdd_Click(object sender, EventArgs e)
         {
             string command = "insert into Перечень_реклам (НомерВыпуска, ТекстРекламы) values (" + reklNumber.SelectedValue.ToString() + ", '" + reklText.SelectedValue.ToString() + "')";
+            MessageBox.Show(command);
             Add(command);
             DialogResult = DialogResult.OK;
         }
@@ -458,7 +466,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Договор", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-               
+                Add();
             }
         }
 
@@ -467,7 +475,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("НомерГазеты", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -476,7 +484,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Статья", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-               
+                Add();
             }
         }
 
@@ -485,7 +493,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Заказчик", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -494,7 +502,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Рубрика", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -503,7 +511,7 @@ namespace WindowsFormsApp1
             Add addForm = new Add("Сотрудник", cred);
             if (addForm.ShowDialog(this) == DialogResult.OK)
             {
-                
+                Add();
             }
         }
 
@@ -526,13 +534,74 @@ namespace WindowsFormsApp1
                     connection.Open();
                     string com1 = "";
                     com1 = "select Код, ТекстРекламы from Договор where КодЗаказчика=" + reklZak.SelectedValue.ToString();
-                    combBox(reklText, "Договор", "ТекстРекламы", com1, connection);
+                    combBox(reklText, "Договор", "ТекстРекламы", com1, connection, "ТекстРекламы");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void AdmAdd_Click(object sender, EventArgs e)
+        {
+            if (admLog.Text == "" || admD.Text == "" || admp1.Text == "" || admp2.Text == "")
+            {
+                MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
+                if (admLog.Text == "")
+                    admLog.Focus();               
+                if (admp1.Text == "")
+                    admp1.Focus();
+                if (admp2.Text == "")
+                    admp2.Focus();
+                if (admD.Text == "")
+                    admD.Focus();
+                return;
+            }
+            else
+            {
+                if (admp1.Text != admp2.Text)
+                {
+                    MessageBox.Show("Пароли не совпадают", "Ошибка", MessageBoxButtons.RetryCancel);
+                    admp1.Focus();
+                    return;
+                }
+                else
+                {
+                    string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
+                    SqlConnection connection = new SqlConnection(connectionString);
+                    connection.Credential = cred;
+                    using (connection)
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string command1 = "CREATE LOGIN " + admLog.Text + " WITH PASSWORD = '" + admp1.Text + "'";
+                            SqlCommand myCommand1 = new SqlCommand(command1, connection);
+                            int number = myCommand1.ExecuteNonQuery();
+                            string command2 = "EXEC sp_addsrvrolemember '" + admLog.Text + "', 'sysadmin';";
+                            SqlCommand myCommand2 = new SqlCommand(command2, connection);
+                            number = myCommand2.ExecuteNonQuery();
+                            string command3 = "CREATE USER " + admLog.Text + " FOR LOGIN " + admLog.Text;
+                            SqlCommand myCommand3 = new SqlCommand(command3, connection);
+                            number = myCommand3.ExecuteNonQuery();
+                            string command4 = "insert into Пользователи values ('" + admLog.Text + "', '" + admp1.Text + "', '" + admD.Text + "')";
+                            SqlCommand myCommand4 = new SqlCommand(command4, connection);
+                            number = myCommand4.ExecuteNonQuery();
+                            DialogResult = DialogResult.OK;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            return;
+                        }
+                    }
+                    
+                }
+               
+
+            }          
         }
     }
 }

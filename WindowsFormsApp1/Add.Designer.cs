@@ -102,7 +102,7 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
@@ -146,7 +146,7 @@
             this.label39.Location = new System.Drawing.Point(900, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(197, 47);
+            this.label39.Size = new System.Drawing.Size(203, 47);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -335,6 +335,7 @@
             this.newspPrice.Name = "newspPrice";
             this.newspPrice.Size = new System.Drawing.Size(114, 26);
             this.newspPrice.TabIndex = 1;
+            this.newspPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
             // label13
             // 
