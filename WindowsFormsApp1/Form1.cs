@@ -231,10 +231,6 @@ namespace WindowsFormsApp1
             Application.Exit();
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-          
-        }
 
         private void ИсторияИзмененияToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -317,6 +313,13 @@ namespace WindowsFormsApp1
         {
 
            
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            /*Owner.Close();
+            Authorization aut = new Authorization();
+            aut.Show();*/
         }
     } 
 }

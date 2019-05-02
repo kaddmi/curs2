@@ -593,6 +593,7 @@ namespace WindowsFormsApp1
                                 command = "select * from Перечень_статей order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(1070, 332);
                                 this.Size = new Size(1085, 641);
+                                this.Location = new Point(300, 100);
                                 break;
                             case "Заказчик":
                                 command = "select * from Заказчик order by Код desc";
@@ -613,6 +614,7 @@ namespace WindowsFormsApp1
                                           "where КодЗаказчика=Заказчик.Код order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(1270, 332);
                                 this.Size = new Size(1285, 641);
+                                this.Location = new Point(150, 100);
                                 break;
                             case "Реклама":
                                 checkBox1.Visible = true;
@@ -622,7 +624,7 @@ namespace WindowsFormsApp1
                                 command = "select * from Перечень_реклам order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(670, 332);
                                 this.Size = new Size(685, 641);
-                                this.Location = new Point(600, 100);
+                                this.Location = new Point(400, 100);
                                 break;
                             case "Рубрика":
                                 command = "select Код, Название from Рубрика order by Код desc";
@@ -641,7 +643,7 @@ namespace WindowsFormsApp1
                                 command = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(711, 332);
                                 this.Size = new Size(726, 641);
-                                this.Location = new Point(600, 100);
+                                this.Location = new Point(450, 100);
                                 break;
                             case "НомерГазеты":
                                 checkBox1.Visible = true;
@@ -650,7 +652,7 @@ namespace WindowsFormsApp1
                                 command = "select Код, Номер, Ценa, Дата, КоличествоПроданных from НомерГазеты order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(520, 332);
                                 this.Size = new Size(535, 641);
-                                this.Location = new Point(600, 100);
+                                this.Location = new Point(500, 100);
                                 break;
                             case "Объявление":
                                 checkBox1.Visible = true;
@@ -680,7 +682,7 @@ namespace WindowsFormsApp1
                                           "where КодСтатьи=Статья.Код order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(1480, 332);
                                 this.Size = new Size(1495, 641);
-                                this.Location = new Point(300, 100);
+                                this.Location = new Point(20, 100);
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);
