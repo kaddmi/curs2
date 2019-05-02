@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         string curTable;
         string r;
         string log;
+        int k = 0;
         public bool ok = false;
         public MainAdd(string l, string currTable, SqlCredential credd, string role, string user)
         {
@@ -208,6 +209,7 @@ namespace WindowsFormsApp1
 
         private void Add(string command)
         {
+            k = 0;
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Credential = cred;
@@ -217,11 +219,12 @@ namespace WindowsFormsApp1
                 {
                     connection.Open();
                     SqlCommand myCommand = new SqlCommand(command, connection);
-                    int number = myCommand.ExecuteNonQuery();
+                    int number = myCommand.ExecuteNonQuery();                  
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.RetryCancel);
+                    k = 1;
                 }
             }
         }
@@ -235,7 +238,6 @@ namespace WindowsFormsApp1
                     stTitle.Focus();
                 if (stType.Text == "")
                     stType.Focus();
-                return;
             }
             else
             {
@@ -433,6 +435,14 @@ namespace WindowsFormsApp1
                     string com1 = "";
                     com1 = "select Код, Заголовок from Статья where КодВыпуска=" + otzNumber.SelectedValue.ToString();
                     combBox(otzTitle, "Статья", "Заголовок", com1, connection);
+                    com1 = "select Дата from НомерГазеты where Код=" + otzNumber.SelectedValue.ToString();
+                    SqlCommand sql = new SqlCommand(com1, connection);
+                    SqlDataReader reader = sql.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        otzDate.MinDate = reader.GetDateTime(0);
+                        otzDate.Value = reader.GetDateTime(0);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -453,6 +463,14 @@ namespace WindowsFormsApp1
                     string com1 = "";
                     com1 = "select Код, Заголовок from Статья where КодВыпуска=" + photoNumber.SelectedValue.ToString();
                     combBox(photoTitle, "Статья", "Заголовок", com1, connection);
+                    com1 = "select Дата from НомерГазеты where Код=" + photoNumber.SelectedValue.ToString();
+                    SqlCommand sql = new SqlCommand(com1, connection);
+                    SqlDataReader reader = sql.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        photoDate.MaxDate = reader.GetDateTime(0);
+                        photoDate.Value = reader.GetDateTime(0);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -603,6 +621,21 @@ namespace WindowsFormsApp1
                
 
             }          
+        }
+
+        private void MainAdd_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(k == 1)
+            {
+                e.Cancel = true;
+                k = 0;
+            }               
+        }
+
+        private void MainAdd_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Opacity = 100;
+            Owner.Enabled = true;
         }
     }
 }

@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         private void Form1_Shown(object sender, EventArgs e)
         {
             Authorization aut = this.Owner as Authorization;
+            aut.ex = false;
             role = aut.role;
             aut.pwd.MakeReadOnly();
             cred = new SqlCredential(aut.login, aut.pwd);
@@ -70,19 +71,28 @@ namespace WindowsFormsApp1
         private void edit(string cT, bool view)
         {
             MainEdit edit = new MainEdit(lbl, cT, cred, view, role, loginToolStripMenuItem.Text);
+            this.Opacity = 0;
+            this.Enabled = false;
+            edit.Owner = this;
             if (edit.ShowDialog(this) == DialogResult.OK)
             {
-                //add.Close();
+                this.Opacity = 100;
+                this.Enabled = true;
             }
         }
 
         private void add(string cT)
         {
             MainAdd add = new MainAdd(lbl, cT, cred, role, loginToolStripMenuItem.Text);
+            this.Opacity = 0;
+            this.Enabled = false;
+            add.Owner = this;
             if (add.ShowDialog(this) == DialogResult.OK)
             {
-
+                this.Opacity = 100;
+                this.Enabled = true;
             }
+            
         }
 
         private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -210,6 +220,7 @@ namespace WindowsFormsApp1
 
         private void СменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Owner.Close();
             this.Close();
             Authorization aut = new Authorization();
             aut.Show();
@@ -222,15 +233,19 @@ namespace WindowsFormsApp1
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Authorization authorization = new Authorization();
-            authorization.Show();
+          
         }
 
         private void ИсторияИзмененияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Log logForm = new Log();
+            this.Opacity = 0;
+            this.Enabled = false;
+            logForm.Owner = this;
             if (logForm.ShowDialog(this) == DialogResult.Cancel)
             {
+                this.Opacity = 100;
+                this.Enabled = true;
                 logForm.Close();
             }
         }
@@ -238,6 +253,9 @@ namespace WindowsFormsApp1
         private void ФунционалToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Func funcForm = new Func(role);
+            this.Opacity = 0;
+            this.Enabled = false;
+            funcForm.Owner = this;
             switch (role)
             {
                 case "системный администратор":
@@ -280,6 +298,8 @@ namespace WindowsFormsApp1
             }
             if (funcForm.ShowDialog(this) == DialogResult.Cancel)
             {
+                this.Opacity = 100;
+                this.Enabled = true;
                 funcForm.Close();
             }
         }

@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
 
         public string login;
         public string fio;
+        public bool ex = true;
         public Authorization()
         {
 
@@ -92,6 +93,8 @@ namespace WindowsFormsApp1
                     pwd.AppendChar(c);
             }
             this.Hide();
+            this.Opacity = 0;
+            this.Enabled = false;
             Form1 form1 = new Form1();
             form1.Owner = this;
             form1.Show();
@@ -99,7 +102,9 @@ namespace WindowsFormsApp1
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (ex)
+                Application.Exit();
         }
+
     }
 }

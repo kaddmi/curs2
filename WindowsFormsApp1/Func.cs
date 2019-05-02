@@ -77,6 +77,7 @@ namespace WindowsFormsApp1
                     chart1.Titles[0].Text = "Количество статей сделанных сотрудниками";
                     chart1.ChartAreas[0].AxisX.Title = "ФИО сотрудника";
                     chart1.ChartAreas[0].AxisY.Title = "Количество статей";
+                    chart1.Series[0].IsVisibleInLegend = false;
                     chart1.Series[0].ChartType = SeriesChartType.Bar;
                     chart1.Series[0].Color = Color.Empty;
                     chart1.Series[0].IsValueShownAsLabel = true;
@@ -121,6 +122,7 @@ namespace WindowsFormsApp1
                     }
                     
                     chart1.Titles[0].Text = "График изменения выручки";
+                    chart1.Series[0].IsVisibleInLegend = false;
                     chart1.ChartAreas[0].AxisX.Title = "Год";
                     chart1.ChartAreas[0].AxisY.Title = "Выручка";
                     chart1.Series[0].ChartType = SeriesChartType.Line;
@@ -144,14 +146,36 @@ namespace WindowsFormsApp1
             {
                 try
                 {
+                    int sumP = 0;
+                    int sumN = 0;
                     connection.Open();
                     string sql = "РейтингПоОтзывам";
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.CommandType = CommandType.StoredProcedure;                 
-                    SqlDataReader dr = command.ExecuteReader();
-                    DataTable dt = new DataTable();
-                    dt.Load(dr);
-                    dataGridView1.DataSource = dt.DefaultView;
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            sumP += reader.GetInt32(2);
+                            sumN += reader.GetInt32(3);
+                        }
+                    }
+                    List<int> y = new List<int>();
+                    y.Add(sumP);
+                    y.Add(sumN);
+                    List<string> x = new List<string>();
+                    x.Add("положительные");
+                    x.Add("отрицательные");
+                    chart1.Titles[0].Text = "Распределение по отзывам";
+                    chart1.ChartAreas[0].AxisX.Title = "Год";
+                    chart1.ChartAreas[0].AxisY.Title = "Выручка";
+                    chart1.Series[0].ChartType = SeriesChartType.Pie;
+                    chart1.Series[0].IsValueShownAsLabel = true;
+                    chart1.Series[0].IsVisibleInLegend = true;                   
+                    chart1.Series[0].Points.DataBindXY(x,y);
+                    chart1.Series[0].Points[0].Color = Color.Turquoise;
+                    chart1.Series[0].Points[1].Color = Color.Crimson;
                 }
                 catch (Exception ex)
                 {
@@ -328,11 +352,11 @@ namespace WindowsFormsApp1
                     this.Size = new Size(448, 585);
                     break;
                 case "Рейтинг читателей по отзывам":
-                    dataGridView1.Visible = true;
+                    chart1.Visible = true;
                     button1.Visible = true;
                     richTextBox1.Visible = true;
                     readerRating();
-                    this.Size = new Size(730, 488);
+                    this.Size = new Size(730, 585);
                     break;
                 case "Сумма по договорам за период":
                     button2.Visible = true;
@@ -411,6 +435,8 @@ namespace WindowsFormsApp1
                         }                           
                         if (listBox1.SelectedItem.ToString() == "Рейтинг читателей по отзывам")
                         {
+                            chart1.Visible = false;
+                            dataGridView1.Visible = true;
                             string sqlExpression = "РейтингПоОтзывам";
                             filterDialog.command.CommandText = sqlExpression;
                             filterDialog.command.Connection = connection;
@@ -457,6 +483,12 @@ namespace WindowsFormsApp1
                     break;
 
             }
+        }
+
+        private void Func_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Opacity = 100;
+            Owner.Enabled = true;
         }
     }
 }

@@ -178,3 +178,4 @@ D:\curs2_0\WindowsFormsApp1\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.res
 D:\curs2_0\WindowsFormsApp1\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Reports.resources
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Func.resources
+D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
