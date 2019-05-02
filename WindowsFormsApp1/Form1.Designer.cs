@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Добавить рубрику");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую рубрику");
             System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Раздел рубрик", new System.Windows.Forms.TreeNode[] {
             treeNode87,
             treeNode88});
@@ -86,7 +86,7 @@
             treeNode112,
             treeNode115});
             System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("Нанять сотрудника");
-            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("Уволить или поменять данные");
+            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("Уволить сотрудника или поменять данные");
             System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("Отдел кадров", new System.Windows.Forms.TreeNode[] {
             treeNode117,
             treeNode118});
@@ -128,12 +128,12 @@
             treeNode135,
             treeNode138});
             System.Windows.Forms.TreeNode treeNode140 = new System.Windows.Forms.TreeNode("Нанять сотрудника");
-            System.Windows.Forms.TreeNode treeNode141 = new System.Windows.Forms.TreeNode("Уволить или поменять данные");
+            System.Windows.Forms.TreeNode treeNode141 = new System.Windows.Forms.TreeNode("Уволить сотрудника или поменять данные");
             System.Windows.Forms.TreeNode treeNode142 = new System.Windows.Forms.TreeNode("Отдел кадров", new System.Windows.Forms.TreeNode[] {
             treeNode140,
             treeNode141});
             System.Windows.Forms.TreeNode treeNode143 = new System.Windows.Forms.TreeNode("Добавить рубрику");
-            System.Windows.Forms.TreeNode treeNode144 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую");
+            System.Windows.Forms.TreeNode treeNode144 = new System.Windows.Forms.TreeNode("Изменить/удалить существующую рубрику");
             System.Windows.Forms.TreeNode treeNode145 = new System.Windows.Forms.TreeNode("Раздел рубрик", new System.Windows.Forms.TreeNode[] {
             treeNode143,
             treeNode144});
@@ -270,7 +270,7 @@
             treeNode87.Name = "addR";
             treeNode87.Text = "Добавить рубрику";
             treeNode88.Name = "edR";
-            treeNode88.Text = "Изменить/удалить существующую";
+            treeNode88.Text = "Изменить/удалить существующую рубрику";
             treeNode89.Name = "Рубрика";
             treeNode89.Text = "Раздел рубрик";
             treeNode90.Name = "addNom";
@@ -330,7 +330,7 @@
             treeNode117.Name = "addSotr";
             treeNode117.Text = "Нанять сотрудника";
             treeNode118.Name = "edSotr";
-            treeNode118.Text = "Уволить или поменять данные";
+            treeNode118.Text = "Уволить сотрудника или поменять данные";
             treeNode119.Name = "Сотрудник";
             treeNode119.Text = "Отдел кадров";
             treeNode120.Name = "addUser";
@@ -419,7 +419,7 @@
             treeNode140.Name = "addSotr";
             treeNode140.Text = "Нанять сотрудника";
             treeNode141.Name = "edSotr";
-            treeNode141.Text = "Уволить или поменять данные";
+            treeNode141.Text = "Уволить сотрудника или поменять данные";
             treeNode142.Name = "Сотрудник";
             treeNode142.Text = "Отдел кадров";
             this.kadrView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
@@ -438,7 +438,7 @@
             treeNode143.Name = "addR";
             treeNode143.Text = "Добавить рубрику";
             treeNode144.Name = "edR";
-            treeNode144.Text = "Изменить/удалить существующую";
+            treeNode144.Text = "Изменить/удалить существующую рубрику";
             treeNode145.Name = "Рубрика";
             treeNode145.Text = "Раздел рубрик";
             treeNode146.Name = "addNom";
@@ -533,7 +533,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpButton = true;
-            this.Location = new System.Drawing.Point(600, 20);
+            this.Location = new System.Drawing.Point(600, 10);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";

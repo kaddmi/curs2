@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         bool view;
         string log;
         string role;
+        string cur;
         bool chit = false;
         bool zur = false;      
         bool first = true;
@@ -104,7 +105,11 @@ namespace WindowsFormsApp1
                             command = "delete from " + curTable + " where Код=" + i;
                         else
                             command = "delete from Перечень_реклам where Код=" + i;
-                        DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить выбранную запись?", "Удаление записи", MessageBoxButtons.YesNo);
+                        DialogResult result;
+                        if (curTable != "Договор")
+                            result = MessageBox.Show("Вы уверены, что хотите удалить выбранную запись?", "Удаление записи", MessageBoxButtons.YesNo);
+                        else
+                            result = MessageBox.Show("Вы уверены, что хотите удалить договор?\nЭто приведёт к удалению всех размещений реклам по этому договору", "Удаление записи", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
                             if (curTable == "Сотрудник")
@@ -125,6 +130,7 @@ namespace WindowsFormsApp1
                                 SqlCommand myCommand = new SqlCommand(command, connection);
                                 int number = myCommand.ExecuteNonQuery();
                             }
+                            
                         }
                         if (result == DialogResult.No)
                         {
@@ -163,27 +169,27 @@ namespace WindowsFormsApp1
                     else
                         command = "update Перечень_реклам set " + col + "='" + dataGridView1.CurrentCell.Value.ToString() + "' where Код=" + i;
                     SqlCommand myCommand = new SqlCommand(command, connection);
-                    int number = myCommand.ExecuteNonQuery();
+                    int number = myCommand.ExecuteNonQuery();                   
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    dataGridView1.CurrentCell.Value = cur;
                 }
             }
         }
 
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
+          
             if (String.Compare(curTable, "Сотрудник") == 0 && e.ColumnIndex == 4)
             {
-
             }
             else
                 if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
-            {
-                MessageBox.Show("Заполните поле");
-                e.Cancel = true;
-            }
+                {
+                    ((DataGridView)sender).CancelEdit();
+                }         
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -577,6 +583,7 @@ namespace WindowsFormsApp1
                     try
                     {
                         connection.Open();
+                        this.Location = new Point(400, 100);
                         switch (curTable)
                         {
                             case "Статья":
@@ -588,13 +595,14 @@ namespace WindowsFormsApp1
                                 this.Size = new Size(1085, 641);
                                 break;
                             case "Заказчик":
-                                command = "select Код, Название from Заказчик order by Код desc";
+                                command = "select * from Заказчик order by Код desc";
                                 checkBox1.Visible = false;
                                 checkedListBox1.Enabled = false;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = false;
                                 dataGridView1.Size = new System.Drawing.Size(327, 332);
-                                this.Size = new Size(325, 332);
+                                this.Size = new Size(450, 332);
+                                this.Location = new Point(600, 100);
                                 break;
                             case "Договор":
                                 checkBox1.Visible = true;
@@ -614,6 +622,7 @@ namespace WindowsFormsApp1
                                 command = "select * from Перечень_реклам order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(670, 332);
                                 this.Size = new Size(685, 641);
+                                this.Location = new Point(600, 100);
                                 break;
                             case "Рубрика":
                                 command = "select Код, Название from Рубрика order by Код desc";
@@ -622,7 +631,8 @@ namespace WindowsFormsApp1
                                 checkBox1.Visible = false;
                                 button2.Visible = false;
                                 dataGridView1.Size = new System.Drawing.Size(171, 332);
-                                this.Size = new Size(325, 332);
+                                this.Size = new Size(400, 332);
+                                this.Location = new Point(600, 100);
                                 break;
                             case "Сотрудник":
                                 checkBox1.Visible = true;
@@ -631,6 +641,7 @@ namespace WindowsFormsApp1
                                 command = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(711, 332);
                                 this.Size = new Size(726, 641);
+                                this.Location = new Point(600, 100);
                                 break;
                             case "НомерГазеты":
                                 checkBox1.Visible = true;
@@ -639,6 +650,7 @@ namespace WindowsFormsApp1
                                 command = "select Код, Номер, Ценa, Дата, КоличествоПроданных from НомерГазеты order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(520, 332);
                                 this.Size = new Size(535, 641);
+                                this.Location = new Point(600, 100);
                                 break;
                             case "Объявление":
                                 checkBox1.Visible = true;
@@ -657,6 +669,7 @@ namespace WindowsFormsApp1
                                 command = "select * from Перечень_фото order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(887, 332);
                                 this.Size = new Size(900, 645);
+                                
                                 break;
                             case "Отзыв":
                                 checkBox1.Visible = true;
@@ -667,6 +680,7 @@ namespace WindowsFormsApp1
                                           "where КодСтатьи=Статья.Код order by Код desc";
                                 dataGridView1.Size = new System.Drawing.Size(1480, 332);
                                 this.Size = new Size(1495, 641);
+                                this.Location = new Point(300, 100);
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);
@@ -697,6 +711,10 @@ namespace WindowsFormsApp1
                         {
                             dataGridView1.Columns["ДатаПоступления"].ReadOnly = true;
                             dataGridView1.Columns["ДатаУвольнения"].ReadOnly = true;
+                        }
+                        if (curTable == "Заказчик")
+                        {
+                            dataGridView1.Columns["СуммаПоРекламе"].ReadOnly = true;
                         }
                         edit(curTable);
                     }
@@ -824,12 +842,23 @@ namespace WindowsFormsApp1
             }
             else
                 MainEdit_Shown(sender, e);
-        }
+        
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Для удаления выделите строку и нажмите del \nДля редактирования нажмите на ячейку и введите новые данные", "Помощь", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void DataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            cur = dataGridView1.CurrentCell.Value.ToString();
+        }
+
+        private void MainEdit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Opacity = 100;
+            Owner.Enabled = true;
         }
     }
 }

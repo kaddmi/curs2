@@ -32,13 +32,13 @@ namespace WindowsFormsApp1
                     switch (curTable)
                     {
                         case "Номер газеты":
-                            command = "select * from НомерГазетыLog";                           
+                            command = "select * from НомерГазетыLog order by idLog desc";                           
                             break;
                         case "Рубрика":
-                             command = "select * from РубрикаLog";
-                             break;
+                             command = "select * from РубрикаLog order by idLog desc";
+                            break;
                         case "Сотрудник":
-                            command = "select * from СотрудникLog";
+                            command = "select * from СотрудникLog order by idLog desc";
                             break;
                     }
                     SqlCommand myCommand = new SqlCommand(command, connection);
@@ -53,6 +53,12 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void Log_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Opacity = 100;
+            Owner.Enabled = true;
         }
     }
 }
