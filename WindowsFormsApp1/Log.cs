@@ -60,5 +60,26 @@ namespace WindowsFormsApp1
             Owner.Opacity = 100;
             Owner.Enabled = true;
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    string sql = "ОтменаПоследнегоВЛоге";
+                    SqlCommand comm = new SqlCommand(sql, connection);
+                    int number = comm.ExecuteNonQuery();
+                    ListBox1_SelectedIndexChanged(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

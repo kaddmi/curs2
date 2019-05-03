@@ -153,10 +153,10 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
+            this.listBox1.ItemHeight = 25;
             this.listBox1.Location = new System.Drawing.Point(8, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(398, 164);
+            this.listBox1.Size = new System.Drawing.Size(398, 154);
             this.listBox1.Sorted = true;
             this.listBox1.TabIndex = 5;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
@@ -179,7 +179,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(416, 30);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(213, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(213, 30);
             this.dateTimePicker1.TabIndex = 7;
             this.dateTimePicker1.Visible = false;
             // 
@@ -189,7 +189,7 @@
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(416, 83);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(213, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(213, 30);
             this.dateTimePicker2.TabIndex = 8;
             this.dateTimePicker2.Visible = false;
             // 
@@ -198,7 +198,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(414, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Дата начала";
             this.label1.Visible = false;
@@ -208,7 +208,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(414, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 10;
             this.label2.Text = "Дата конца";
             this.label2.Visible = false;
@@ -219,7 +219,7 @@
             this.textBox1.Location = new System.Drawing.Point(497, 173);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(132, 26);
+            this.textBox1.Size = new System.Drawing.Size(132, 30);
             this.textBox1.TabIndex = 11;
             this.textBox1.Visible = false;
             // 
@@ -228,7 +228,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(414, 173);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.Size = new System.Drawing.Size(78, 25);
             this.label3.TabIndex = 12;
             this.label3.Text = "Сумма";
             this.label3.Visible = false;
@@ -237,7 +237,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(416, 30);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 26);
+            this.textBox2.Size = new System.Drawing.Size(213, 30);
             this.textBox2.TabIndex = 13;
             this.textBox2.Visible = false;
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
@@ -246,14 +246,14 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(416, 82);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(213, 26);
+            this.textBox3.Size = new System.Drawing.Size(213, 30);
             this.textBox3.TabIndex = 14;
             this.textBox3.Visible = false;
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
             // Func
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(415, 188);
@@ -272,7 +272,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Location = new System.Drawing.Point(600, 100);
+            this.Location = new System.Drawing.Point(450, 100);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Func";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
