@@ -27,6 +27,8 @@ namespace WindowsFormsApp1
             {
                 try
                 {
+                    button2.Visible = false;
+                    button2.Enabled = true;
                     connection.Open();
                     string curTable = listBox1.SelectedItem.ToString();
                     switch (curTable)
@@ -35,7 +37,8 @@ namespace WindowsFormsApp1
                             command = "select * from НомерГазетыLog order by idLog desc";                           
                             break;
                         case "Рубрика":
-                             command = "select * from РубрикаLog order by idLog desc";
+                            button2.Visible = true;
+                            command = "select * from РубрикаLog order by idLog desc";
                             break;
                         case "Сотрудник":
                             command = "select * from СотрудникLog order by idLog desc";
@@ -43,6 +46,8 @@ namespace WindowsFormsApp1
                     }
                     SqlCommand myCommand = new SqlCommand(command, connection);
                     SqlDataReader dr = myCommand.ExecuteReader();
+                    if (!dr.HasRows)
+                        button2.Enabled = false;
                     DataTable dt = new DataTable();
                     dt.Load(dr);
                     dataGridView1.DataSource = dt.DefaultView;
