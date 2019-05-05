@@ -98,8 +98,10 @@ namespace WindowsFormsApp1
         private void Adding(string command)
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Credential = credd;
+            SqlConnection connection = new SqlConnection(connectionString)
+            {
+                Credential = credd
+            };
             using (connection)
             {
                 try

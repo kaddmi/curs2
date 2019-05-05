@@ -15,15 +15,24 @@ namespace WindowsFormsApp1
     {
         public Form2()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void Form2_Shown(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+
             Authorization aut = new Authorization();
-            this.Opacity = 0;
             this.Hide();
+            this.Opacity = 0;
+            this.Enabled = false;
+            timer1.Enabled = false;
             aut.Show();
+
         }
     }
 }

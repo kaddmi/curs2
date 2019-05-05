@@ -15,8 +15,7 @@ namespace WindowsFormsApp1
 {
     public partial class Func : Form
     {
-        string role;
-        public Func(string role)
+        public Func()
         {
             InitializeComponent();
         }
@@ -56,8 +55,10 @@ namespace WindowsFormsApp1
                     List<string> fio = new List<string>();
                     connection.Open();
                     string sql = "КоличествоСтатейСделанныхСотрудником";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.CommandType = CommandType.StoredProcedure;
+                    SqlCommand command = new SqlCommand(sql, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {                       
@@ -102,8 +103,10 @@ namespace WindowsFormsApp1
                     List<int> year = new List<int>();
                     connection.Open();
                     string sql = "ВыручкаПоГодам";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.CommandType = CommandType.StoredProcedure;
+                    SqlCommand command = new SqlCommand(sql, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
@@ -138,7 +141,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void readerRating()
+        private void ReaderRating()
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -150,8 +153,10 @@ namespace WindowsFormsApp1
                     int sumN = 0;
                     connection.Open();
                     string sql = "РейтингПоОтзывам";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.CommandType = CommandType.StoredProcedure;                 
+                    SqlCommand command = new SqlCommand(sql, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
@@ -161,12 +166,16 @@ namespace WindowsFormsApp1
                             sumN += reader.GetInt32(3);
                         }
                     }
-                    List<int> y = new List<int>();
-                    y.Add(sumP);
-                    y.Add(sumN);
-                    List<string> x = new List<string>();
-                    x.Add("положительные");
-                    x.Add("отрицательные");
+                    List<int> y = new List<int>
+                    {
+                        sumP,
+                        sumN
+                    };
+                    List<string> x = new List<string>
+                    {
+                        "положительные",
+                        "отрицательные"
+                    };
                     chart1.Titles[0].Text = "Распределение по отзывам";
                     chart1.ChartAreas[0].AxisX.Title = "Год";
                     chart1.ChartAreas[0].AxisY.Title = "Выручка";
@@ -184,7 +193,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void adRating()
+        private void AdRating()
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -194,8 +203,10 @@ namespace WindowsFormsApp1
                 {
                     connection.Open();
                     string sql = "Объявления";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.CommandType = CommandType.StoredProcedure;
+                    SqlCommand command = new SqlCommand(sql, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     SqlDataReader dr = command.ExecuteReader();
                     DataTable dt = new DataTable();
                     dt.Load(dr);
@@ -208,7 +219,7 @@ namespace WindowsFormsApp1
             }
         }
         
-        private void sumDog()
+        private void SumDog()
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -243,8 +254,10 @@ namespace WindowsFormsApp1
                 {
                     connection.Open();
                     string sql = "Стаж";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.CommandType = CommandType.StoredProcedure;
+                    SqlCommand command = new SqlCommand(sql, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     SqlDataReader dr = command.ExecuteReader();
                     DataTable dt = new DataTable();
                     dt.Load(dr);
@@ -278,8 +291,10 @@ namespace WindowsFormsApp1
                     {
                         connection.Open();
                         string sql = "Статистика";
-                        SqlCommand command = new SqlCommand(sql, connection);
-                        command.CommandType = CommandType.StoredProcedure;
+                        SqlCommand command = new SqlCommand(sql, connection)
+                        {
+                            CommandType = CommandType.StoredProcedure
+                        };
                         SqlParameter yB = new SqlParameter
                         {
                             ParameterName = "@yB",
@@ -306,7 +321,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void dogPrice_KeyPress(object sender, KeyPressEventArgs e)
+        private void DogPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsNumber(e.KeyChar) | (e.KeyChar == Convert.ToChar(".")) | e.KeyChar == '\b')
                 return;
@@ -355,7 +370,7 @@ namespace WindowsFormsApp1
                     chart1.Visible = true;
                     button1.Visible = true;
                     richTextBox1.Visible = true;
-                    readerRating();
+                    ReaderRating();
                     this.Size = new Size(730, 585);
                     break;
                 case "Сумма по договорам за период":
@@ -372,7 +387,7 @@ namespace WindowsFormsApp1
                     dataGridView1.Visible = true;
                     button1.Visible = true;
                     richTextBox1.Visible = true;
-                    adRating();
+                    AdRating();
                     this.Size = new Size(647, 488);
                     break;
                 case "Стаж работников":
@@ -476,7 +491,7 @@ namespace WindowsFormsApp1
             switch (listBox1.SelectedItem.ToString())
             {               
                 case "Сумма по договорам за период":
-                    sumDog();
+                    SumDog();
                     break;              
                 case "Статистика по увольнению и найму сотрудников":
                     Statistics();

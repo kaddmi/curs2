@@ -92,8 +92,10 @@ namespace WindowsFormsApp1
             if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(log, s) == 0)))
             {
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Credential = cred;
+                SqlConnection connection = new SqlConnection(connectionString)
+                {
+                    Credential = cred
+                };
                 using (connection)
                 {
                     try
@@ -153,8 +155,10 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Credential = cred;
+            SqlConnection connection = new SqlConnection(connectionString)
+            {
+                Credential = cred
+            };
             using (connection)
             {
                 try
@@ -352,8 +356,10 @@ namespace WindowsFormsApp1
                 bool show = false;
                 string colName = "";
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper";
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Credential = cred;
+                SqlConnection connection = new SqlConnection(connectionString)
+                {
+                    Credential = cred
+                };
                 using (connection)
                 {
                     try
@@ -784,8 +790,10 @@ namespace WindowsFormsApp1
             {
                 richTextBox1.Visible = true;
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Credential = cred;
+                SqlConnection connection = new SqlConnection(connectionString)
+                {
+                    Credential = cred
+                };
                 using (connection)
                 {
                     try
