@@ -297,7 +297,7 @@
             this.label1.SizeF = new System.Drawing.SizeF(638F, 24.19433F);
             this.label1.StyleName = "Title";
             this.label1.StylePriority.UseFont = false;
-            this.label1.Text = "Годовой отчёт";
+            this.label1.Text = "Отчёт за [?Год] год";
             // 
             // GroupHeader2
             // 

@@ -66,47 +66,47 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.GroupHeader3 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.GroupFooter3 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table2 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.GroupHeader3 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table3 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.table4 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.label2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.panel1 = new DevExpress.XtraReports.UI.XRPanel();
             this.label3 = new DevExpress.XtraReports.UI.XRLabel();
             this.label4 = new DevExpress.XtraReports.UI.XRLabel();
             this.label5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupFooter3 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.panel2 = new DevExpress.XtraReports.UI.XRPanel();
             this.label6 = new DevExpress.XtraReports.UI.XRLabel();
             this.label7 = new DevExpress.XtraReports.UI.XRLabel();
             this.label8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.panel3 = new DevExpress.XtraReports.UI.XRPanel();
             this.label9 = new DevExpress.XtraReports.UI.XRLabel();
             this.label10 = new DevExpress.XtraReports.UI.XRLabel();
@@ -317,83 +317,6 @@
             this.pageInfo2});
             this.BottomMargin.Name = "BottomMargin";
             // 
-            // ReportHeader
-            // 
-            this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.label1});
-            this.ReportHeader.HeightF = 64.16667F;
-            this.ReportHeader.Name = "ReportHeader";
-            // 
-            // GroupHeader1
-            // 
-            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table1});
-            this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("ФИОСотрудника", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader1.HeightF = 27F;
-            this.GroupHeader1.Level = 1;
-            this.GroupHeader1.Name = "GroupHeader1";
-            // 
-            // GroupHeader2
-            // 
-            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table2});
-            this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("НомерВыпуска", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader2.HeightF = 27F;
-            this.GroupHeader2.Level = 2;
-            this.GroupHeader2.Name = "GroupHeader2";
-            // 
-            // GroupHeader3
-            // 
-            this.GroupHeader3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table3});
-            this.GroupHeader3.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader3.HeightF = 28F;
-            this.GroupHeader3.Level = 3;
-            this.GroupHeader3.Name = "GroupHeader3";
-            // 
-            // Detail
-            // 
-            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table4});
-            this.Detail.HeightF = 25F;
-            this.Detail.Name = "Detail";
-            // 
-            // GroupFooter1
-            // 
-            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.label2});
-            this.GroupFooter1.Expanded = false;
-            this.GroupFooter1.GroupUnion = DevExpress.XtraReports.UI.GroupFooterUnion.WithLastDetail;
-            this.GroupFooter1.HeightF = 6F;
-            this.GroupFooter1.Name = "GroupFooter1";
-            // 
-            // GroupFooter2
-            // 
-            this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.panel1});
-            this.GroupFooter2.HeightF = 28.04387F;
-            this.GroupFooter2.Level = 1;
-            this.GroupFooter2.Name = "GroupFooter2";
-            // 
-            // GroupFooter3
-            // 
-            this.GroupFooter3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.panel2});
-            this.GroupFooter3.HeightF = 28.83329F;
-            this.GroupFooter3.Level = 2;
-            this.GroupFooter3.Name = "GroupFooter3";
-            // 
-            // ReportFooter
-            // 
-            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.panel3});
-            this.ReportFooter.HeightF = 39.38446F;
-            this.ReportFooter.Name = "ReportFooter";
-            // 
             // pageInfo1
             // 
             this.pageInfo1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -415,6 +338,13 @@
             this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.pageInfo2.TextFormatString = "Страница {0} из {1}";
             // 
+            // ReportHeader
+            // 
+            this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.label1});
+            this.ReportHeader.HeightF = 64.16667F;
+            this.ReportHeader.Name = "ReportHeader";
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -423,7 +353,18 @@
             this.label1.SizeF = new System.Drawing.SizeF(638F, 58.16668F);
             this.label1.StyleName = "Title";
             this.label1.StylePriority.UseFont = false;
-            this.label1.Text = "Отчёт по статьям за период";
+            this.label1.Text = "Отчёт по статьям за период c [?fromDate!dd.MM.yyyy] по [?toDate!dd.MM.yyyy]";
+            // 
+            // GroupHeader1
+            // 
+            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table1});
+            this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("ФИОСотрудника", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
+            this.GroupHeader1.HeightF = 27F;
+            this.GroupHeader1.Level = 1;
+            this.GroupHeader1.Name = "GroupHeader1";
             // 
             // table1
             // 
@@ -461,6 +402,17 @@
             this.tableCell2.StylePriority.UseBackColor = false;
             this.tableCell2.StylePriority.UseFont = false;
             this.tableCell2.Weight = 0.76238096017104162D;
+            // 
+            // GroupHeader2
+            // 
+            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table2});
+            this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("НомерВыпуска", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
+            this.GroupHeader2.HeightF = 27F;
+            this.GroupHeader2.Level = 2;
+            this.GroupHeader2.Name = "GroupHeader2";
             // 
             // table2
             // 
@@ -501,6 +453,15 @@
             this.tableCell4.StylePriority.UseFont = false;
             this.tableCell4.Weight = 0.76238097912389069D;
             // 
+            // GroupHeader3
+            // 
+            this.GroupHeader3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table3});
+            this.GroupHeader3.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
+            this.GroupHeader3.HeightF = 28F;
+            this.GroupHeader3.Level = 3;
+            this.GroupHeader3.Name = "GroupHeader3";
+            // 
             // table3
             // 
             this.table3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
@@ -528,7 +489,7 @@
             this.tableCell5.StylePriority.UseBorders = false;
             this.tableCell5.StylePriority.UseFont = false;
             this.tableCell5.Text = "Тип";
-            this.tableCell5.Weight = 0.1090432856633113D;
+            this.tableCell5.Weight = 0.14109451406805984D;
             // 
             // tableCell6
             // 
@@ -537,7 +498,7 @@
             this.tableCell6.StyleName = "DetailCaption1";
             this.tableCell6.StylePriority.UseFont = false;
             this.tableCell6.Text = "Заголовок";
-            this.tableCell6.Weight = 0.22856273944561298D;
+            this.tableCell6.Weight = 0.40721672100315887D;
             // 
             // tableCell7
             // 
@@ -546,7 +507,7 @@
             this.tableCell7.StyleName = "DetailCaption1";
             this.tableCell7.StylePriority.UseFont = false;
             this.tableCell7.Text = "Дата Выпуска";
-            this.tableCell7.Weight = 0.2912817617563101D;
+            this.tableCell7.Weight = 0.16711501637972054D;
             // 
             // tableCell8
             // 
@@ -555,7 +516,14 @@
             this.tableCell8.StyleName = "DetailCaption1";
             this.tableCell8.StylePriority.UseFont = false;
             this.tableCell8.Text = "Название Рубрики";
-            this.tableCell8.Weight = 0.37111224834735579D;
+            this.tableCell8.Weight = 0.28457378376165088D;
+            // 
+            // Detail
+            // 
+            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table4});
+            this.Detail.HeightF = 25F;
+            this.Detail.Name = "Detail";
             // 
             // table4
             // 
@@ -586,7 +554,7 @@
             this.tableCell9.StyleName = "DetailData1";
             this.tableCell9.StylePriority.UseBorders = false;
             this.tableCell9.StylePriority.UseFont = false;
-            this.tableCell9.Weight = 0.1090432856633113D;
+            this.tableCell9.Weight = 0.14109453754312079D;
             // 
             // tableCell10
             // 
@@ -596,7 +564,7 @@
             this.tableCell10.Name = "tableCell10";
             this.tableCell10.StyleName = "DetailData1";
             this.tableCell10.StylePriority.UseFont = false;
-            this.tableCell10.Weight = 0.22856273944561298D;
+            this.tableCell10.Weight = 0.40721669752809797D;
             // 
             // tableCell11
             // 
@@ -606,7 +574,8 @@
             this.tableCell11.Name = "tableCell11";
             this.tableCell11.StyleName = "DetailData1";
             this.tableCell11.StylePriority.UseFont = false;
-            this.tableCell11.Weight = 0.2912817617563101D;
+            this.tableCell11.TextFormatString = "{0:dd.MM.yyyy}";
+            this.tableCell11.Weight = 0.16711506332984238D;
             // 
             // tableCell12
             // 
@@ -616,7 +585,16 @@
             this.tableCell12.Name = "tableCell12";
             this.tableCell12.StyleName = "DetailData1";
             this.tableCell12.StylePriority.UseFont = false;
-            this.tableCell12.Weight = 0.37111224834735579D;
+            this.tableCell12.Weight = 0.28457373681152903D;
+            // 
+            // GroupFooter1
+            // 
+            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.label2});
+            this.GroupFooter1.Expanded = false;
+            this.GroupFooter1.GroupUnion = DevExpress.XtraReports.UI.GroupFooterUnion.WithLastDetail;
+            this.GroupFooter1.HeightF = 6F;
+            this.GroupFooter1.Name = "GroupFooter1";
             // 
             // label2
             // 
@@ -626,6 +604,14 @@
             this.label2.SizeF = new System.Drawing.SizeF(650F, 2.08F);
             this.label2.StyleName = "GroupFooterBackground3";
             this.label2.StylePriority.UseBorders = false;
+            // 
+            // GroupFooter2
+            // 
+            this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.panel1});
+            this.GroupFooter2.HeightF = 28.04387F;
+            this.GroupFooter2.Level = 1;
+            this.GroupFooter2.Name = "GroupFooter2";
             // 
             // panel1
             // 
@@ -654,13 +640,15 @@
             this.label4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumCount([ДатаВыпуска])")});
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(356.4023F, 3.400008F);
+            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(499.4033F, 3.400008F);
             this.label4.Name = "label4";
             this.label4.SizeF = new System.Drawing.SizeF(140.5967F, 14.88444F);
             this.label4.StyleName = "TotalData1";
             this.label4.StylePriority.UseFont = false;
+            this.label4.StylePriority.UseTextAlignment = false;
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.label4.Summary = xrSummary1;
+            this.label4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.label4.WordWrap = false;
             // 
             // label5
@@ -674,6 +662,14 @@
             this.label5.StylePriority.UseTextAlignment = false;
             this.label5.Text = " [ФИОСотрудника]";
             this.label5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // GroupFooter3
+            // 
+            this.GroupFooter3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.panel2});
+            this.GroupFooter3.HeightF = 28.83329F;
+            this.GroupFooter3.Level = 2;
+            this.GroupFooter3.Name = "GroupFooter3";
             // 
             // panel2
             // 
@@ -702,13 +698,15 @@
             this.label7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumCount([ДатаВыпуска])")});
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.LocationFloat = new DevExpress.Utils.PointFloat(356.4023F, 2.117793F);
+            this.label7.LocationFloat = new DevExpress.Utils.PointFloat(499.4033F, 3.948848F);
             this.label7.Name = "label7";
             this.label7.SizeF = new System.Drawing.SizeF(140.5967F, 14.88444F);
             this.label7.StyleName = "TotalData1";
             this.label7.StylePriority.UseFont = false;
+            this.label7.StylePriority.UseTextAlignment = false;
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.label7.Summary = xrSummary2;
+            this.label7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.label7.WordWrap = false;
             // 
             // label8
@@ -722,6 +720,13 @@
             this.label8.StylePriority.UseTextAlignment = false;
             this.label8.Text = "[НомерВыпуска]";
             this.label8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // ReportFooter
+            // 
+            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.panel3});
+            this.ReportFooter.HeightF = 39.38446F;
+            this.ReportFooter.Name = "ReportFooter";
             // 
             // panel3
             // 
@@ -737,13 +742,14 @@
             // 
             this.label9.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 11.49998F);
+            this.label9.LocationFloat = new DevExpress.Utils.PointFloat(5.999979F, 9.999974F);
             this.label9.Name = "label9";
-            this.label9.SizeF = new System.Drawing.SizeF(322.7354F, 14.88444F);
+            this.label9.SizeF = new System.Drawing.SizeF(473.7771F, 14.88444F);
             this.label9.StyleName = "GrandTotalCaption1";
             this.label9.StylePriority.UseFont = false;
             this.label9.StylePriority.UseForeColor = false;
-            this.label9.Text = "Общее количество статей за период";
+            this.label9.Text = "Общее количество статей за период c [?fromDate!dd.MM.yyyy] по [?toDate!dd.MM.yyyy" +
+    "]";
             // 
             // label10
             // 
@@ -751,13 +757,15 @@
             this.label10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumCount([ДатаВыпуска])")});
             this.label10.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.LocationFloat = new DevExpress.Utils.PointFloat(356.4023F, 9.999974F);
+            this.label10.LocationFloat = new DevExpress.Utils.PointFloat(503.4033F, 9.999974F);
             this.label10.Name = "label10";
             this.label10.SizeF = new System.Drawing.SizeF(140.5967F, 14.88444F);
             this.label10.StyleName = "GrandTotalData1";
             this.label10.StylePriority.UseFont = false;
+            this.label10.StylePriority.UseTextAlignment = false;
             xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.label10.Summary = xrSummary3;
+            this.label10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.label10.WordWrap = false;
             // 
             // XtraReport2
