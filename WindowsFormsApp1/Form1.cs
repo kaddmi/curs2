@@ -300,24 +300,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void ОтчётыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-           
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            /*Owner.Close();
-            Authorization aut = new Authorization();
-            aut.Show();*/
-        }
-
         private void ОтчётПоРекламеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Reports rep = new Reports("Отчёт по рекламе");

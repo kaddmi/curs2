@@ -260,7 +260,6 @@
             this.отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
             this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(79, 25);
             this.отчётыToolStripMenuItem.Text = "Отчёты";
-            this.отчётыToolStripMenuItem.Click += new System.EventHandler(this.ОтчётыToolStripMenuItem_Click);
             // 
             // отчётПоРекламеToolStripMenuItem
             // 
@@ -569,8 +568,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Приложение";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

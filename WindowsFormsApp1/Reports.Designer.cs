@@ -111,7 +111,6 @@
             // documentViewer1
             // 
             this.documentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.documentViewer1.DocumentSource = typeof(WindowsFormsApp1.XtraReport3);
             this.documentViewer1.IsMetric = true;
             this.documentViewer1.Location = new System.Drawing.Point(0, 53);
             this.documentViewer1.Name = "documentViewer1";
@@ -920,10 +919,10 @@
             this.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Location = new System.Drawing.Point(500, 0);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximizeBox = false;
             this.Name = "Reports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Отчёты";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Reports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();

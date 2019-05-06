@@ -57,22 +57,22 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table2 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.table3 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.panel2 = new DevExpress.XtraReports.UI.XRPanel();
             this.label6 = new DevExpress.XtraReports.UI.XRLabel();
             this.label7 = new DevExpress.XtraReports.UI.XRLabel();
@@ -80,9 +80,8 @@
             this.label3 = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.groupFooterBand1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.groupFooterBand1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.Год = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).BeginInit();
@@ -262,42 +261,6 @@
             this.pageInfo2});
             this.BottomMargin.Name = "BottomMargin";
             // 
-            // ReportHeader
-            // 
-            this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.label1});
-            this.ReportHeader.HeightF = 44.37501F;
-            this.ReportHeader.Name = "ReportHeader";
-            // 
-            // GroupHeader2
-            // 
-            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table2});
-            this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader2.HeightF = 28F;
-            this.GroupHeader2.Level = 1;
-            this.GroupHeader2.Name = "GroupHeader2";
-            // 
-            // Detail
-            // 
-            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table3});
-            this.Detail.HeightF = 25F;
-            this.Detail.Name = "Detail";
-            // 
-            // GroupFooter2
-            // 
-            this.GroupFooter2.HeightF = 3.252156F;
-            this.GroupFooter2.Level = 1;
-            this.GroupFooter2.Name = "GroupFooter2";
-            // 
-            // ReportFooter
-            // 
-            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.panel2});
-            this.ReportFooter.HeightF = 49.38444F;
-            this.ReportFooter.Name = "ReportFooter";
-            // 
             // pageInfo1
             // 
             this.pageInfo1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -319,6 +282,13 @@
             this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.pageInfo2.TextFormatString = "Страница {0} из {1}";
             // 
+            // ReportHeader
+            // 
+            this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.label1});
+            this.ReportHeader.HeightF = 44.37501F;
+            this.ReportHeader.Name = "ReportHeader";
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -328,6 +298,15 @@
             this.label1.StyleName = "Title";
             this.label1.StylePriority.UseFont = false;
             this.label1.Text = "Годовой отчёт";
+            // 
+            // GroupHeader2
+            // 
+            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table2});
+            this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
+            this.GroupHeader2.HeightF = 28F;
+            this.GroupHeader2.Level = 1;
+            this.GroupHeader2.Name = "GroupHeader2";
             // 
             // table2
             // 
@@ -368,6 +347,13 @@
             this.tableCell4.Text = "Выручка";
             this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.tableCell4.Weight = 0.40425199068509615D;
+            // 
+            // Detail
+            // 
+            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table3});
+            this.Detail.HeightF = 25F;
+            this.Detail.Name = "Detail";
             // 
             // table3
             // 
@@ -413,6 +399,19 @@
             this.tableCell6.TextFormatString = "{0:C2}";
             this.tableCell6.Weight = 0.40425199068509615D;
             // 
+            // GroupFooter2
+            // 
+            this.GroupFooter2.HeightF = 3.252156F;
+            this.GroupFooter2.Level = 1;
+            this.GroupFooter2.Name = "GroupFooter2";
+            // 
+            // ReportFooter
+            // 
+            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.panel2});
+            this.ReportFooter.HeightF = 49.38444F;
+            this.ReportFooter.Name = "ReportFooter";
+            // 
             // panel2
             // 
             this.panel2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -427,13 +426,16 @@
             // 
             this.label6.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 11.49998F);
+            this.label6.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 9.999974F);
             this.label6.Name = "label6";
-            this.label6.SizeF = new System.Drawing.SizeF(172.004F, 14.88444F);
+            this.label6.SizeF = new System.Drawing.SizeF(191.7957F, 21.50008F);
             this.label6.StyleName = "GrandTotalCaption1";
             this.label6.StylePriority.UseFont = false;
             this.label6.StylePriority.UseForeColor = false;
-            this.label6.Text = "Выручка за год";
+            this.label6.StylePriority.UseTextAlignment = false;
+            this.label6.Text = "Выручка за [?Год] год";
+            this.label6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.label6.TextFormatString = "{0:yyyy}";
             // 
             // label7
             // 
@@ -442,9 +444,9 @@
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Выручка])")});
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.LocationFloat = new DevExpress.Utils.PointFloat(420.6985F, 11.5F);
+            this.label7.LocationFloat = new DevExpress.Utils.PointFloat(414.6985F, 9.999974F);
             this.label7.Name = "label7";
-            this.label7.SizeF = new System.Drawing.SizeF(229.3015F, 14.88444F);
+            this.label7.SizeF = new System.Drawing.SizeF(229.3015F, 21.50008F);
             this.label7.StyleName = "GrandTotalData1";
             this.label7.StylePriority.UseFont = false;
             this.label7.StylePriority.UseForeColor = false;
@@ -493,15 +495,33 @@
             // 
             this.groupHeaderBand1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(94)))), ((int)(((byte)(178)))));
             this.groupHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel2,
             this.xrLabel1});
             this.groupHeaderBand1.ForeColor = System.Drawing.Color.White;
             this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("calculatedField1", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.groupHeaderBand1.HeightF = 24.91666F;
+            this.groupHeaderBand1.HeightF = 29.62497F;
             this.groupHeaderBand1.Name = "groupHeaderBand1";
             this.groupHeaderBand1.StylePriority.UseBackColor = false;
             this.groupHeaderBand1.StylePriority.UseForeColor = false;
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.BackColor = System.Drawing.Color.Navy;
+            this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Дата]")});
+            this.xrLabel1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(650F, 29.62497F);
+            this.xrLabel1.StylePriority.UseBackColor = false;
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.StylePriority.UsePadding = false;
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
+            this.xrLabel1.Text = "xrLabel1";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel1.TextFormatString = "{0:MMMM}";
             // 
             // groupFooterBand1
             // 
@@ -510,34 +530,6 @@
             this.label4});
             this.groupFooterBand1.HeightF = 29.58336F;
             this.groupFooterBand1.Name = "groupFooterBand1";
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.BackColor = System.Drawing.Color.Navy;
-            this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[calculatedField1]")});
-            this.xrLabel1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(237.3652F, 0F);
-            this.xrLabel1.Multiline = true;
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(412.6348F, 24.91665F);
-            this.xrLabel1.StylePriority.UseBackColor = false;
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "xrLabel1";
-            // 
-            // xrLabel2
-            // 
-            this.xrLabel2.BackColor = System.Drawing.Color.Navy;
-            this.xrLabel2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLabel2.Multiline = true;
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(237.3652F, 24.91665F);
-            this.xrLabel2.StylePriority.UseBackColor = false;
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.Text = "Номер месяца";
             // 
             // Год
             // 
@@ -632,7 +624,6 @@
         private DevExpress.XtraReports.UI.XRLabel label4;
         private DevExpress.XtraReports.UI.CalculatedField calculatedField1;
         private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.GroupFooterBand groupFooterBand1;
         private DevExpress.XtraReports.Parameters.Parameter Год;

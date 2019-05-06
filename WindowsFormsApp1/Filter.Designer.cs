@@ -64,6 +64,7 @@
             this.comboBox1.Size = new System.Drawing.Size(330, 28);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.Visible = false;
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.ComboBox1_SelectedValueChanged);
             // 
             // comboBox2
             // 

@@ -506,3 +506,4 @@ D:\curs2_0\WindowsFormsApp1\bin\Debug\ru\DevExpress.Persistent.Base.v18.2.resour
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.XtraReport1.resources
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.XtraReport2.resources
 D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.XtraReport3.resources
+D:\curs2_0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache

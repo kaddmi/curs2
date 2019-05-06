@@ -61,34 +61,34 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table2 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.table3 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.label2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.panel1 = new DevExpress.XtraReports.UI.XRPanel();
             this.label3 = new DevExpress.XtraReports.UI.XRLabel();
             this.label4 = new DevExpress.XtraReports.UI.XRLabel();
             this.label5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.panel2 = new DevExpress.XtraReports.UI.XRPanel();
             this.label6 = new DevExpress.XtraReports.UI.XRLabel();
             this.label7 = new DevExpress.XtraReports.UI.XRLabel();
@@ -111,7 +111,7 @@
             columnExpression3.ColumnName = "ТекстРекламы";
             columnExpression3.Table = table4;
             column3.Expression = columnExpression3;
-            columnExpression4.ColumnName = "Стоимость";
+            columnExpression4.ColumnName = "ЦенаРазмещенияВВыпуске";
             columnExpression4.Table = table4;
             column4.Expression = columnExpression4;
             columnExpression5.ColumnName = "НомерВыпуска";
@@ -279,43 +279,12 @@
             this.pageInfo2});
             this.BottomMargin.Name = "BottomMargin";
             // 
-            // pageInfo1
-            // 
-            this.pageInfo1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
-            this.pageInfo1.Name = "pageInfo1";
-            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.pageInfo1.SizeF = new System.Drawing.SizeF(313F, 23F);
-            this.pageInfo1.StyleName = "PageInfo";
-            this.pageInfo1.StylePriority.UseFont = false;
-            // 
-            // pageInfo2
-            // 
-            this.pageInfo2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(331F, 6F);
-            this.pageInfo2.Name = "pageInfo2";
-            this.pageInfo2.SizeF = new System.Drawing.SizeF(313F, 23F);
-            this.pageInfo2.StyleName = "PageInfo";
-            this.pageInfo2.StylePriority.UseFont = false;
-            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.pageInfo2.TextFormatString = "Страница {0} из {1}";
-            // 
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.label1});
-            this.ReportHeader.HeightF = 49.58334F;
+            this.ReportHeader.HeightF = 39.16667F;
             this.ReportHeader.Name = "ReportHeader";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 5.999994F);
-            this.label1.Name = "label1";
-            this.label1.SizeF = new System.Drawing.SizeF(638F, 43.58334F);
-            this.label1.StyleName = "Title";
-            this.label1.StylePriority.UseFont = false;
-            this.label1.Text = "Отчёт по рекламе";
             // 
             // GroupHeader1
             // 
@@ -327,6 +296,76 @@
             this.GroupHeader1.HeightF = 27F;
             this.GroupHeader1.Level = 1;
             this.GroupHeader1.Name = "GroupHeader1";
+            // 
+            // GroupHeader2
+            // 
+            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table2});
+            this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
+            this.GroupHeader2.HeightF = 28F;
+            this.GroupHeader2.Level = 2;
+            this.GroupHeader2.Name = "GroupHeader2";
+            // 
+            // Detail
+            // 
+            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.table3});
+            this.Detail.HeightF = 25F;
+            this.Detail.Name = "Detail";
+            // 
+            // GroupFooter1
+            // 
+            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.label2});
+            this.GroupFooter1.GroupUnion = DevExpress.XtraReports.UI.GroupFooterUnion.WithLastDetail;
+            this.GroupFooter1.HeightF = 6F;
+            this.GroupFooter1.Name = "GroupFooter1";
+            // 
+            // GroupFooter2
+            // 
+            this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.panel1});
+            this.GroupFooter2.HeightF = 30F;
+            this.GroupFooter2.Level = 1;
+            this.GroupFooter2.Name = "GroupFooter2";
+            // 
+            // ReportFooter
+            // 
+            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.panel2});
+            this.ReportFooter.HeightF = 40.00727F;
+            this.ReportFooter.Name = "ReportFooter";
+            // 
+            // pageInfo1
+            // 
+            this.pageInfo1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 10F);
+            this.pageInfo1.Name = "pageInfo1";
+            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.pageInfo1.SizeF = new System.Drawing.SizeF(313F, 23F);
+            this.pageInfo1.StyleName = "PageInfo";
+            this.pageInfo1.StylePriority.UseFont = false;
+            // 
+            // pageInfo2
+            // 
+            this.pageInfo2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(331F, 10F);
+            this.pageInfo2.Name = "pageInfo2";
+            this.pageInfo2.SizeF = new System.Drawing.SizeF(313F, 23F);
+            this.pageInfo2.StyleName = "PageInfo";
+            this.pageInfo2.StylePriority.UseFont = false;
+            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.pageInfo2.TextFormatString = "Страница {0} из {1}";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.label1.Name = "label1";
+            this.label1.SizeF = new System.Drawing.SizeF(638F, 24.19433F);
+            this.label1.StyleName = "Title";
+            this.label1.StylePriority.UseFont = false;
+            this.label1.Text = "Отчёт по рекламе";
             // 
             // table1
             // 
@@ -353,22 +392,15 @@
             this.tableCell2.StylePriority.UseFont = false;
             this.tableCell2.Weight = 0.77681668795072112D;
             // 
-            // GroupHeader2
-            // 
-            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table2});
-            this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader2.HeightF = 28F;
-            this.GroupHeader2.Level = 2;
-            this.GroupHeader2.Name = "GroupHeader2";
-            // 
             // table2
             // 
+            this.table2.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.table2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.table2.Name = "table2";
             this.table2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow2});
             this.table2.SizeF = new System.Drawing.SizeF(650F, 28F);
+            this.table2.StylePriority.UseFont = false;
             // 
             // tableRow2
             // 
@@ -388,7 +420,7 @@
             this.tableCell3.StylePriority.UseBorders = false;
             this.tableCell3.StylePriority.UseFont = false;
             this.tableCell3.Text = "Текст Рекламы";
-            this.tableCell3.Weight = 0.35625016432542067D;
+            this.tableCell3.Weight = 0.52779917715098934D;
             // 
             // tableCell4
             // 
@@ -397,9 +429,9 @@
             this.tableCell4.StyleName = "DetailCaption1";
             this.tableCell4.StylePriority.UseFont = false;
             this.tableCell4.StylePriority.UseTextAlignment = false;
-            this.tableCell4.Text = "Стоимость";
+            this.tableCell4.Text = "Цена Размещения В Выпуске";
             this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell4.Weight = 0.27253408578725963D;
+            this.tableCell4.Weight = 0.29718687407363692D;
             // 
             // tableCell5
             // 
@@ -410,14 +442,7 @@
             this.tableCell5.StylePriority.UseTextAlignment = false;
             this.tableCell5.Text = "Номер Выпуска";
             this.tableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell5.Weight = 0.37121572641225964D;
-            // 
-            // Detail
-            // 
-            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.table3});
-            this.Detail.HeightF = 25F;
-            this.Detail.Name = "Detail";
+            this.tableCell5.Weight = 0.17501390182525362D;
             // 
             // table3
             // 
@@ -447,20 +472,20 @@
             this.tableCell6.StyleName = "DetailData1";
             this.tableCell6.StylePriority.UseBorders = false;
             this.tableCell6.StylePriority.UseFont = false;
-            this.tableCell6.Weight = 0.35625016432542067D;
+            this.tableCell6.Weight = 0.52779918339595788D;
             // 
             // tableCell7
             // 
             this.tableCell7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Стоимость]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ЦенаРазмещенияВВыпуске]")});
             this.tableCell7.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tableCell7.Name = "tableCell7";
             this.tableCell7.StyleName = "DetailData1";
             this.tableCell7.StylePriority.UseFont = false;
             this.tableCell7.StylePriority.UseTextAlignment = false;
-            this.tableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell7.TextFormatString = "{0:C2}";
-            this.tableCell7.Weight = 0.27253408578725963D;
+            this.tableCell7.Weight = 0.2971868935985667D;
             // 
             // tableCell8
             // 
@@ -472,15 +497,7 @@
             this.tableCell8.StylePriority.UseFont = false;
             this.tableCell8.StylePriority.UseTextAlignment = false;
             this.tableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell8.Weight = 0.37121572641225964D;
-            // 
-            // GroupFooter1
-            // 
-            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.label2});
-            this.GroupFooter1.GroupUnion = DevExpress.XtraReports.UI.GroupFooterUnion.WithLastDetail;
-            this.GroupFooter1.HeightF = 6F;
-            this.GroupFooter1.Name = "GroupFooter1";
+            this.tableCell8.Weight = 0.17501389953041524D;
             // 
             // label2
             // 
@@ -491,14 +508,6 @@
             this.label2.StyleName = "GroupFooterBackground3";
             this.label2.StylePriority.UseBorders = false;
             // 
-            // GroupFooter2
-            // 
-            this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.panel1});
-            this.GroupFooter2.HeightF = 28.75214F;
-            this.GroupFooter2.Level = 1;
-            this.GroupFooter2.Name = "GroupFooter2";
-            // 
             // panel1
             // 
             this.panel1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -507,55 +516,50 @@
             this.label5});
             this.panel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.panel1.Name = "panel1";
-            this.panel1.SizeF = new System.Drawing.SizeF(650F, 24.91887F);
+            this.panel1.SizeF = new System.Drawing.SizeF(650F, 30F);
             this.panel1.StyleName = "TotalBackground1";
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.LocationFloat = new DevExpress.Utils.PointFloat(101.3543F, 3.400008F);
+            this.label3.LocationFloat = new DevExpress.Utils.PointFloat(81.12504F, 5.115561F);
             this.label3.Name = "label3";
-            this.label3.SizeF = new System.Drawing.SizeF(143.879F, 14.88444F);
+            this.label3.SizeF = new System.Drawing.SizeF(149.7361F, 14.88444F);
             this.label3.StyleName = "TotalCaption1";
             this.label3.StylePriority.UseFont = false;
+            this.label3.StylePriority.UseTextAlignment = false;
             this.label3.Text = "Сумма по заказчику";
+            this.label3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // label4
             // 
             this.label4.CanGrow = false;
             this.label4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Стоимость])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([ЦенаРазмещенияВВыпуске])")});
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(265.0249F, 3.4F);
+            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(343.0695F, 5.115559F);
             this.label4.Name = "label4";
-            this.label4.SizeF = new System.Drawing.SizeF(143.6848F, 14.88444F);
+            this.label4.SizeF = new System.Drawing.SizeF(193.1714F, 14.88444F);
             this.label4.StyleName = "TotalData1";
             this.label4.StylePriority.UseFont = false;
             this.label4.StylePriority.UseTextAlignment = false;
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.label4.Summary = xrSummary1;
-            this.label4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.label4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.label4.TextFormatString = "{0:C2}";
             this.label4.WordWrap = false;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.LocationFloat = new DevExpress.Utils.PointFloat(498.8751F, 3.86769F);
+            this.label5.LocationFloat = new DevExpress.Utils.PointFloat(230.8612F, 5.115559F);
             this.label5.Name = "label5";
-            this.label5.SizeF = new System.Drawing.SizeF(141.1249F, 14.88444F);
+            this.label5.SizeF = new System.Drawing.SizeF(112.2083F, 14.88444F);
             this.label5.StyleName = "TotalCaption1";
             this.label5.StylePriority.UseFont = false;
             this.label5.StylePriority.UseTextAlignment = false;
             this.label5.Text = "[НазваниеЗаказчика]";
-            this.label5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // ReportFooter
-            // 
-            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.panel2});
-            this.ReportFooter.HeightF = 49.38444F;
-            this.ReportFooter.Name = "ReportFooter";
+            this.label5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -569,29 +573,35 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.LocationFloat = new DevExpress.Utils.PointFloat(101.3543F, 9.999974F);
+            this.label6.BorderColor = System.Drawing.Color.Black;
+            this.label6.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.LocationFloat = new DevExpress.Utils.PointFloat(172.2361F, 9.999974F);
             this.label6.Name = "label6";
-            this.label6.SizeF = new System.Drawing.SizeF(143.879F, 14.88444F);
+            this.label6.SizeF = new System.Drawing.SizeF(162.3651F, 14.88444F);
             this.label6.StyleName = "GrandTotalCaption1";
+            this.label6.StylePriority.UseBorderColor = false;
             this.label6.StylePriority.UseFont = false;
-            this.label6.Text = "Общая сумма";
+            this.label6.StylePriority.UseForeColor = false;
+            this.label6.Text = "Общая сумма ";
             // 
             // label7
             // 
             this.label7.CanGrow = false;
             this.label7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Стоимость])")});
-            this.label7.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.LocationFloat = new DevExpress.Utils.PointFloat(265.0249F, 11.5F);
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([ЦенаРазмещенияВВыпуске])")});
+            this.label7.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.LocationFloat = new DevExpress.Utils.PointFloat(343.0695F, 9.999974F);
             this.label7.Name = "label7";
-            this.label7.SizeF = new System.Drawing.SizeF(143.6848F, 14.88444F);
+            this.label7.SizeF = new System.Drawing.SizeF(193.1715F, 14.88444F);
             this.label7.StyleName = "GrandTotalData1";
             this.label7.StylePriority.UseFont = false;
+            this.label7.StylePriority.UseForeColor = false;
             this.label7.StylePriority.UseTextAlignment = false;
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.label7.Summary = xrSummary2;
-            this.label7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.label7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.label7.TextFormatString = "{0:C2}";
             this.label7.WordWrap = false;
             // 
@@ -611,7 +621,7 @@
             this.sqlDataSource1});
             this.DataMember = "РекламаДоговорЗаказчикНомерГазеты";
             this.DataSource = this.sqlDataSource1;
-            this.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.GroupCaption1,
