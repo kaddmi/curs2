@@ -33,8 +33,10 @@ namespace WindowsFormsApp1
         private void Add()
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Credential = cred;
+            SqlConnection connection = new SqlConnection(connectionString)
+            {
+                Credential = cred
+            };
             using (connection)
             {
                 try
@@ -211,8 +213,10 @@ namespace WindowsFormsApp1
         {
             k = 0;
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Credential = cred;
+            SqlConnection connection = new SqlConnection(connectionString)
+            {
+                Credential = cred
+            };
             using (connection)
             {
                 try
@@ -588,8 +592,10 @@ namespace WindowsFormsApp1
                 else
                 {
                     string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-                    SqlConnection connection = new SqlConnection(connectionString);
-                    connection.Credential = cred;
+                    SqlConnection connection = new SqlConnection(connectionString)
+                    {
+                        Credential = cred
+                    };
                     using (connection)
                     {
                         try
@@ -603,10 +609,7 @@ namespace WindowsFormsApp1
                             number = myCommand2.ExecuteNonQuery();
                             string command3 = "CREATE USER " + admLog.Text + " FOR LOGIN " + admLog.Text;
                             SqlCommand myCommand3 = new SqlCommand(command3, connection);
-                            number = myCommand3.ExecuteNonQuery();
-                            string command4 = "insert into Пользователи values ('" + admLog.Text + "', '" + admp1.Text + "', '" + admD.Text + "')";
-                            SqlCommand myCommand4 = new SqlCommand(command4, connection);
-                            number = myCommand4.ExecuteNonQuery();
+                            number = myCommand3.ExecuteNonQuery();                          
                             DialogResult = DialogResult.OK;
 
                         }

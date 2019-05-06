@@ -92,8 +92,10 @@ namespace WindowsFormsApp1
             if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(log, s) == 0)))
             {
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Credential = cred;
+                SqlConnection connection = new SqlConnection(connectionString)
+                {
+                    Credential = cred
+                };
                 using (connection)
                 {
                     try
@@ -153,8 +155,10 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Credential = cred;
+            SqlConnection connection = new SqlConnection(connectionString)
+            {
+                Credential = cred
+            };
             using (connection)
             {
                 try
@@ -259,7 +263,7 @@ namespace WindowsFormsApp1
                         {
                             filterDialog.listBox1.Items.Add("Жалоба или похвальный отзыв");
                             if (!chit)
-                                filterDialog.listBox1.Items.Add("Заголовок статьи");
+                                filterDialog.listBox1.Items.Add("Номер выпуска и заголовок статьи");
                             if (chit)
                                 filterDialog.listBox1.Items.Add("Номер выпуска газеты");
                         }
@@ -312,10 +316,6 @@ namespace WindowsFormsApp1
                         {
                             MessageBox.Show(ex.Message);
                         }
-                        finally
-                        {
-                            //filterDialog.Dispose();
-                        }
                     }
                 }
                 else
@@ -323,7 +323,6 @@ namespace WindowsFormsApp1
             }
             else
             {
-                // listBox1_SelectedIndexChanged(sender, e);
                 checkBox1.Checked = false;
                 MainEdit_Shown(sender, e);
             }
@@ -352,8 +351,10 @@ namespace WindowsFormsApp1
                 bool show = false;
                 string colName = "";
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper";
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Credential = cred;
+                SqlConnection connection = new SqlConnection(connectionString)
+                {
+                    Credential = cred
+                };
                 using (connection)
                 {
                     try
@@ -367,7 +368,7 @@ namespace WindowsFormsApp1
                                     if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
                                         switch (e.ColumnIndex)
                                         {
-                                            case 3:
+                                            case 4:
                                                 {
                                                     if (!zur)
                                                     {
@@ -379,7 +380,7 @@ namespace WindowsFormsApp1
                                                     }
                                                 }
                                                 break;
-                                            case 4:
+                                            case 5:
                                                 {
                                                     show = true;
                                                     modalDialog.label1.Text = "Номер выпуска";
@@ -388,7 +389,7 @@ namespace WindowsFormsApp1
                                                     combBox(modalDialog.comboBox1, "НомерГазеты", "Номер", com1, connection, "1");
                                                 }
                                                 break;
-                                            case 5:
+                                            case 2:
                                                 {
                                                     show = true;
                                                     modalDialog.label1.Text = "Название рубрики";
@@ -591,8 +592,8 @@ namespace WindowsFormsApp1
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 command = "select * from Перечень_статей order by Код desc";
-                                dataGridView1.Size = new System.Drawing.Size(1070, 332);
-                                this.Size = new Size(1085, 641);
+                                dataGridView1.Size = new System.Drawing.Size(1120, 332);
+                                this.Size = new Size(1135, 641);
                                 this.Location = new Point(300, 100);
                                 break;
                             case "Заказчик":
@@ -609,11 +610,11 @@ namespace WindowsFormsApp1
                                 checkBox1.Visible = true;
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
-                                command = "select Договор.Код as Код, Название as НазваниеЗаказчика, ДатаДоговора, ДатаНачала, ДатаКонца, Стоимость, ТекстРекламы " +
+                                command = "select Договор.Код as Код, Название as НазваниеЗаказчика, ДатаДоговора, ДатаНачала, ДатаКонца, ЦенаРазмещения, ТекстРекламы " +
                                           "from Заказчик, Договор " +
                                           "where КодЗаказчика=Заказчик.Код order by Код desc";
-                                dataGridView1.Size = new System.Drawing.Size(1270, 332);
-                                this.Size = new Size(1285, 641);
+                                dataGridView1.Size = new System.Drawing.Size(1300, 332);
+                                this.Size = new Size(1315, 641);
                                 this.Location = new Point(150, 100);
                                 break;
                             case "Реклама":
@@ -784,8 +785,10 @@ namespace WindowsFormsApp1
             {
                 richTextBox1.Visible = true;
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Credential = cred;
+                SqlConnection connection = new SqlConnection(connectionString)
+                {
+                    Credential = cred
+                };
                 using (connection)
                 {
                     try

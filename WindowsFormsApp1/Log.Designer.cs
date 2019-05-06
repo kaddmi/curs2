@@ -43,10 +43,10 @@
             "Номер газеты",
             "Рубрика",
             "Сотрудник"});
-            this.listBox1.Location = new System.Drawing.Point(11, 12);
+            this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(163, 64);
+            this.listBox1.Size = new System.Drawing.Size(181, 64);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
@@ -59,19 +59,19 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(183, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(203, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(755, 301);
+            this.dataGridView1.Size = new System.Drawing.Size(839, 301);
             this.dataGridView1.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(24, 279);
+            this.button1.Location = new System.Drawing.Point(27, 279);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 34);
+            this.button1.Size = new System.Drawing.Size(140, 34);
             this.button1.TabIndex = 2;
             this.button1.Text = "Закрыть";
             this.button1.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(24, 96);
+            this.button2.Location = new System.Drawing.Point(27, 93);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 70);
+            this.button2.Size = new System.Drawing.Size(149, 70);
             this.button2.TabIndex = 3;
             this.button2.Text = "Отменить последнее изменение";
             this.button2.UseVisualStyleBackColor = true;
@@ -90,15 +90,15 @@
             // 
             // Log
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(950, 325);
+            this.ClientSize = new System.Drawing.Size(1056, 325);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Log";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

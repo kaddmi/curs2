@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public string list2 = "";
         public bool c;
         string login;
+        bool cb = false;
         bool f = false;
         bool z = false;
         string index;
@@ -197,6 +198,8 @@ namespace WindowsFormsApp1
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cb = false;
+            command = new SqlCommand();
             comboBox2.Visible = false;
             comboBox1.Visible = false;
             label2.Visible = false;
@@ -272,6 +275,7 @@ namespace WindowsFormsApp1
                             case "Номер выпуска и название рубрики":
                                 {
                                     comboBox1.DataSource = null;
+                                    comboBox2.DataSource = null;
                                     comboBox1.Visible = true;
                                     comboBox2.Visible = true;
                                     label1.Text = "Номер выпуска газеты";
@@ -348,12 +352,16 @@ namespace WindowsFormsApp1
                                         command.Parameters.Add(column);
                                 }
                                 break;
-                            case "Заголовок статьи":
+                            case "Номер выпуска и заголовок статьи":
                                 {
                                     comboBox1.DataSource = null;
+                                    comboBox2.DataSource = null;
                                     comboBox1.Visible = true;
-                                    com1 = "select Код, Заголовок from Статья";
-                                    combBox(comboBox1, "Статья", "Заголовок", com1, connection);
+                                    comboBox2.Visible = true;
+                                    cb = true;
+                                    label1.Text = "Номер выпуска";
+                                    com1 = "select Код, Номер from НомерГазеты";                                
+                                    combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
                                     SqlParameter column = new SqlParameter
                                     {
                                         ParameterName = "@column",
@@ -361,6 +369,10 @@ namespace WindowsFormsApp1
                                     };
                                     if (!command.Parameters.Contains("@column"))
                                         command.Parameters.Add(column);
+                                    button1.Location = new Point(85, 250);
+                                    label2.Visible = true;
+                                    label2.Text = "Заголовок статьи";
+                                    this.Size = new Size(380, 328);
                                 }
                                 break;
                         }
@@ -372,7 +384,7 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message + ex.TargetSite);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -660,15 +672,15 @@ namespace WindowsFormsApp1
                             
                         }
                         break;
-                    case "Заголовок статьи":
+                    case "Номер выпуска и заголовок статьи":
                         {
                             SqlParameter value = new SqlParameter
                             {
                                 ParameterName = "@valueC",
-                                Value = comboBox1.SelectedValue.ToString()
+                                Value = comboBox2.SelectedValue.ToString()
                             };
                             command.Parameters.Add(value);
-                            list = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
+                            list = "Заголовок статьи = " + comboBox2.SelectedValue.ToString();
                         }
                         break;
                 }
@@ -678,8 +690,31 @@ namespace WindowsFormsApp1
                 funcB(index);
             }
         }
-        
 
-
+        private void ComboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cb)
+            {
+                string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+                SqlConnection connection = new SqlConnection(connectionString);
+                using (connection)
+                {
+                    try
+                    {
+                        connection.Open();
+                        string com1 = "";
+                        if (!(comboBox1.SelectedValue is null))
+                        {
+                            com1 = "select Код, Заголовок from Статья where КодВыпуска=(select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ")";
+                            combBox(comboBox2, "Статья", "Заголовок", com1, connection);
+                        }                         
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

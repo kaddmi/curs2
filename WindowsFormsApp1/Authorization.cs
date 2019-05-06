@@ -38,35 +38,45 @@ namespace WindowsFormsApp1
                 try
                 {
                     connection.Open();
-                    string command1 = "select count(*) from Пользователи where Логин='" + textBox1.Text + "'";
+                    string command1 = "select count(*) from master.dbo.syslogins where name='" + textBox1.Text + "'";
                     SqlCommand myCommand1 = new SqlCommand(command1, connection);
                     object number = myCommand1.ExecuteScalar();
-                    if (number.ToString() != "1")
+                    if (number.ToString() == "0")
                     {
                         MessageBox.Show("Нет пользователя с таким логином");
                     }
                     else
                     {
-                        string command2 = "select Должность from Пользователи where Логин='" + textBox1.Text + "' and Пароль='" + textBox2.Text + "'";
+                        string command2 =  "SELECT count(*) FROM sys.sql_logins WHERE PWDCOMPARE('" + textBox2.Text + "', password_hash)=1 and name='" + textBox1.Text + "'";                       
                         SqlCommand command = new SqlCommand(command2, connection);
-                        SqlDataReader reader = command.ExecuteReader();
-                        if (reader.HasRows)
+                        number = command.ExecuteScalar();
+                        if (number.ToString() != "1")
                         {
-                            foreach (char c in textBox2.Text)
-                                pwd.AppendChar(c);
-                            while (reader.Read())
-                            {
-                                role = reader.GetString(0);                                  
-                            }
-                            login = textBox1.Text;
-                            this.Hide();
-                            Form1 form1 = new Form1();
-                            form1.Owner = this;
-                            form1.Show();
+                            MessageBox.Show("Неправильный пароль");
                         }
                         else
                         {
-                            MessageBox.Show("Неправильный пароль");
+                            foreach (char c in textBox2.Text)
+                                pwd.AppendChar(c);
+                            string command3 = "exec sp_helpuser '" + textBox1.Text + "'";
+                            command = new SqlCommand(command3, connection);
+                            SqlDataReader reader = command.ExecuteReader();
+                            bool f = true;
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read() && f)
+                                {
+                                    login = reader.GetString(0);
+                                    role = reader.GetString(1);
+                                    f = false;
+                                }
+                            }                           
+                            this.Hide();
+                            Form1 form1 = new Form1
+                            {
+                                Owner = this
+                            };
+                            form1.Show();
                         }
                     }
                 }
@@ -95,8 +105,10 @@ namespace WindowsFormsApp1
             this.Hide();
             this.Opacity = 0;
             this.Enabled = false;
-            Form1 form1 = new Form1();
-            form1.Owner = this;
+            Form1 form1 = new Form1
+            {
+                Owner = this
+            };
             form1.Show();
         }
 

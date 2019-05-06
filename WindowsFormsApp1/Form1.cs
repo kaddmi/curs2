@@ -68,7 +68,7 @@ namespace WindowsFormsApp1
             }                     
         }
 
-        private void edit(string cT, bool view)
+        private void Edit(string cT, bool view)
         {
             MainEdit edit = new MainEdit(lbl, cT, cred, view, role, loginToolStripMenuItem.Text);
             this.Opacity = 0;
@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void add(string cT)
+        private void Add(string cT)
         {
             MainAdd add = new MainAdd(lbl, cT, cred, role, loginToolStripMenuItem.Text);
             this.Opacity = 0;
@@ -106,108 +106,108 @@ namespace WindowsFormsApp1
                         if (e.Node.Name == "addSt")
                         {
                             
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edSt")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Заказчик":
                         if (e.Node.Name == "addZ")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edZ")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Договор":
                         if (e.Node.Name == "addD")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edD")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Реклама":
                         if (e.Node.Name == "addRekl")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edRekl")
                         {
-                            edit(e.Node.Parent.Name, true);
+                            Edit(e.Node.Parent.Name, true);
                         }
                         break;
                     case "Рубрика":
                         if (e.Node.Name == "addR")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edR")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Сотрудник":
                         if (e.Node.Name == "addSotr")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edSotr")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "НомерГазеты":
                         if (e.Node.Name == "addNom")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edNom")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Объявление":
                         if (e.Node.Name == "addOb")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edOb")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Фото":
                         if (e.Node.Name == "addF")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edF")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Отзыв":
                         if (e.Node.Name == "addOtz")
                         {
-                            add(e.Node.Parent.Name);
+                            Add(e.Node.Parent.Name);
                         }
                         if (e.Node.Name == "edOtz")
                         {
-                            edit(e.Node.Parent.Name, false);
+                            Edit(e.Node.Parent.Name, false);
                         }
                         break;
                     case "Админ":
                         {
                             if (e.Node.Name == "addUser")
                             {
-                                add(e.Node.Parent.Name);
+                                Add(e.Node.Parent.Name);
                             }
                             if (e.Node.Name == "zurnal")
                             {
@@ -248,7 +248,7 @@ namespace WindowsFormsApp1
 
         private void ФунционалToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Func funcForm = new Func(role);
+            Func funcForm = new Func();
             this.Opacity = 0;
             this.Enabled = false;
             funcForm.Owner = this;
@@ -300,26 +300,31 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void ОтчётыToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ОтчётПоРекламеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Reports rep = new Reports();
+            Reports rep = new Reports("Отчёт по рекламе");
             if (rep.ShowDialog(this) == DialogResult.Cancel)
             {
                 rep.Close();
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ОтчётПоСтатьямToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-           
+            Reports rep = new Reports("Отчёт по статьям");
+            if (rep.ShowDialog(this) == DialogResult.Cancel)
+            {
+                rep.Close();
+            }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void ГодовойОтчётToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*Owner.Close();
-            Authorization aut = new Authorization();
-            aut.Show();*/
+            Reports rep = new Reports("Годовой отчёт");
+            if (rep.ShowDialog(this) == DialogResult.Cancel)
+            {
+                rep.Close();
+            }
         }
     } 
 }
