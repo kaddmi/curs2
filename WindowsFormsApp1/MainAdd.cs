@@ -189,9 +189,10 @@ namespace WindowsFormsApp1
                                 admPanel.Visible = true;
                                 this.Size = new Size(1055, 185);
                                 this.AcceptButton = admAdd;
-                                com1 = "exec sp_helprole";
+                                com1 = "declare @res table (RoleName sysname, c2 smallint, c3 int) " +
+                                       "insert into @res exec sp_helprole " +
+                                       "select * from @res where RoleName<>'public'";
                                 combBox(admR, "users", "RoleName", com1, connection, "RoleName");
-                                admR.SelectedIndex = 1;
                                 com2 = "select Код, ФИО from Сотрудник where ДатаУвольнения is null";
                                 combBox(admLog, "Сотрудники", "ФИО", com2, connection, "ФИО");
                             }
