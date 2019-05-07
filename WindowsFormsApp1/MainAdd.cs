@@ -195,7 +195,7 @@ namespace WindowsFormsApp1
                                 this.AcceptButton = admAdd;
                                 com1 = "declare @res table (RoleName sysname, c2 smallint, c3 int) " +
                                        "insert into @res exec sp_helprole " +
-                                       "select * from @res where RoleName<>'public'";
+                                       "select * from @res where RoleName<>'public' and RoleName<>'системный администратор'";
                                 combBox(admR, "users", "RoleName", com1, connection, "RoleName");
                                 com2 = "select Код, ФИО from Сотрудник where ДатаУвольнения is null";
                                 combBox(admLog, "Сотрудники", "ФИО", com2, connection, "ФИО");

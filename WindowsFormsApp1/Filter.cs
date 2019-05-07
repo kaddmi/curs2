@@ -313,7 +313,7 @@ namespace WindowsFormsApp1
                                 {
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
-                                    com1 = "select Код, Должность from Сотрудник";
+                                    com1 = "select distinct Должность from Сотрудник";
                                     combBox(comboBox1, "Сотрудник", "Должность", com1, connection);
                                 }
                                 break;
