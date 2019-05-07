@@ -111,7 +111,7 @@ namespace WindowsFormsApp1
                         if (curTable != "Договор")
                             result = MessageBox.Show("Вы уверены, что хотите удалить выбранную запись?", "Удаление записи", MessageBoxButtons.YesNo);
                         else
-                            result = MessageBox.Show("Вы уверены, что хотите удалить договор?\nЭто приведёт к удалению всех размещений реклам по этому договору", "Удаление записи", MessageBoxButtons.YesNo);
+                            result = MessageBox.Show("Вы уверены, что хотите расторгнуть договор?\nЭто приведёт к удалению всех размещений реклам по этому договору", "Удаление записи", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
                             if (curTable == "Сотрудник")
@@ -557,8 +557,11 @@ namespace WindowsFormsApp1
             {
                // checkBox1.Visible = false;
                 checkBox2.Visible = true;
-                checkBox2.Checked = true;
                 changeFilter.Visible = false;
+                checkBox2.Checked = true;
+                checkedListBox1.Visible = false;
+                label47.Visible = false;
+                button2.Visible = false;
                 switch (curTable)
                 {
                     case "Статья":
@@ -780,6 +783,22 @@ namespace WindowsFormsApp1
 
         private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
+            string ulog = "";
+            int i = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i++;
+                if (i == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             first = false;
             if (checkBox2.Checked)
             {
@@ -816,18 +835,19 @@ namespace WindowsFormsApp1
                                 richTextBox1.Text = "Заказчик = " + log;
                                 break;
                             case "Статья":
-                                command = "select * from Перечень_статей where ФИОСотрудника='" + log + "' order by Код desc";
+                                command = "select * from Перечень_статей where ФИОСотрудника='" + ulog + "' order by Код desc";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
-                                dataGridView1.Size = new System.Drawing.Size(750, 194);
-                                richTextBox1.Text = "ФИОСотрудника = " + log;
+                                dataGridView1.Size = new System.Drawing.Size(1120, 332);
+                                this.Size = new Size(1135, 641);
+                                richTextBox1.Text = "ФИОСотрудника = " + ulog;
                                 break;
                             case "Фото":
-                                command = "select * from Перечень_фото where ФИОСотрудника='" + log + "' order by Код desc";
+                                command = "select * from Перечень_фото where ФИОСотрудника='" + ulog + "' order by Код desc";
                                 checkedListBox1.Visible = true;
                                 button2.Visible = true;
                                 dataGridView1.Size = new System.Drawing.Size(640, 194);
-                                richTextBox1.Text = "ФИОСотрудника = " + log;
+                                richTextBox1.Text = "ФИОСотрудника = " + ulog;
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);

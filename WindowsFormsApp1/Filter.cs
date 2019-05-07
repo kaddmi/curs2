@@ -391,6 +391,25 @@ namespace WindowsFormsApp1
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            string ulog = "";
+            if (z)
+            {
+                int i1 = 0;
+                foreach (char c in login)
+                {
+                    if (Char.IsUpper(c))
+                        i1++;
+                    if (i1 == 2)
+                    {
+                        ulog += " ";
+                        ulog += c;
+                        ulog += ".";
+                        continue;
+                    }
+                    ulog += c;
+                }
+                ulog += ".";
+            }           
             if (!f)
             {
                 switch (listBox1.SelectedItem.ToString())
@@ -434,9 +453,9 @@ namespace WindowsFormsApp1
                                 {
                                     if (c)
                                     {
-                                        sql = "select * from Перечень_статей where ФИОСотрудника='" + login +
+                                        sql = "select * from Перечень_статей where ФИОСотрудника='" + ulog +
                                               "' and НомерВыпуска=" + comboBox1.SelectedValue.ToString() + " order by Код desc";
-                                        list = "ФИО журналиста = " + login;
+                                        list = "ФИО журналиста = " + ulog;
                                         list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
                                     }
                                         
@@ -472,10 +491,10 @@ namespace WindowsFormsApp1
                                 {
                                     if (c)
                                     {
-                                        sql = "select * from Перечень_фото where ФИОСотрудника='" + login +
+                                        sql = "select * from Перечень_фото where ФИОСотрудника='" + ulog +
                                               "' and ЗаголовокСтатьи in (select Заголовок from Статья where КодВыпуска in (select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ")) " +
                                               "order by Код desc";
-                                        list = "ФИО журналиста = " + login;
+                                        list = "ФИО журналиста = " + ulog;
                                         list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
                                     }
 
@@ -507,9 +526,9 @@ namespace WindowsFormsApp1
                             {
                                 if (c)
                                 {
-                                    sql = "select * from Перечень_статей where ФИОСотрудника='" + login +
+                                    sql = "select * from Перечень_статей where ФИОСотрудника='" + ulog +
                                           "' and НазваниеРубрики='" + comboBox1.SelectedValue.ToString() + "' order by Код desc";
-                                    list = "ФИО журналиста = " + login;
+                                    list = "ФИО журналиста = " + ulog ;
                                     list2 = listBox1.SelectedItem.ToString() + " = " + comboBox1.SelectedValue.ToString();
                                 }
 

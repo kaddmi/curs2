@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
                     switch (curTable)
                     {
                         case "Номер газеты":
-                            command = "select * from НомерГазетыLog order by idLog desc";                           
+                            command = "select * from НомерГазетыLog order by idLog desc";
                             break;
                         case "Рубрика":
                             button2.Visible = true;
@@ -95,6 +95,7 @@ namespace WindowsFormsApp1
             {
                 case "u":
                     {
+                        dataGridView1.AllowUserToDeleteRows = true;
                         listBox1.Visible = false;
                         button2.Visible = false;
                         button1.Visible = false;
@@ -111,10 +112,10 @@ namespace WindowsFormsApp1
                                 connection.Open();
                                 string sql = "ПользователиИРоли";
                                 SqlCommand comm = new SqlCommand(sql, connection);
-                                SqlDataReader dr = comm.ExecuteReader();                               
+                                SqlDataReader dr = comm.ExecuteReader();
                                 DataTable dt = new DataTable();
                                 dt.Load(dr);
-                                dataGridView1.DataSource = dt.DefaultView;                               
+                                dataGridView1.DataSource = dt.DefaultView;
                             }
                             catch (Exception ex)
                             {
@@ -124,6 +125,46 @@ namespace WindowsFormsApp1
 
                     }
                     break;
+            }
+        }
+
+        private void DataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                try
+                {
+                    connection.Open();
+                    DialogResult result;
+                    string command = "";
+                    string login = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Имя"].Value.ToString();
+                    if (dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Роль"].Value.ToString() != "системный администратор")
+                    {
+                        result = MessageBox.Show("Вы уверены, что хотите удалить имя входа и пользователя?", "Удаление", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            command = "drop login " + login;
+                            SqlCommand myCommand = new SqlCommand(command, connection);
+                            int number = myCommand.ExecuteNonQuery();
+                            command = "drop user " + login;
+                            myCommand = new SqlCommand(command, connection);
+                            number = myCommand.ExecuteNonQuery();
+                        }
+                        if (result == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                        }
+                    }
+                    else
+                        e.Cancel = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    e.Cancel = true;
+                }
             }
         }
     }

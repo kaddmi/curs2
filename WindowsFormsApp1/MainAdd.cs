@@ -98,6 +98,10 @@ namespace WindowsFormsApp1
                                 combBox(reklNumber, "НомерГазеты", "Номер", com1, connection, "Номер");
                                 combBox(reklZak, "Заказчик", "Название", com2, connection);
                                 nom.Visible = true;
+                                if (String.Compare(r, "работник рекламного отдела") == 0)
+                                {
+                                    nom.Visible = false;
+                                }
                                 dog.Visible = true;
                                 this.AcceptButton = reklAdd;
                             }

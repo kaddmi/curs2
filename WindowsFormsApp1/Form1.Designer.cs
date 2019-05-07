@@ -516,7 +516,7 @@
             this.redView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode70,
             treeNode80});
-            this.redView.Size = new System.Drawing.Size(543, 451);
+            this.redView.Size = new System.Drawing.Size(543, 626);
             this.redView.TabIndex = 70;
             this.redView.Visible = false;
             this.redView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeView1_NodeMouseClick);
