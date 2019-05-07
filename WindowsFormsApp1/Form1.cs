@@ -43,11 +43,12 @@ namespace WindowsFormsApp1
                     admView.Nodes[1].Expand();
                     admView.Nodes[2].Expand();
                     admView.Nodes[3].Expand();
+                    admView.Nodes[4].Expand();
                     break;
                 case "главный редактор":
                     redView.Visible = true;
                     redView.Nodes[0].Expand();
-
+                    redView.Nodes[1].Expand();
                     break;
                 case "журналист":
                     zurView.Visible = true;

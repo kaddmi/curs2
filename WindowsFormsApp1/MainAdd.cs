@@ -187,9 +187,13 @@ namespace WindowsFormsApp1
                             {
                                 admPanel.Location = new Point(3, 42);
                                 admPanel.Visible = true;
+                                this.Size = new Size(1055, 185);
                                 this.AcceptButton = admAdd;
                                 com1 = "exec sp_helprole";
                                 combBox(admR, "users", "RoleName", com1, connection, "RoleName");
+                                admR.SelectedIndex = 1;
+                                com2 = "select Код, ФИО from Сотрудник where ДатаУвольнения is null";
+                                combBox(admLog, "Сотрудники", "ФИО", com2, connection, "ФИО");
                             }
                             break;
                     }
@@ -600,18 +604,31 @@ namespace WindowsFormsApp1
                         try
                         {
                             connection.Open();
-                            string command1 = "CREATE LOGIN " + admLog.Text + " WITH PASSWORD = '" + admp1.Text + "'";
-                            SqlCommand myCommand1 = new SqlCommand(command1, connection);
-                            int number = myCommand1.ExecuteNonQuery();                           
-                            string command3 = "CREATE USER " + admLog.Text + " FOR LOGIN " + admLog.Text;
-                            SqlCommand myCommand3 = new SqlCommand(command3, connection);
-                            number = myCommand3.ExecuteNonQuery();
-                            string command2 = "EXEC sp_addrolemember '" + admR.SelectedValue.ToString() + "', '" + admLog.Text + "';";
-                            MessageBox.Show(command2);
-                            SqlCommand myCommand2 = new SqlCommand(command2, connection);
-                            number = myCommand2.ExecuteNonQuery();
-                            DialogResult = DialogResult.OK;
-
+                            string uLog;
+                            if (!(admLog.SelectedValue is null))
+                                uLog = admLog.SelectedValue.ToString();
+                            else
+                                uLog = admLog.Text;
+                            uLog = uLog.Replace(".", string.Empty);
+                            uLog = uLog.Replace(" ", string.Empty);
+                            string command1 = "CREATE LOGIN " + uLog + " WITH PASSWORD = '" + admp1.Text + "', DEFAULT_DATABASE=newspaper";
+                            string command3 = "CREATE USER " + uLog + " FOR LOGIN " + uLog;                                                   
+                            if (admR.SelectedValue.ToString() != "public")
+                            {
+                                string command2 = "EXEC sp_addrolemember '" + admR.SelectedValue.ToString() + "', '" + uLog + "';"; ;
+                                SqlCommand myCommand1 = new SqlCommand(command1, connection);
+                                int number = myCommand1.ExecuteNonQuery();
+                                SqlCommand myCommand3 = new SqlCommand(command3, connection);
+                                number = myCommand3.ExecuteNonQuery();
+                                SqlCommand myCommand2 = new SqlCommand(command2, connection);
+                                number = myCommand2.ExecuteNonQuery();
+                                DialogResult = DialogResult.OK;
+                            }                               
+                            else
+                            {
+                                MessageBox.Show("Выберите другую роль");
+                                return;
+                            }                        
                         }
                         catch (Exception ex)
                         {

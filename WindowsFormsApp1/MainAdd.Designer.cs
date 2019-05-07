@@ -141,7 +141,6 @@
             this.label45 = new System.Windows.Forms.Label();
             this.admPanel = new System.Windows.Forms.TableLayoutPanel();
             this.admp1 = new System.Windows.Forms.TextBox();
-            this.admLog = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.admp2 = new System.Windows.Forms.TextBox();
@@ -150,6 +149,7 @@
             this.admAdd = new System.Windows.Forms.Button();
             this.label52 = new System.Windows.Forms.Label();
             this.admR = new System.Windows.Forms.ComboBox();
+            this.admLog = new System.Windows.Forms.ComboBox();
             this.otzPanel.SuspendLayout();
             this.reklPanel.SuspendLayout();
             this.dogPanel.SuspendLayout();
@@ -1714,9 +1714,9 @@
             this.admPanel.Controls.Add(this.admAdd, 4, 1);
             this.admPanel.Controls.Add(this.label52, 4, 0);
             this.admPanel.Controls.Add(this.admR, 3, 1);
-            this.admPanel.Controls.Add(this.admLog, 0, 1);
             this.admPanel.Controls.Add(this.admp2, 2, 1);
             this.admPanel.Controls.Add(this.admp1, 1, 1);
+            this.admPanel.Controls.Add(this.admLog, 0, 1);
             this.admPanel.Location = new System.Drawing.Point(240, 42);
             this.admPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.admPanel.Name = "admPanel";
@@ -1736,14 +1736,6 @@
             this.admp1.PasswordChar = '*';
             this.admp1.Size = new System.Drawing.Size(173, 27);
             this.admp1.TabIndex = 1;
-            // 
-            // admLog
-            // 
-            this.admLog.Location = new System.Drawing.Point(7, 58);
-            this.admLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.admLog.Name = "admLog";
-            this.admLog.Size = new System.Drawing.Size(160, 27);
-            this.admLog.TabIndex = 0;
             // 
             // label47
             // 
@@ -1848,13 +1840,21 @@
             this.admR.Size = new System.Drawing.Size(255, 28);
             this.admR.TabIndex = 20;
             // 
+            // admLog
+            // 
+            this.admLog.FormattingEnabled = true;
+            this.admLog.Location = new System.Drawing.Point(6, 56);
+            this.admLog.Name = "admLog";
+            this.admLog.Size = new System.Drawing.Size(163, 28);
+            this.admLog.TabIndex = 0;
+            // 
             // MainAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(236, 177);
+            this.ClientSize = new System.Drawing.Size(233, 177);
             this.Controls.Add(this.admPanel);
             this.Controls.Add(this.stat);
             this.Controls.Add(this.nom);
@@ -2023,7 +2023,6 @@
         private System.Windows.Forms.ComboBox photoNumber;
         private System.Windows.Forms.TableLayoutPanel admPanel;
         private System.Windows.Forms.TextBox admp1;
-        private System.Windows.Forms.TextBox admLog;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox admp2;
@@ -2032,5 +2031,6 @@
         private System.Windows.Forms.Button admAdd;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.ComboBox admR;
+        private System.Windows.Forms.ComboBox admLog;
     }
 }
