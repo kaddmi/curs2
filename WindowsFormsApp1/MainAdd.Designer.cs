@@ -61,7 +61,6 @@
             this.dogPanel = new System.Windows.Forms.TableLayoutPanel();
             this.dogDateB = new System.Windows.Forms.DateTimePicker();
             this.label39 = new System.Windows.Forms.Label();
-            this.dogAdd = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.dogDate = new System.Windows.Forms.DateTimePicker();
@@ -73,6 +72,7 @@
             this.label38 = new System.Windows.Forms.Label();
             this.dogText = new System.Windows.Forms.RichTextBox();
             this.label43 = new System.Windows.Forms.Label();
+            this.dogAdd = new System.Windows.Forms.Button();
             this.obPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -142,7 +142,6 @@
             this.admPanel = new System.Windows.Forms.TableLayoutPanel();
             this.admp1 = new System.Windows.Forms.TextBox();
             this.admLog = new System.Windows.Forms.TextBox();
-            this.admD = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.admp2 = new System.Windows.Forms.TextBox();
@@ -150,6 +149,7 @@
             this.label51 = new System.Windows.Forms.Label();
             this.admAdd = new System.Windows.Forms.Button();
             this.label52 = new System.Windows.Forms.Label();
+            this.admR = new System.Windows.Forms.ComboBox();
             this.otzPanel.SuspendLayout();
             this.reklPanel.SuspendLayout();
             this.dogPanel.SuspendLayout();
@@ -245,7 +245,7 @@
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 207F));
             this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
-            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269F));
+            this.otzPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 272F));
             this.otzPanel.Controls.Add(this.otzDate, 5, 1);
             this.otzPanel.Controls.Add(this.label32, 5, 0);
             this.otzPanel.Controls.Add(this.otzAdd, 6, 1);
@@ -397,7 +397,7 @@
             this.label31.Location = new System.Drawing.Point(1146, 3);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(261, 45);
+            this.label31.Size = new System.Drawing.Size(264, 45);
             this.label31.TabIndex = 4;
             this.label31.Text = "Добавить";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -448,7 +448,7 @@
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
             this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 633F));
-            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.reklPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
             this.reklPanel.Controls.Add(this.label34, 3, 0);
             this.reklPanel.Controls.Add(this.label35, 2, 0);
             this.reklPanel.Controls.Add(this.reklText, 2, 1);
@@ -476,7 +476,7 @@
             this.label34.Location = new System.Drawing.Point(919, 3);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(292, 45);
+            this.label34.Size = new System.Drawing.Size(295, 45);
             this.label34.TabIndex = 2;
             this.label34.Text = "Добавить";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -526,7 +526,7 @@
             this.reklAdd.Location = new System.Drawing.Point(919, 56);
             this.reklAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reklAdd.Name = "reklAdd";
-            this.reklAdd.Size = new System.Drawing.Size(292, 36);
+            this.reklAdd.Size = new System.Drawing.Size(295, 36);
             this.reklAdd.TabIndex = 2;
             this.reklAdd.Text = "Добавить";
             this.reklAdd.UseVisualStyleBackColor = true;
@@ -580,7 +580,7 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.label40, 3, 0);
@@ -624,24 +624,10 @@
             this.label39.Location = new System.Drawing.Point(997, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(194, 47);
+            this.label39.Size = new System.Drawing.Size(197, 47);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dogAdd
-            // 
-            this.dogAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dogAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dogAdd.Location = new System.Drawing.Point(997, 58);
-            this.dogAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dogAdd.Name = "dogAdd";
-            this.dogAdd.Size = new System.Drawing.Size(194, 37);
-            this.dogAdd.TabIndex = 6;
-            this.dogAdd.Text = "Добавить";
-            this.dogAdd.UseVisualStyleBackColor = true;
-            this.dogAdd.Click += new System.EventHandler(this.dogAdd_Click);
             // 
             // label40
             // 
@@ -774,6 +760,20 @@
             this.label43.TabIndex = 0;
             this.label43.Text = "Название заказчика";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dogAdd
+            // 
+            this.dogAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dogAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dogAdd.Location = new System.Drawing.Point(997, 58);
+            this.dogAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dogAdd.Name = "dogAdd";
+            this.dogAdd.Size = new System.Drawing.Size(194, 37);
+            this.dogAdd.TabIndex = 6;
+            this.dogAdd.Text = "Добавить";
+            this.dogAdd.UseVisualStyleBackColor = true;
+            this.dogAdd.Click += new System.EventHandler(this.dogAdd_Click);
             // 
             // obPanel
             // 
@@ -1707,16 +1707,16 @@
             this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
             this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 261F));
             this.admPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.admPanel.Controls.Add(this.admp1, 0, 1);
-            this.admPanel.Controls.Add(this.admLog, 0, 1);
-            this.admPanel.Controls.Add(this.admD, 0, 1);
             this.admPanel.Controls.Add(this.label47, 0, 0);
             this.admPanel.Controls.Add(this.label48, 3, 0);
-            this.admPanel.Controls.Add(this.admp2, 0, 1);
             this.admPanel.Controls.Add(this.label50, 1, 0);
             this.admPanel.Controls.Add(this.label51, 2, 0);
             this.admPanel.Controls.Add(this.admAdd, 4, 1);
             this.admPanel.Controls.Add(this.label52, 4, 0);
+            this.admPanel.Controls.Add(this.admR, 3, 1);
+            this.admPanel.Controls.Add(this.admLog, 0, 1);
+            this.admPanel.Controls.Add(this.admp2, 2, 1);
+            this.admPanel.Controls.Add(this.admp1, 1, 1);
             this.admPanel.Location = new System.Drawing.Point(240, 42);
             this.admPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.admPanel.Name = "admPanel";
@@ -1744,14 +1744,6 @@
             this.admLog.Name = "admLog";
             this.admLog.Size = new System.Drawing.Size(160, 27);
             this.admLog.TabIndex = 0;
-            // 
-            // admD
-            // 
-            this.admD.Location = new System.Drawing.Point(559, 58);
-            this.admD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.admD.Name = "admD";
-            this.admD.Size = new System.Drawing.Size(252, 27);
-            this.admD.TabIndex = 3;
             // 
             // label47
             // 
@@ -1846,13 +1838,23 @@
             this.label52.Text = "Добавить";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // admR
+            // 
+            this.admR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.admR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admR.FormattingEnabled = true;
+            this.admR.Location = new System.Drawing.Point(558, 56);
+            this.admR.Name = "admR";
+            this.admR.Size = new System.Drawing.Size(255, 28);
+            this.admR.TabIndex = 20;
+            // 
             // MainAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(233, 177);
+            this.ClientSize = new System.Drawing.Size(236, 177);
             this.Controls.Add(this.admPanel);
             this.Controls.Add(this.stat);
             this.Controls.Add(this.nom);
@@ -2022,7 +2024,6 @@
         private System.Windows.Forms.TableLayoutPanel admPanel;
         private System.Windows.Forms.TextBox admp1;
         private System.Windows.Forms.TextBox admLog;
-        private System.Windows.Forms.TextBox admD;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox admp2;
@@ -2030,5 +2031,6 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Button admAdd;
         private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox admR;
     }
 }

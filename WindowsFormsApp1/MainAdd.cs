@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
                             {
                                 //stPanel.Location = new Point(401, 72);
                                 stPanel.Visible = true;
-                                com1 = "select Код, ФИО from Сотрудник";
+                                com1 = "select Код, ФИО from Сотрудник where ДатаУвольнения is null";
                                 com2 = "select Код, Номер from НомерГазеты";
                                 com3 = "select Код, Название from Рубрика";
                                 stType.Select();
@@ -144,7 +144,7 @@ namespace WindowsFormsApp1
                             {
                               //  photoPanel.Location = new Point(401, 72);
                                 photoPanel.Visible = true;
-                                com1 = "select Код, ФИО from Сотрудник";
+                                com1 = "select Код, ФИО from Сотрудник where ДатаУвольнения is null";
                                 com2 = "select Код, Номер from НомерГазеты where Код in (select КодВыпуска from Статья)";
                                 combBox(photoName, "Сотрудник", "ФИО", com1, connection);
                                 combBox(photoNumber, "НомерГазеты", "Номер", com2, connection);
@@ -188,6 +188,8 @@ namespace WindowsFormsApp1
                                 admPanel.Location = new Point(3, 42);
                                 admPanel.Visible = true;
                                 this.AcceptButton = admAdd;
+                                com1 = "exec sp_helprole";
+                                combBox(admR, "users", "RoleName", com1, connection, "RoleName");
                             }
                             break;
                     }
@@ -401,7 +403,6 @@ namespace WindowsFormsApp1
         public void reklAdd_Click(object sender, EventArgs e)
         {
             string command = "insert into Перечень_реклам (НомерВыпуска, ТекстРекламы) values (" + reklNumber.SelectedValue.ToString() + ", '" + reklText.SelectedValue.ToString() + "')";
-            MessageBox.Show(command);
             Add(command);
             DialogResult = DialogResult.OK;
         }
@@ -568,7 +569,7 @@ namespace WindowsFormsApp1
 
         private void AdmAdd_Click(object sender, EventArgs e)
         {
-            if (admLog.Text == "" || admD.Text == "" || admp1.Text == "" || admp2.Text == "")
+            if (admLog.Text == "" ||  admp1.Text == "" || admp2.Text == "")
             {
                 MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButtons.RetryCancel);
                 if (admLog.Text == "")
@@ -577,8 +578,6 @@ namespace WindowsFormsApp1
                     admp1.Focus();
                 if (admp2.Text == "")
                     admp2.Focus();
-                if (admD.Text == "")
-                    admD.Focus();
                 return;
             }
             else
@@ -603,13 +602,14 @@ namespace WindowsFormsApp1
                             connection.Open();
                             string command1 = "CREATE LOGIN " + admLog.Text + " WITH PASSWORD = '" + admp1.Text + "'";
                             SqlCommand myCommand1 = new SqlCommand(command1, connection);
-                            int number = myCommand1.ExecuteNonQuery();
-                            string command2 = "EXEC sp_addsrvrolemember '" + admLog.Text + "', 'sysadmin';";
-                            SqlCommand myCommand2 = new SqlCommand(command2, connection);
-                            number = myCommand2.ExecuteNonQuery();
+                            int number = myCommand1.ExecuteNonQuery();                           
                             string command3 = "CREATE USER " + admLog.Text + " FOR LOGIN " + admLog.Text;
                             SqlCommand myCommand3 = new SqlCommand(command3, connection);
-                            number = myCommand3.ExecuteNonQuery();                          
+                            number = myCommand3.ExecuteNonQuery();
+                            string command2 = "EXEC sp_addrolemember '" + admR.SelectedValue.ToString() + "', '" + admLog.Text + "';";
+                            MessageBox.Show(command2);
+                            SqlCommand myCommand2 = new SqlCommand(command2, connection);
+                            number = myCommand2.ExecuteNonQuery();
                             DialogResult = DialogResult.OK;
 
                         }

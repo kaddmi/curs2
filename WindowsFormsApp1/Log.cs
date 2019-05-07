@@ -13,9 +13,11 @@ namespace WindowsFormsApp1
 {
     public partial class Log : Form
     {
-        public Log()
+        string what;
+        public Log(string s)
         {
             InitializeComponent();
+            what = s;
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,6 +86,44 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void Log_Shown(object sender, EventArgs e)
+        {
+            switch (what)
+            {
+                case "u":
+                    {
+                        listBox1.Visible = false;
+                        button2.Visible = false;
+                        button1.Visible = false;
+                        dataGridView1.Location = new Point(12, 12);
+                        dataGridView1.Size = new Size(449, 301);
+                        this.Size = dataGridView1.Size;
+                        dataGridView1.BorderStyle = BorderStyle.None;
+                        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;Integrated Security=True";
+                        SqlConnection connection = new SqlConnection(connectionString);
+                        using (connection)
+                        {
+                            try
+                            {
+                                connection.Open();
+                                string sql = "ПользователиИРоли";
+                                SqlCommand comm = new SqlCommand(sql, connection);
+                                SqlDataReader dr = comm.ExecuteReader();                               
+                                DataTable dt = new DataTable();
+                                dt.Load(dr);
+                                dataGridView1.DataSource = dt.DefaultView;                               
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
+
+                    }
+                    break;
             }
         }
     }

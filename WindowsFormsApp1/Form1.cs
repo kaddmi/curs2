@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             cred = new SqlCredential(aut.login, aut.pwd);
             if (aut != null)
             {
-                if (aut.login == "читатель")
+                if (aut.login == "reader")
                     loginToolStripMenuItem.Text = aut.fio;
                 else
                     loginToolStripMenuItem.Text = aut.login;
@@ -211,7 +211,11 @@ namespace WindowsFormsApp1
                             }
                             if (e.Node.Name == "zurnal")
                             {
-                                ИсторияИзмененияToolStripMenuItem_Click(sender, e);
+                                admin("z");
+                            }
+                            if (e.Node.Name == "users")
+                            {
+                                admin("u");
                             }
                         }
                         break;
@@ -232,9 +236,9 @@ namespace WindowsFormsApp1
         }
 
 
-        private void ИсторияИзмененияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void admin(string s)
         {
-            Log logForm = new Log();
+            Log logForm = new Log(s);
             this.Opacity = 0;
             this.Enabled = false;
             logForm.Owner = this;

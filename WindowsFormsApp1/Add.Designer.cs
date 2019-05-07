@@ -102,13 +102,12 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
             this.dogPanel.Controls.Add(this.label40, 3, 0);
             this.dogPanel.Controls.Add(this.label43, 0, 0);
-            this.dogPanel.Controls.Add(this.label44, 1, 0);
             this.dogPanel.Controls.Add(this.dogDate, 1, 1);
             this.dogPanel.Controls.Add(this.dogDateE, 3, 1);
             this.dogPanel.Controls.Add(this.dogZak, 0, 1);
@@ -117,6 +116,7 @@
             this.dogPanel.Controls.Add(this.dogPrice, 4, 1);
             this.dogPanel.Controls.Add(this.label38, 2, 0);
             this.dogPanel.Controls.Add(this.dogText, 5, 1);
+            this.dogPanel.Controls.Add(this.label44, 1, 0);
             this.dogPanel.Location = new System.Drawing.Point(7, 15);
             this.dogPanel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dogPanel.Name = "dogPanel";
@@ -146,7 +146,7 @@
             this.label39.Location = new System.Drawing.Point(997, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(248, 52);
+            this.label39.Size = new System.Drawing.Size(186, 52);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -887,7 +887,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(342, 144);
+            this.ClientSize = new System.Drawing.Size(312, 141);
             this.Controls.Add(this.dogPanel);
             this.Controls.Add(this.newspPanel);
             this.Controls.Add(this.sotrPanel);

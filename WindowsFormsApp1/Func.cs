@@ -54,11 +54,8 @@ namespace WindowsFormsApp1
                     List<int> count = new List<int>();
                     List<string> fio = new List<string>();
                     connection.Open();
-                    string sql = "КоличествоСтатейСделанныхСотрудником";
-                    SqlCommand command = new SqlCommand(sql, connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
+                    string sql = "select * from КоличествоСтатейСделанныхСотрудником() order by Количество desc";
+                    SqlCommand command = new SqlCommand(sql, connection);
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {                       
@@ -228,7 +225,10 @@ namespace WindowsFormsApp1
                 try
                 {
                     connection.Open();
-                    string sql = "select dbo.СуммаДоговоров('" + dateTimePicker1.Value.ToString() + "', '" + dateTimePicker2.Value.ToString() + "')";
+                    string sql = 
+                        "declare @result money " +
+                        "execute @result=СуммаДоговоров '" + dateTimePicker1.Value.ToString() + "', '" + dateTimePicker2.Value.ToString() + "' " +
+                        "select @result";
                     SqlCommand command = new SqlCommand(sql, connection);
                     object count = command.ExecuteScalar();
                     label3.Visible = true;
