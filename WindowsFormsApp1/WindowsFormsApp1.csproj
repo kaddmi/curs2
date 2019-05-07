@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,74 +83,8 @@
     <Reference Include="DevExpress.XtraSpreadsheet.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="LibExcel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\LibExcel.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Base, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\Stimulsoft.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Controls, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Controls.Win, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Controls.Win.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Data, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\Stimulsoft.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Database, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Database.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Design, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Editor, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Map, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\Stimulsoft.Map.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Report, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\Stimulsoft.Report.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Report.Check, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\Stimulsoft.Report.Check.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Report.Design, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Report.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Report.Helper, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\Stimulsoft.Report.Helper.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Report.Web, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Report.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="Stimulsoft.Report.Win, Version=2019.2.3.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Net.2019.2.3\lib\net45\Stimulsoft.Report.Win.dll</HintPath>
-    </Reference>
-    <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stimulsoft.Reports.Engine.2019.2.3\lib\net45\Svg.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -311,63 +260,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\istockphoto-490632576-1024x1024.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\depositphotos_164190608-stock-photo-newspaper-seamless-pattern.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\97563195-old-grunge-newspaper-collage-paper-texture-horizontal-background-blurred-vintage-newspaper-backgroun.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ivory-off-white-paper-texture.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Localization\ar.xml" />
-    <Content Include="Localization\be.xml" />
-    <Content Include="Localization\bg.xml" />
-    <Content Include="Localization\bh.xml" />
-    <Content Include="Localization\ca-ES.xml" />
-    <Content Include="Localization\cs.xml" />
-    <Content Include="Localization\de.ext.xml" />
-    <Content Include="Localization\de.xml" />
-    <Content Include="Localization\el-GR.xml" />
-    <Content Include="Localization\en-GB.xml" />
-    <Content Include="Localization\en.ext.xml" />
-    <Content Include="Localization\en.xml" />
-    <Content Include="Localization\es.xml" />
-    <Content Include="Localization\eu-ES.xml" />
-    <Content Include="Localization\fa.xml" />
-    <Content Include="Localization\fr.ext.xml" />
-    <Content Include="Localization\fr.xml" />
-    <Content Include="Localization\gl-ES.xml" />
-    <Content Include="Localization\hr.xml" />
-    <Content Include="Localization\hu.xml" />
-    <Content Include="Localization\id.xml" />
-    <Content Include="Localization\it.xml" />
-    <Content Include="Localization\ja.ext.xml" />
-    <Content Include="Localization\ja.xml" />
-    <Content Include="Localization\ka.xml" />
-    <Content Include="Localization\ko.ext.xml" />
-    <Content Include="Localization\ko.xml" />
-    <Content Include="Localization\lt.xml" />
-    <Content Include="Localization\nb-NO.xml" />
-    <Content Include="Localization\nl.xml" />
-    <Content Include="Localization\pl.xml" />
-    <Content Include="Localization\pt-BR.xml" />
-    <Content Include="Localization\pt.xml" />
-    <Content Include="Localization\ro.xml" />
-    <Content Include="Localization\ru.ext.xml" />
-    <Content Include="Localization\ru.xml" />
-    <Content Include="Localization\sk.xml" />
-    <Content Include="Localization\sr.xml" />
-    <Content Include="Localization\sv.ext.xml" />
-    <Content Include="Localization\sv.xml" />
-    <Content Include="Localization\tr.xml" />
-    <Content Include="Localization\uk.xml" />
-    <Content Include="Localization\vi.xml" />
-    <Content Include="Localization\zh-CHS.xml" />
-    <Content Include="Localization\zh-CHT.xml" />
     <None Include="Resources\info-512.png" />
     <None Include="Resources\Button-Help-icon.png" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -383,6 +275,18 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

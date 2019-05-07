@@ -786,6 +786,7 @@
             this.sqlDataSource1});
             this.DataMember = "Перечень_статей";
             this.DataSource = this.sqlDataSource1;
+            this.FilterString = "[ДатаВыпуска] Between(?fromDate, ?toDate)";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(99, 100, 51, 100);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
