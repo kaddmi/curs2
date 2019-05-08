@@ -885,5 +885,6 @@ namespace WindowsFormsApp1
             Owner.Opacity = 100;
             Owner.Enabled = true;
         }
+
     }
 }
