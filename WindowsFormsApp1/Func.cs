@@ -54,11 +54,8 @@ namespace WindowsFormsApp1
                     List<int> count = new List<int>();
                     List<string> fio = new List<string>();
                     connection.Open();
-                    string sql = "КоличествоСтатейСделанныхСотрудником";
-                    SqlCommand command = new SqlCommand(sql, connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
+                    string sql = "select * from КоличествоСтатейСделанныхСотрудником() order by Количество desc";
+                    SqlCommand command = new SqlCommand(sql, connection);
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {                       
@@ -228,7 +225,10 @@ namespace WindowsFormsApp1
                 try
                 {
                     connection.Open();
-                    string sql = "select dbo.СуммаДоговоров('" + dateTimePicker1.Value.ToString() + "', '" + dateTimePicker2.Value.ToString() + "')";
+                    string sql = 
+                        "declare @result money " +
+                        "execute @result=СуммаДоговоров '" + dateTimePicker1.Value.ToString() + "', '" + dateTimePicker2.Value.ToString() + "' " +
+                        "select @result";
                     SqlCommand command = new SqlCommand(sql, connection);
                     object count = command.ExecuteScalar();
                     label3.Visible = true;
@@ -340,6 +340,7 @@ namespace WindowsFormsApp1
             button2.Visible = false;
             textBox1.Visible = false;
             textBox2.Visible = false;
+            this.AcceptButton = button1;
             textBox3.Visible = false;
             dataGridView1.Visible = false;
             dateTimePicker1.Visible = false;
@@ -361,6 +362,7 @@ namespace WindowsFormsApp1
                     CountStatya();
                     this.AcceptButton = null;
                     chart1.Visible = true;
+                    this.AcceptButton = null;
                     this.Size = new Size(448, 585);
                     break;
                 case "Выручка с выпусков по годам":
@@ -399,12 +401,14 @@ namespace WindowsFormsApp1
                     dataGridView1.Visible = true;
                     this.AcceptButton = null;
                     Stazh();
+                    this.AcceptButton = null;
                     this.Size = new Size(448, 488);
                     break;
                 case "Статистика по увольнению и найму сотрудников":                 
                     button2.Visible = true;
                     this.AcceptButton = button2;
                     label1.Visible = true;
+                    this.AcceptButton = button2;
                     label2.Visible = true;
                     label1.Text = "Год начала периода";
                    // textBox2.Select();

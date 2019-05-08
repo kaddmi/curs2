@@ -43,11 +43,12 @@ namespace WindowsFormsApp1
                     admView.Nodes[1].Expand();
                     admView.Nodes[2].Expand();
                     admView.Nodes[3].Expand();
+                    admView.Nodes[4].Expand();
                     break;
                 case "главный редактор":
                     redView.Visible = true;
                     redView.Nodes[0].Expand();
-
+                    redView.Nodes[1].Expand();
                     break;
                 case "журналист":
                     zurView.Visible = true;
@@ -211,7 +212,11 @@ namespace WindowsFormsApp1
                             }
                             if (e.Node.Name == "zurnal")
                             {
-                                ИсторияИзмененияToolStripMenuItem_Click(sender, e);
+                                admin("z");
+                            }
+                            if (e.Node.Name == "users")
+                            {
+                                admin("u");
                             }
                         }
                         break;
@@ -232,9 +237,9 @@ namespace WindowsFormsApp1
         }
 
 
-        private void ИсторияИзмененияToolStripMenuItem_Click(object sender, EventArgs e)
+        private void admin(string s)
         {
-            Log logForm = new Log();
+            Log logForm = new Log(s);
             this.Opacity = 0;
             this.Enabled = false;
             logForm.Owner = this;

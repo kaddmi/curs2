@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
                         case "Статья":
                             {
                                 stPanel.Visible = true;
-                                com1 = "select Код, ФИО from Сотрудник";
+                                com1 = "select Код, ФИО from Сотрудник where ДатаУвольнения is null";
                                 com2 = "select Код, Номер from НомерГазеты";
                                 com3 = "select Код, Название from Рубрика";
                                 combBox(stNames, "Сотрудник", "ФИО", com1, connection);
