@@ -401,7 +401,6 @@ namespace WindowsFormsApp1
         public void reklAdd_Click(object sender, EventArgs e)
         {
             string command = "insert into Перечень_реклам (НомерВыпуска, ТекстРекламы) values (" + reklNumber.SelectedValue.ToString() + ", '" + reklText.SelectedValue.ToString() + "')";
-            MessageBox.Show(command);
             Add(command);
             DialogResult = DialogResult.OK;
         }

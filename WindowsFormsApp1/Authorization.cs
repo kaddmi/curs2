@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
             else
             {
                 role = "читатель";
-                login = "читатель";
+                login = "reader";
                 fio = textBox1.Text;
                 foreach (char c in "password")
                     pwd.AppendChar(c);

@@ -47,6 +47,22 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.DataAccess.Sql.SelectQuery selectQuery2 = new DevExpress.DataAccess.Sql.SelectQuery();
+            DevExpress.DataAccess.Sql.Column column7 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression7 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Table table6 = new DevExpress.DataAccess.Sql.Table();
+            DevExpress.DataAccess.Sql.Column column8 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression8 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column9 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression9 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column10 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression10 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column11 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression11 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column12 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression12 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column13 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression13 = new DevExpress.DataAccess.Sql.ColumnExpression();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.fromDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.toDate = new DevExpress.XtraReports.Parameters.Parameter();
@@ -110,6 +126,7 @@
             this.panel3 = new DevExpress.XtraReports.UI.XRPanel();
             this.label9 = new DevExpress.XtraReports.UI.XRLabel();
             this.label10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).BeginInit();
@@ -768,6 +785,45 @@
             this.label10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.label10.WordWrap = false;
             // 
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "localhost_newspaper_Connection 1";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            columnExpression7.ColumnName = "Код";
+            table6.Name = "Перечень_статей";
+            columnExpression7.Table = table6;
+            column7.Expression = columnExpression7;
+            columnExpression8.ColumnName = "Тип";
+            columnExpression8.Table = table6;
+            column8.Expression = columnExpression8;
+            columnExpression9.ColumnName = "НазваниеРубрики";
+            columnExpression9.Table = table6;
+            column9.Expression = columnExpression9;
+            columnExpression10.ColumnName = "Заголовок";
+            columnExpression10.Table = table6;
+            column10.Expression = columnExpression10;
+            columnExpression11.ColumnName = "ФИОСотрудника";
+            columnExpression11.Table = table6;
+            column11.Expression = columnExpression11;
+            columnExpression12.ColumnName = "НомерВыпуска";
+            columnExpression12.Table = table6;
+            column12.Expression = columnExpression12;
+            columnExpression13.ColumnName = "ДатаВыпуска";
+            columnExpression13.Table = table6;
+            column13.Expression = columnExpression13;
+            selectQuery2.Columns.Add(column7);
+            selectQuery2.Columns.Add(column8);
+            selectQuery2.Columns.Add(column9);
+            selectQuery2.Columns.Add(column10);
+            selectQuery2.Columns.Add(column11);
+            selectQuery2.Columns.Add(column12);
+            selectQuery2.Columns.Add(column13);
+            selectQuery2.Name = "Перечень_статей";
+            selectQuery2.Tables.Add(table6);
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery2});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
             // XtraReport2
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -783,9 +839,11 @@
             this.GroupFooter3,
             this.ReportFooter});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1});
+            this.sqlDataSource1,
+            this.sqlDataSource2});
             this.DataMember = "Перечень_статей";
-            this.DataSource = this.sqlDataSource1;
+            this.DataSource = this.sqlDataSource2;
+            this.FilterString = "[ДатаВыпуска] Between(?fromDate, ?toDate)";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(99, 100, 51, 100);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
@@ -880,5 +938,6 @@
         private DevExpress.XtraReports.UI.XRPanel panel3;
         private DevExpress.XtraReports.UI.XRLabel label9;
         private DevExpress.XtraReports.UI.XRLabel label10;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
     }
 }

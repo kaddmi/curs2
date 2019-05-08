@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             cred = new SqlCredential(aut.login, aut.pwd);
             if (aut != null)
             {
-                if (aut.login == "читатель")
+                if (aut.login == "reader")
                     loginToolStripMenuItem.Text = aut.fio;
                 else
                     loginToolStripMenuItem.Text = aut.login;

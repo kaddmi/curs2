@@ -102,7 +102,7 @@
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
-            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253F));
+            this.dogPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
             this.dogPanel.Controls.Add(this.dogDateB, 2, 1);
             this.dogPanel.Controls.Add(this.label39, 6, 0);
             this.dogPanel.Controls.Add(this.dogAdd, 6, 1);
@@ -135,7 +135,7 @@
             this.dogDateB.Location = new System.Drawing.Point(366, 64);
             this.dogDateB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dogDateB.Name = "dogDateB";
-            this.dogDateB.Size = new System.Drawing.Size(138, 29);
+            this.dogDateB.Size = new System.Drawing.Size(138, 34);
             this.dogDateB.TabIndex = 2;
             // 
             // label39
@@ -146,7 +146,7 @@
             this.label39.Location = new System.Drawing.Point(997, 3);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(245, 52);
+            this.label39.Size = new System.Drawing.Size(248, 52);
             this.label39.TabIndex = 4;
             this.label39.Text = "Добавить";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -215,7 +215,7 @@
             this.dogDate.Location = new System.Drawing.Point(212, 64);
             this.dogDate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dogDate.Name = "dogDate";
-            this.dogDate.Size = new System.Drawing.Size(137, 29);
+            this.dogDate.Size = new System.Drawing.Size(137, 34);
             this.dogDate.TabIndex = 1;
             // 
             // dogDateE
@@ -225,7 +225,7 @@
             this.dogDateE.Location = new System.Drawing.Point(517, 64);
             this.dogDateE.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dogDateE.Name = "dogDateE";
-            this.dogDateE.Size = new System.Drawing.Size(135, 29);
+            this.dogDateE.Size = new System.Drawing.Size(135, 34);
             this.dogDateE.TabIndex = 3;
             // 
             // dogZak
@@ -236,7 +236,7 @@
             this.dogZak.Location = new System.Drawing.Point(7, 64);
             this.dogZak.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dogZak.Name = "dogZak";
-            this.dogZak.Size = new System.Drawing.Size(191, 30);
+            this.dogZak.Size = new System.Drawing.Size(191, 34);
             this.dogZak.TabIndex = 0;
             // 
             // label41
@@ -272,7 +272,7 @@
             this.dogPrice.Location = new System.Drawing.Point(664, 64);
             this.dogPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dogPrice.Name = "dogPrice";
-            this.dogPrice.Size = new System.Drawing.Size(106, 29);
+            this.dogPrice.Size = new System.Drawing.Size(106, 34);
             this.dogPrice.TabIndex = 4;
             this.dogPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
@@ -333,7 +333,7 @@
             this.newspPrice.Location = new System.Drawing.Point(97, 57);
             this.newspPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.newspPrice.Name = "newspPrice";
-            this.newspPrice.Size = new System.Drawing.Size(126, 29);
+            this.newspPrice.Size = new System.Drawing.Size(126, 34);
             this.newspPrice.TabIndex = 1;
             this.newspPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
@@ -400,7 +400,7 @@
             this.newspNumber.Location = new System.Drawing.Point(7, 57);
             this.newspNumber.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.newspNumber.Name = "newspNumber";
-            this.newspNumber.Size = new System.Drawing.Size(77, 29);
+            this.newspNumber.Size = new System.Drawing.Size(77, 34);
             this.newspNumber.TabIndex = 0;
             this.newspNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
@@ -425,7 +425,7 @@
             this.newspDate.Location = new System.Drawing.Point(236, 57);
             this.newspDate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.newspDate.Name = "newspDate";
-            this.newspDate.Size = new System.Drawing.Size(137, 29);
+            this.newspDate.Size = new System.Drawing.Size(137, 34);
             this.newspDate.TabIndex = 2;
             this.newspDate.Value = new System.DateTime(2019, 4, 16, 16, 52, 45, 0);
             // 
@@ -434,7 +434,7 @@
             this.label49.AutoSize = true;
             this.label49.Location = new System.Drawing.Point(385, 3);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(107, 44);
+            this.label49.Size = new System.Drawing.Size(118, 45);
             this.label49.TabIndex = 9;
             this.label49.Text = "Количество проданных";
             // 
@@ -442,7 +442,7 @@
             // 
             this.nomKol.Location = new System.Drawing.Point(385, 54);
             this.nomKol.Name = "nomKol";
-            this.nomKol.Size = new System.Drawing.Size(111, 29);
+            this.nomKol.Size = new System.Drawing.Size(111, 34);
             this.nomKol.TabIndex = 3;
             this.nomKol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dogPrice_KeyPress);
             // 
@@ -475,7 +475,7 @@
             this.sotrName.Location = new System.Drawing.Point(7, 64);
             this.sotrName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.sotrName.Name = "sotrName";
-            this.sotrName.Size = new System.Drawing.Size(180, 29);
+            this.sotrName.Size = new System.Drawing.Size(180, 34);
             this.sotrName.TabIndex = 0;
             // 
             // sotrDol
@@ -483,7 +483,7 @@
             this.sotrDol.Location = new System.Drawing.Point(199, 64);
             this.sotrDol.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.sotrDol.Name = "sotrDol";
-            this.sotrDol.Size = new System.Drawing.Size(195, 29);
+            this.sotrDol.Size = new System.Drawing.Size(195, 34);
             this.sotrDol.TabIndex = 1;
             // 
             // label10
@@ -570,7 +570,7 @@
             this.rName.Location = new System.Drawing.Point(7, 64);
             this.rName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.rName.Name = "rName";
-            this.rName.Size = new System.Drawing.Size(255, 29);
+            this.rName.Size = new System.Drawing.Size(255, 34);
             this.rName.TabIndex = 0;
             // 
             // label8
@@ -674,7 +674,7 @@
             this.zakName.Location = new System.Drawing.Point(7, 64);
             this.zakName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.zakName.Name = "zakName";
-            this.zakName.Size = new System.Drawing.Size(255, 29);
+            this.zakName.Size = new System.Drawing.Size(255, 34);
             this.zakName.TabIndex = 0;
             // 
             // label7
@@ -737,7 +737,7 @@
             this.stNames.Location = new System.Drawing.Point(368, 62);
             this.stNames.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stNames.Name = "stNames";
-            this.stNames.Size = new System.Drawing.Size(158, 30);
+            this.stNames.Size = new System.Drawing.Size(158, 34);
             this.stNames.TabIndex = 2;
             // 
             // stNumbers
@@ -748,7 +748,7 @@
             this.stNumbers.Location = new System.Drawing.Point(539, 62);
             this.stNumbers.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stNumbers.Name = "stNumbers";
-            this.stNumbers.Size = new System.Drawing.Size(94, 30);
+            this.stNumbers.Size = new System.Drawing.Size(94, 34);
             this.stNumbers.TabIndex = 3;
             // 
             // stR
@@ -759,7 +759,7 @@
             this.stR.Location = new System.Drawing.Point(645, 62);
             this.stR.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stR.Name = "stR";
-            this.stR.Size = new System.Drawing.Size(157, 30);
+            this.stR.Size = new System.Drawing.Size(157, 34);
             this.stR.TabIndex = 4;
             // 
             // stAdd
@@ -786,7 +786,7 @@
             this.stType.Location = new System.Drawing.Point(7, 62);
             this.stType.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stType.Name = "stType";
-            this.stType.Size = new System.Drawing.Size(159, 29);
+            this.stType.Size = new System.Drawing.Size(159, 34);
             this.stType.TabIndex = 0;
             // 
             // stTitle
@@ -794,7 +794,7 @@
             this.stTitle.Location = new System.Drawing.Point(177, 62);
             this.stTitle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stTitle.Name = "stTitle";
-            this.stTitle.Size = new System.Drawing.Size(178, 29);
+            this.stTitle.Size = new System.Drawing.Size(178, 34);
             this.stTitle.TabIndex = 1;
             // 
             // label2
@@ -883,7 +883,7 @@
             // 
             // Add
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;

@@ -40,6 +40,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraReport3));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.DataAccess.Sql.SelectQuery selectQuery2 = new DevExpress.DataAccess.Sql.SelectQuery();
+            DevExpress.DataAccess.Sql.Column column4 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression4 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Table table4 = new DevExpress.DataAccess.Sql.Table();
+            DevExpress.DataAccess.Sql.Column column5 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression5 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column6 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression6 = new DevExpress.DataAccess.Sql.ColumnExpression();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.GroupCaption1 = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -83,6 +91,7 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.groupFooterBand1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.Год = new DevExpress.XtraReports.Parameters.Parameter();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -538,6 +547,29 @@
             this.Год.Type = typeof(int);
             this.Год.ValueInfo = "2016";
             // 
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "localhost_newspaper_Connection 1";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            columnExpression4.ColumnName = "НомерГазеты";
+            table4.Name = "НомерГазетыРеклама";
+            columnExpression4.Table = table4;
+            column4.Expression = columnExpression4;
+            columnExpression5.ColumnName = "Выручка";
+            columnExpression5.Table = table4;
+            column5.Expression = columnExpression5;
+            columnExpression6.ColumnName = "Дата";
+            columnExpression6.Table = table4;
+            column6.Expression = columnExpression6;
+            selectQuery2.Columns.Add(column4);
+            selectQuery2.Columns.Add(column5);
+            selectQuery2.Columns.Add(column6);
+            selectQuery2.Name = "НомерГазетыРеклама";
+            selectQuery2.Tables.Add(table4);
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery2});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
             // XtraReport3
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -553,9 +585,10 @@
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.calculatedField1});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1});
+            this.sqlDataSource1,
+            this.sqlDataSource2});
             this.DataMember = "НомерГазетыРеклама";
-            this.DataSource = this.sqlDataSource1;
+            this.DataSource = this.sqlDataSource2;
             this.FilterString = "GetYear([Дата]) = ?Год";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
@@ -627,5 +660,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.GroupFooterBand groupFooterBand1;
         private DevExpress.XtraReports.Parameters.Parameter Год;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
     }
 }
