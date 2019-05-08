@@ -82,6 +82,22 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
+            string ulog = "";
+            int i1 = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i1++;
+                if (i1 == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             string s = "";
             if (curTable == "Отзыв")
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИО"].Value.ToString();
@@ -89,7 +105,7 @@ namespace WindowsFormsApp1
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Заказчик"].Value.ToString();
             if (curTable == "Статья" || curTable == "Фото")
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString();
-            if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(log, s) == 0)))
+            if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(ulog, s) == 0)))
             {
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
                 SqlConnection connection = new SqlConnection(connectionString)
@@ -345,6 +361,22 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            string ulog = "";
+            int i1 = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i1++;
+                if (i1 == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             if (e.RowIndex != -1)
             {
                 Edit modalDialog = new Edit();
@@ -365,7 +397,7 @@ namespace WindowsFormsApp1
                         {
                             case "Статья":
                                 {
-                                    if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
+                                    if (!zur || (zur && String.Compare(ulog, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
                                         switch (e.ColumnIndex)
                                         {
                                             case 4:
@@ -462,7 +494,7 @@ namespace WindowsFormsApp1
                                 break;
                             case "Фото":
                                 {
-                                    if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
+                                    if (!zur || (zur && String.Compare(ulog, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
                                         switch (e.ColumnIndex)
                                         {
                                             case 2:
@@ -734,6 +766,22 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            string ulog = "";
+            int i = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i++;
+                if (i == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             string s = "";
             switch (curTable)
             {
@@ -761,7 +809,7 @@ namespace WindowsFormsApp1
                     if (zur)
                     {
                         s = dataGridView1.Rows[e.RowIndex].Cells["ФИОСотрудника"].Value.ToString();
-                        if (String.Compare(s, log) != 0)
+                        if (String.Compare(s, ulog) != 0)
                         {
                             dataGridView1.Rows[e.RowIndex].ReadOnly = true;
                         }
@@ -771,7 +819,7 @@ namespace WindowsFormsApp1
                     if (zur)
                     {
                         s = dataGridView1.Rows[e.RowIndex].Cells["ФИОСотрудника"].Value.ToString();
-                        if (String.Compare(s, log) != 0)
+                        if (String.Compare(s, ulog) != 0)
                         {
                             dataGridView1.Rows[e.RowIndex].ReadOnly = true;
                         }
