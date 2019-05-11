@@ -25,8 +25,6 @@ namespace WindowsFormsApp1
 
             InitializeComponent();
             textBox1.Select();
-            textBox1.Text = "user1";
-            textBox2.Text = "password1";
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -53,6 +51,8 @@ namespace WindowsFormsApp1
                         if (number.ToString() != "1")
                         {
                             MessageBox.Show("Неправильный пароль");
+                            textBox2.Clear();
+                            textBox2.Select();
                         }
                         else
                         {

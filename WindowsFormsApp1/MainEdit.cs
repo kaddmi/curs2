@@ -22,7 +22,10 @@ namespace WindowsFormsApp1
         bool chit = false;
         bool zur = false;      
         bool first = true;
-        string command;
+        string ulog;
+        string command="";
+        string comm="";
+        SqlCommand sqlCom = new SqlCommand();
         public MainEdit(string l, string currTable, SqlCredential credd, bool v, string r, string login)
         {
             InitializeComponent();
@@ -35,6 +38,22 @@ namespace WindowsFormsApp1
             if (String.Compare(r, "журналист") == 0)
                 zur = true;
             log = login;
+            ulog = "";
+            int i = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i++;
+                if (i == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             label46.Text = l;
         }
 
@@ -105,64 +124,69 @@ namespace WindowsFormsApp1
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Заказчик"].Value.ToString();
             if (curTable == "Статья" || curTable == "Фото")
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString();
-            if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(ulog, s) == 0)))
+            if (curTable != "Сотрудник" || (curTable == "Сотрудник" && dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ДатаУвольнения"].Value.ToString() == ""))
             {
-                string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
-                SqlConnection connection = new SqlConnection(connectionString)
+                if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(ulog, s) == 0)))
                 {
-                    Credential = cred
-                };
-                using (connection)
-                {
-                    try
+                    string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
+                    SqlConnection connection = new SqlConnection(connectionString)
                     {
-                        connection.Open();
-                        string command = "";
-                        int i = Convert.ToInt32(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Код"].Value);
-                        if (!view)
-                            command = "delete from " + curTable + " where Код=" + i;
-                        else
-                            command = "delete from Перечень_реклам where Код=" + i;
-                        DialogResult result;
-                        if (curTable != "Договор")
-                            result = MessageBox.Show("Вы уверены, что хотите удалить выбранную запись?", "Удаление записи", MessageBoxButtons.YesNo);
-                        else
-                            result = MessageBox.Show("Вы уверены, что хотите расторгнуть договор?\nЭто приведёт к удалению всех размещений реклам по этому договору", "Удаление записи", MessageBoxButtons.YesNo);
-                        if (result == DialogResult.Yes)
+                        Credential = cred
+                    };
+                    using (connection)
+                    {
+                        try
                         {
-                            if (curTable == "Сотрудник")
+                            connection.Open();
+                            string command = "";
+                            int i = Convert.ToInt32(dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Код"].Value);
+                            if (!view)
+                                command = "delete from " + curTable + " where Код=" + i;
+                            else
+                                command = "delete from Перечень_реклам where Код=" + i;
+                            DialogResult result;
+                            if (curTable != "Договор")
+                                result = MessageBox.Show("Вы уверены, что хотите удалить выбранную запись?", "Удаление записи", MessageBoxButtons.YesNo);
+                            else
+                                result = MessageBox.Show("Вы уверены, что хотите расторгнуть договор?\nЭто приведёт к удалению всех размещений реклам по этому договору", "Удаление записи", MessageBoxButtons.YesNo);
+                            if (result == DialogResult.Yes)
+                            {
+                                if (curTable == "Сотрудник")
+                                {
+                                    e.Cancel = true;
+                                    SqlCommand myCommand = new SqlCommand(command, connection);
+                                    int number = myCommand.ExecuteNonQuery();
+                                    string command1 = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник order by Код desc";
+                                    SqlCommand myCommand1 = new SqlCommand(command1, connection);
+                                    SqlDataReader dr = myCommand1.ExecuteReader();
+                                    DataTable dt = new DataTable();
+                                    dt.Load(dr);
+                                    dataGridView1.DataSource = dt.DefaultView;
+                                    dataGridView1.Columns["Код"].Visible = false;
+                                }
+                                else
+                                {
+                                    SqlCommand myCommand = new SqlCommand(command, connection);
+                                    int number = myCommand.ExecuteNonQuery();
+                                }
+
+                            }
+                            if (result == DialogResult.No)
                             {
                                 e.Cancel = true;
-                                SqlCommand myCommand = new SqlCommand(command, connection);
-                                int number = myCommand.ExecuteNonQuery();
-                                string command1 = "select Код, ФИО, Должность, ДатаПоступления, ДатаУвольнения from Сотрудник order by Код desc";
-                                SqlCommand myCommand1 = new SqlCommand(command1, connection);
-                                SqlDataReader dr = myCommand1.ExecuteReader();
-                                DataTable dt = new DataTable();
-                                dt.Load(dr);
-                                dataGridView1.DataSource = dt.DefaultView;
-                                dataGridView1.Columns["Код"].Visible = false;
                             }
-                            else
-                            {
-                                SqlCommand myCommand = new SqlCommand(command, connection);
-                                int number = myCommand.ExecuteNonQuery();
-                            }
-                            
+
+
                         }
-                        if (result == DialogResult.No)
+                        catch (Exception ex)
                         {
+                            MessageBox.Show(ex.Message);
                             e.Cancel = true;
                         }
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        e.Cancel = true;
                     }
                 }
+                else
+                    e.Cancel = true;
             }
             else
                 e.Cancel = true;
@@ -213,7 +237,8 @@ namespace WindowsFormsApp1
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
+        {            
+            sqlCom.CommandText = "";
             Filter filterDialog;
             if (!chit && !zur)
                 filterDialog = new Filter();
@@ -294,8 +319,7 @@ namespace WindowsFormsApp1
                         {                          
                             connection.Open();
                             if (!zur && !chit)
-                            {
-                                
+                            {                               
                                 string sqlExpression = "Filter";
                                 filterDialog.command.CommandText = sqlExpression;
                                 filterDialog.command.Connection = connection;
@@ -314,6 +338,7 @@ namespace WindowsFormsApp1
                                 changeFilter.Visible = true;
                                 richTextBox1.Visible = true;
                                 richTextBox1.Text = filterDialog.list + "\n" + filterDialog.list2;
+                                sqlCom.CommandText = filterDialog.command.CommandText;
                             }
                             else
                             {
@@ -326,6 +351,7 @@ namespace WindowsFormsApp1
                                 changeFilter.Visible = true;
                                 richTextBox1.Visible = true;
                                 richTextBox1.Text =  filterDialog.list + "\n" + filterDialog.list2;
+                                sqlCom.CommandText = command.CommandText;
                             }
                         }
                         catch (Exception ex)
@@ -340,7 +366,12 @@ namespace WindowsFormsApp1
             else
             {
                 checkBox1.Checked = false;
-                MainEdit_Shown(sender, e);
+                if (!zur && !chit)
+                    richTextBox1.Clear();
+                if ((zur || chit) && checkBox2.Checked) 
+                    richTextBox1.Text = "ФИОСотрудника = " + ulog; 
+                changeFilter.Visible = false;
+                exec(sender,e);          
             }
             
         }
@@ -391,7 +422,7 @@ namespace WindowsFormsApp1
                 {
                     try
                     {
-                        connection.Open();
+                        connection.Open();                      
                         string com1 = "";
                         switch (curTable)
                         {
@@ -552,7 +583,7 @@ namespace WindowsFormsApp1
                                 SqlCommand myCommand = new SqlCommand(com1, connection);
                                 int number = myCommand.ExecuteNonQuery();
                             }
-                            MainEdit_Shown(sender, e);
+                            exec(sender,e);
                         }
                     }
                     catch (Exception ex)
@@ -722,6 +753,7 @@ namespace WindowsFormsApp1
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);
+                        comm = myCommand.CommandText;
                         SqlDataReader dr = myCommand.ExecuteReader();
                         DataTable dt = new DataTable();
                         dt.Load(dr);
@@ -760,6 +792,46 @@ namespace WindowsFormsApp1
                     {
                         MessageBox.Show(ex.Message);
                     }
+                }
+            }
+        }
+
+        private void exec(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
+            SqlConnection connection = new SqlConnection(connectionString)
+            {
+                Credential = cred
+            };
+            using (connection)
+            {
+                try
+                {
+
+                    connection.Open();
+                    if (!(sqlCom.CommandText == ""))
+                    {
+                        sqlCom.Connection = connection;
+                        SqlDataReader dr = sqlCom.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(dr);
+                        dataGridView1.DataSource = dt.DefaultView;
+                        dataGridView1.Columns["Код"].Visible = false;
+                    }
+                    else
+                    {
+                        sqlCom.CommandText = comm;
+                        sqlCom.Connection = connection;
+                        SqlDataReader dr = sqlCom.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(dr);
+                        dataGridView1.DataSource = dt.DefaultView;
+                        dataGridView1.Columns["Код"].Visible = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OKCancel);
                 }
             }
         }
@@ -831,22 +903,8 @@ namespace WindowsFormsApp1
 
         private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
-            string ulog = "";
-            int i = 0;
-            foreach (char c in log)
-            {
-                if (Char.IsUpper(c))
-                    i++;
-                if (i == 2)
-                {
-                    ulog += " ";
-                    ulog += c;
-                    ulog += ".";
-                    continue;
-                }
-                ulog += c;
-            }
-            ulog += ".";
+            checkBox1.Checked = false;
+
             first = false;
             if (checkBox2.Checked)
             {
@@ -899,6 +957,8 @@ namespace WindowsFormsApp1
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);
+                        sqlCom.CommandText = myCommand.CommandText;
+                        comm = myCommand.CommandText;
                         SqlDataReader dr = myCommand.ExecuteReader();
                         DataTable dt = new DataTable();
                         dt.Load(dr);

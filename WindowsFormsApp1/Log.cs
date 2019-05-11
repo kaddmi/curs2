@@ -140,7 +140,8 @@ namespace WindowsFormsApp1
                     DialogResult result;
                     string command = "";
                     string login = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Имя"].Value.ToString();
-                    if (dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Роль"].Value.ToString() != "системный администратор")
+                    string role = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Роль"].Value.ToString();
+                    if (role != "системный администратор" && role!= "читатель")
                     {
                         result = MessageBox.Show("Вы уверены, что хотите удалить имя входа и пользователя?", "Удаление", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)

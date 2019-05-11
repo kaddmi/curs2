@@ -42,7 +42,6 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
             this.listBox1.Items.AddRange(new object[] {
-            "Номер газеты",
             "Рубрика",
             "Сотрудник"});
             this.listBox1.Location = new System.Drawing.Point(12, 12);
@@ -122,7 +121,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Log";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Журнал изменений";
+            this.Text = "Администраторская";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Log_FormClosed);
             this.Shown += new System.EventHandler(this.Log_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

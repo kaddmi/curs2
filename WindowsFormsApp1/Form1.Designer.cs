@@ -216,14 +216,14 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
-            this.отчётыToolStripMenuItem,
-            this.фунционалToolStripMenuItem});
+            this.фунционалToolStripMenuItem,
+            this.отчётыToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(540, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(540, 32);
             this.menuStrip1.TabIndex = 62;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -234,14 +234,14 @@
             this.выйтиToolStripMenuItem1});
             this.loginToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(60, 25);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(70, 28);
             this.loginToolStripMenuItem.Text = "login";
             // 
             // сменитьПользователяToolStripMenuItem1
             // 
             this.сменитьПользователяToolStripMenuItem1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.сменитьПользователяToolStripMenuItem1.Name = "сменитьПользователяToolStripMenuItem1";
-            this.сменитьПользователяToolStripMenuItem1.Size = new System.Drawing.Size(250, 24);
+            this.сменитьПользователяToolStripMenuItem1.Size = new System.Drawing.Size(300, 28);
             this.сменитьПользователяToolStripMenuItem1.Text = "Сменить пользователя";
             this.сменитьПользователяToolStripMenuItem1.Click += new System.EventHandler(this.СменитьПользователяToolStripMenuItem_Click);
             // 
@@ -249,7 +249,7 @@
             // 
             this.выйтиToolStripMenuItem1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.выйтиToolStripMenuItem1.Name = "выйтиToolStripMenuItem1";
-            this.выйтиToolStripMenuItem1.Size = new System.Drawing.Size(250, 24);
+            this.выйтиToolStripMenuItem1.Size = new System.Drawing.Size(300, 28);
             this.выйтиToolStripMenuItem1.Text = "Выйти";
             this.выйтиToolStripMenuItem1.Click += new System.EventHandler(this.ВыйтиToolStripMenuItem_Click);
             // 
@@ -260,34 +260,35 @@
             this.отчётПоСтатьямToolStripMenuItem,
             this.годовойОтчётToolStripMenuItem});
             this.отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
-            this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(79, 25);
+            this.отчётыToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
             this.отчётыToolStripMenuItem.Text = "Отчёты";
+            this.отчётыToolStripMenuItem.Visible = false;
             // 
             // отчётПоРекламеToolStripMenuItem
             // 
             this.отчётПоРекламеToolStripMenuItem.Name = "отчётПоРекламеToolStripMenuItem";
-            this.отчётПоРекламеToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
+            this.отчётПоРекламеToolStripMenuItem.Size = new System.Drawing.Size(255, 28);
             this.отчётПоРекламеToolStripMenuItem.Text = "Отчёт по рекламе";
             this.отчётПоРекламеToolStripMenuItem.Click += new System.EventHandler(this.ОтчётПоРекламеToolStripMenuItem_Click);
             // 
             // отчётПоСтатьямToolStripMenuItem
             // 
             this.отчётПоСтатьямToolStripMenuItem.Name = "отчётПоСтатьямToolStripMenuItem";
-            this.отчётПоСтатьямToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
+            this.отчётПоСтатьямToolStripMenuItem.Size = new System.Drawing.Size(255, 28);
             this.отчётПоСтатьямToolStripMenuItem.Text = "Отчёт по статьям ";
             this.отчётПоСтатьямToolStripMenuItem.Click += new System.EventHandler(this.ОтчётПоСтатьямToolStripMenuItem_Click);
             // 
             // годовойОтчётToolStripMenuItem
             // 
             this.годовойОтчётToolStripMenuItem.Name = "годовойОтчётToolStripMenuItem";
-            this.годовойОтчётToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
+            this.годовойОтчётToolStripMenuItem.Size = new System.Drawing.Size(255, 28);
             this.годовойОтчётToolStripMenuItem.Text = "Годовой отчёт";
             this.годовойОтчётToolStripMenuItem.Click += new System.EventHandler(this.ГодовойОтчётToolStripMenuItem_Click);
             // 
             // фунционалToolStripMenuItem
             // 
             this.фунционалToolStripMenuItem.Name = "фунционалToolStripMenuItem";
-            this.фунционалToolStripMenuItem.Size = new System.Drawing.Size(108, 25);
+            this.фунционалToolStripMenuItem.Size = new System.Drawing.Size(132, 28);
             this.фунционалToolStripMenuItem.Text = "Статистика";
             this.фунционалToolStripMenuItem.Click += new System.EventHandler(this.ФунционалToolStripMenuItem_Click);
             // 
@@ -550,7 +551,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;

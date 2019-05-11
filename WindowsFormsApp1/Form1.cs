@@ -44,11 +44,13 @@ namespace WindowsFormsApp1
                     admView.Nodes[2].Expand();
                     admView.Nodes[3].Expand();
                     admView.Nodes[4].Expand();
+                    отчётыToolStripMenuItem.Visible = true;
                     break;
                 case "главный редактор":
                     redView.Visible = true;
                     redView.Nodes[0].Expand();
                     redView.Nodes[1].Expand();
+                    отчётыToolStripMenuItem.Visible = true;
                     break;
                 case "журналист":
                     zurView.Visible = true;
