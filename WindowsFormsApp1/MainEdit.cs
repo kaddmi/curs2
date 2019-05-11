@@ -22,6 +22,7 @@ namespace WindowsFormsApp1
         bool chit = false;
         bool zur = false;      
         bool first = true;
+        string ulog;
         string command="";
         string comm="";
         SqlCommand sqlCom = new SqlCommand();
@@ -37,6 +38,22 @@ namespace WindowsFormsApp1
             if (String.Compare(r, "журналист") == 0)
                 zur = true;
             log = login;
+            ulog = "";
+            int i = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i++;
+                if (i == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             label46.Text = l;
         }
 
@@ -344,6 +361,11 @@ namespace WindowsFormsApp1
             else
             {
                 checkBox1.Checked = false;
+                if (!zur && !chit)
+                    richTextBox1.Clear();
+                if ((zur || chit) && checkBox2.Checked) 
+                    richTextBox1.Text = "ФИОСотрудника = " + ulog; 
+                changeFilter.Visible = false;
                 exec(sender,e);          
             }
             
@@ -877,22 +899,7 @@ namespace WindowsFormsApp1
         private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
             checkBox1.Checked = false;
-            string ulog = "";
-            int i = 0;
-            foreach (char c in log)
-            {
-                if (Char.IsUpper(c))
-                    i++;
-                if (i == 2)
-                {
-                    ulog += " ";
-                    ulog += c;
-                    ulog += ".";
-                    continue;
-                }
-                ulog += c;
-            }
-            ulog += ".";
+
             first = false;
             if (checkBox2.Checked)
             {

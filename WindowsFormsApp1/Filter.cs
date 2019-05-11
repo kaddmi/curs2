@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         string index;
         string curTable;
         public string sql;
+        public string sql2;
         public Filter()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace WindowsFormsApp1
             login = log;
         }
 
-        public void combBox(ComboBox cb, string table, string dispMember, string com1, SqlConnection connection)
+        public void CombBox(ComboBox cb, string table, string dispMember, string com1, SqlConnection connection)
         {
             SqlDataAdapter da2 = new SqlDataAdapter(com1, connection);
             DataSet ds2 = new DataSet();
@@ -55,7 +56,7 @@ namespace WindowsFormsApp1
             cb.DataSource = ds2.Tables[table];
         }
 
-        private void func(SqlConnection connection, string ind)
+        private void Func(SqlConnection connection, string ind)
         {
             string com1;
             switch (ind)
@@ -70,7 +71,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select Код, Номер from НомерГазеты";
-                                    combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                    CombBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
                                     this.Size = new Size(338, 264);
                                     button1.Location = new Point(86, 184);
                                 }
@@ -90,7 +91,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select Код, Номер from НомерГазеты";
-                                    combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                    CombBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
                                     label2.Visible = true;
                                     label2.Text = "Вид отзыва";
                                     checkBox1.Location = new Point(55, 209);
@@ -108,7 +109,7 @@ namespace WindowsFormsApp1
                         comboBox1.DataSource = null;
                         comboBox1.Visible = true;
                         com1 = "select distinct YEAR(ДатаОтзыва) as ДатаОтзыва from Отзыв";
-                        combBox(comboBox1, "Отзыв", "ДатаОтзыва", com1, connection);
+                        CombBox(comboBox1, "Отзыв", "ДатаОтзыва", com1, connection);
                         button1.Location = new Point(86, 184);
 
                     }
@@ -119,7 +120,7 @@ namespace WindowsFormsApp1
                         comboBox1.DataSource = null;
                         comboBox1.Visible = true;
                         com1 = "select Код, Номер from НомерГазеты";
-                        combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
+                        CombBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
                         this.Size = new Size(338, 264);
                         button1.Location = new Point(86, 184);
                     }
@@ -127,7 +128,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void funcB(string ind)
+        private void FuncB(string ind)
         {
             switch (ind)
             {
@@ -228,7 +229,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select Код, Номер from НомерГазеты";
-                                    combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                    CombBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
                                     if (!z)
                                     {
                                         SqlParameter column = new SqlParameter
@@ -247,7 +248,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select Код, Название from Рубрика";
-                                    combBox(comboBox1, "Рубрика", "Название", com1, connection);
+                                    CombBox(comboBox1, "Рубрика", "Название", com1, connection);
                                     SqlParameter column = new SqlParameter
                                     {
                                         ParameterName = "@column",
@@ -262,7 +263,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select Код, ФИО from Сотрудник";
-                                    combBox(comboBox1, "Сотрудник", "ФИО", com1, connection);
+                                    CombBox(comboBox1, "Сотрудник", "ФИО", com1, connection);
                                     SqlParameter column = new SqlParameter
                                     {
                                         ParameterName = "@column",
@@ -282,9 +283,9 @@ namespace WindowsFormsApp1
                                     label2.Visible = true;
                                     label2.Text = "Название рубрики";
                                     com1 = "select Код, Номер from НомерГазеты";
-                                    combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                    CombBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
                                     com2 = "select Код, Название from Рубрика";
-                                    combBox(comboBox2, "Рубрика", "Название", com2, connection);
+                                    CombBox(comboBox2, "Рубрика", "Название", com2, connection);
                                     button1.Location = new Point(85, 250);
                                     this.Size = new Size(350, 328);
                                 }
@@ -294,7 +295,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select Код, Название from Заказчик";
-                                    combBox(comboBox1, "Заказчик", "Название", com1, connection);
+                                    CombBox(comboBox1, "Заказчик", "Название", com1, connection);
                                     SqlParameter column = new SqlParameter
                                     {
                                         ParameterName = "@column",
@@ -314,7 +315,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select distinct Должность from Сотрудник";
-                                    combBox(comboBox1, "Сотрудник", "Должность", com1, connection);
+                                    CombBox(comboBox1, "Сотрудник", "Должность", com1, connection);
                                 }
                                 break;
                             case "Год":
@@ -322,7 +323,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select distinct YEAR(Дата) as Дата from НомерГазеты";
-                                    combBox(comboBox1, "НомерГазеты", "Дата", com1, connection);
+                                    CombBox(comboBox1, "НомерГазеты", "Дата", com1, connection);
                                 }
                                 break;
                             case "Название категории":
@@ -330,7 +331,7 @@ namespace WindowsFormsApp1
                                     comboBox1.DataSource = null;
                                     comboBox1.Visible = true;
                                     com1 = "select Код, Категория from Объявление";
-                                    combBox(comboBox1, "Объявление", "Категория", com1, connection);
+                                    CombBox(comboBox1, "Объявление", "Категория", com1, connection);
                                     SqlParameter column = new SqlParameter
                                     {
                                         ParameterName = "@column",
@@ -361,7 +362,7 @@ namespace WindowsFormsApp1
                                     cb = true;
                                     label1.Text = "Номер выпуска";
                                     com1 = "select Код, Номер from НомерГазеты";                                
-                                    combBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
+                                    CombBox(comboBox1, "НомерГазеты", "Номер", com1, connection);
                                     SqlParameter column = new SqlParameter
                                     {
                                         ParameterName = "@column",
@@ -379,7 +380,7 @@ namespace WindowsFormsApp1
                     }
                     if (f)
                     {
-                        func(connection, index);
+                        Func(connection, index);
                     }
                 }
                 catch (Exception ex)
@@ -706,7 +707,7 @@ namespace WindowsFormsApp1
             }
             if (f)
             {
-                funcB(index);
+                FuncB(index);
             }
         }
 
@@ -725,7 +726,7 @@ namespace WindowsFormsApp1
                         if (!(comboBox1.SelectedValue is null))
                         {
                             com1 = "select Код, Заголовок from Статья where КодВыпуска=(select Код from НомерГазеты where Номер=" + comboBox1.SelectedValue.ToString() + ")";
-                            combBox(comboBox2, "Статья", "Заголовок", com1, connection);
+                            CombBox(comboBox2, "Статья", "Заголовок", com1, connection);
                         }                         
                     }
                     catch (Exception ex)
