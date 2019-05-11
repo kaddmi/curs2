@@ -101,25 +101,6 @@ namespace WindowsFormsApp1
             }
             ulog += ".";
             string s = "";
-            string ulog = "";
-            if (zur)
-            {
-                int i1 = 0;
-                foreach (char c in log)
-                {
-                    if (Char.IsUpper(c))
-                        i1++;
-                    if (i1 == 2)
-                    {
-                        ulog += " ";
-                        ulog += c;
-                        ulog += ".";
-                        continue;
-                    }
-                    ulog += c;
-                }
-                ulog += ".";
-            }
             if (curTable == "Отзыв")
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИО"].Value.ToString();
             if (curTable == "Объявление")
@@ -414,26 +395,7 @@ namespace WindowsFormsApp1
                 {
                     try
                     {
-                        connection.Open();
-                        string ulog = "";
-                        if (zur)
-                        {
-                            int i1 = 0;
-                            foreach (char c in log)
-                            {
-                                if (Char.IsUpper(c))
-                                    i1++;
-                                if (i1 == 2)
-                                {
-                                    ulog += " ";
-                                    ulog += c;
-                                    ulog += ".";
-                                    continue;
-                                }
-                                ulog += c;
-                            }
-                            ulog += ".";
-                        }
+                        connection.Open();                      
                         string com1 = "";
                         switch (curTable)
                         {
@@ -866,25 +828,6 @@ namespace WindowsFormsApp1
             }
             ulog += ".";
             string s = "";
-            string ulog = "";
-            if (zur)
-            {
-                int i1 = 0;
-                foreach (char c in log)
-                {
-                    if (Char.IsUpper(c))
-                        i1++;
-                    if (i1 == 2)
-                    {
-                        ulog += " ";
-                        ulog += c;
-                        ulog += ".";
-                        continue;
-                    }
-                    ulog += c;
-                }
-                ulog += ".";
-            }
             switch (curTable)
             {
                 case "Отзыв":
