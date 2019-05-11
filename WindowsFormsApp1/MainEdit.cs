@@ -84,6 +84,22 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
+            string ulog = "";
+            int i1 = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i1++;
+                if (i1 == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             string s = "";
             string ulog = "";
             if (zur)
@@ -368,6 +384,22 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            string ulog = "";
+            int i1 = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i1++;
+                if (i1 == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             if (e.RowIndex != -1)
             {
                 Edit modalDialog = new Edit();
@@ -817,6 +849,22 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            string ulog = "";
+            int i = 0;
+            foreach (char c in log)
+            {
+                if (Char.IsUpper(c))
+                    i++;
+                if (i == 2)
+                {
+                    ulog += " ";
+                    ulog += c;
+                    ulog += ".";
+                    continue;
+                }
+                ulog += c;
+            }
+            ulog += ".";
             string s = "";
             string ulog = "";
             if (zur)

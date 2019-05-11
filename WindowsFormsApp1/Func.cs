@@ -346,6 +346,7 @@ namespace WindowsFormsApp1
             dateTimePicker1.Visible = false;
             dateTimePicker2.Visible = false;
             chart1.Visible = false;
+            this.AcceptButton = button1;
             if (listBox1.SelectedItem == null)
                 return;
             switch (listBox1.SelectedItem.ToString())
@@ -359,6 +360,7 @@ namespace WindowsFormsApp1
                     break;
                 case "Количество статей сотрудника":
                     CountStatya();
+                    this.AcceptButton = null;
                     chart1.Visible = true;
                     this.AcceptButton = null;
                     this.Size = new Size(448, 585);
@@ -383,6 +385,7 @@ namespace WindowsFormsApp1
                     label1.Text = "Дата начала периода";
                     label2.Text = "Дата конца периода";
                     label2.Visible = true;
+                  //  dateTimePicker1.Select();
                     dateTimePicker1.Visible = true;
                     dateTimePicker2.Visible = true;
                     this.Size = new Size(656, 245);
@@ -396,16 +399,19 @@ namespace WindowsFormsApp1
                     break;
                 case "Стаж работников":
                     dataGridView1.Visible = true;
+                    this.AcceptButton = null;
                     Stazh();
                     this.AcceptButton = null;
                     this.Size = new Size(448, 488);
                     break;
                 case "Статистика по увольнению и найму сотрудников":                 
                     button2.Visible = true;
+                    this.AcceptButton = button2;
                     label1.Visible = true;
                     this.AcceptButton = button2;
                     label2.Visible = true;
                     label1.Text = "Год начала периода";
+                   // textBox2.Select();
                     label2.Text = "Год конца периода";
                     textBox2.Visible = true;
                     textBox3.Visible = true;
