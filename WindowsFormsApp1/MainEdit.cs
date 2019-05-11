@@ -22,7 +22,9 @@ namespace WindowsFormsApp1
         bool chit = false;
         bool zur = false;      
         bool first = true;
-        string command;
+        string command="";
+        string comm="";
+        SqlCommand sqlCom = new SqlCommand();
         public MainEdit(string l, string currTable, SqlCredential credd, bool v, string r, string login)
         {
             InitializeComponent();
@@ -83,13 +85,32 @@ namespace WindowsFormsApp1
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             string s = "";
+            string ulog = "";
+            if (zur)
+            {
+                int i1 = 0;
+                foreach (char c in log)
+                {
+                    if (Char.IsUpper(c))
+                        i1++;
+                    if (i1 == 2)
+                    {
+                        ulog += " ";
+                        ulog += c;
+                        ulog += ".";
+                        continue;
+                    }
+                    ulog += c;
+                }
+                ulog += ".";
+            }
             if (curTable == "Отзыв")
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИО"].Value.ToString();
             if (curTable == "Объявление")
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Заказчик"].Value.ToString();
             if (curTable == "Статья" || curTable == "Фото")
                 s = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString();
-            if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(log, s) == 0)))
+            if ((!chit || (chit && String.Compare(log, s) == 0)) && (!zur || (zur && String.Compare(ulog, s) == 0)))
             {
                 string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
                 SqlConnection connection = new SqlConnection(connectionString)
@@ -197,7 +218,8 @@ namespace WindowsFormsApp1
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
+        {            
+            sqlCom.CommandText = "";
             Filter filterDialog;
             if (!chit && !zur)
                 filterDialog = new Filter();
@@ -278,8 +300,7 @@ namespace WindowsFormsApp1
                         {                          
                             connection.Open();
                             if (!zur && !chit)
-                            {
-                                
+                            {                               
                                 string sqlExpression = "Filter";
                                 filterDialog.command.CommandText = sqlExpression;
                                 filterDialog.command.Connection = connection;
@@ -298,6 +319,7 @@ namespace WindowsFormsApp1
                                 changeFilter.Visible = true;
                                 richTextBox1.Visible = true;
                                 richTextBox1.Text = filterDialog.list + "\n" + filterDialog.list2;
+                                sqlCom.CommandText = filterDialog.command.CommandText;
                             }
                             else
                             {
@@ -310,6 +332,7 @@ namespace WindowsFormsApp1
                                 changeFilter.Visible = true;
                                 richTextBox1.Visible = true;
                                 richTextBox1.Text =  filterDialog.list + "\n" + filterDialog.list2;
+                                sqlCom.CommandText = command.CommandText;
                             }
                         }
                         catch (Exception ex)
@@ -324,7 +347,7 @@ namespace WindowsFormsApp1
             else
             {
                 checkBox1.Checked = false;
-                MainEdit_Shown(sender, e);
+                exec(sender,e);          
             }
             
         }
@@ -360,12 +383,31 @@ namespace WindowsFormsApp1
                     try
                     {
                         connection.Open();
+                        string ulog = "";
+                        if (zur)
+                        {
+                            int i1 = 0;
+                            foreach (char c in log)
+                            {
+                                if (Char.IsUpper(c))
+                                    i1++;
+                                if (i1 == 2)
+                                {
+                                    ulog += " ";
+                                    ulog += c;
+                                    ulog += ".";
+                                    continue;
+                                }
+                                ulog += c;
+                            }
+                            ulog += ".";
+                        }
                         string com1 = "";
                         switch (curTable)
                         {
                             case "Статья":
                                 {
-                                    if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
+                                    if (!zur || (zur && String.Compare(ulog, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
                                         switch (e.ColumnIndex)
                                         {
                                             case 4:
@@ -462,7 +504,7 @@ namespace WindowsFormsApp1
                                 break;
                             case "Фото":
                                 {
-                                    if (!zur || (zur && String.Compare(log, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
+                                    if (!zur || (zur && String.Compare(ulog, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["ФИОСотрудника"].Value.ToString()) == 0))
                                         switch (e.ColumnIndex)
                                         {
                                             case 2:
@@ -520,7 +562,7 @@ namespace WindowsFormsApp1
                                 SqlCommand myCommand = new SqlCommand(com1, connection);
                                 int number = myCommand.ExecuteNonQuery();
                             }
-                            MainEdit_Shown(sender, e);
+                            exec(sender,e);
                         }
                     }
                     catch (Exception ex)
@@ -690,6 +732,7 @@ namespace WindowsFormsApp1
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);
+                        comm = myCommand.CommandText;
                         SqlDataReader dr = myCommand.ExecuteReader();
                         DataTable dt = new DataTable();
                         dt.Load(dr);
@@ -732,9 +775,68 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void exec(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=newspaper;";
+            SqlConnection connection = new SqlConnection(connectionString)
+            {
+                Credential = cred
+            };
+            using (connection)
+            {
+                try
+                {
+
+                    connection.Open();
+                    if (!(sqlCom.CommandText == ""))
+                    {
+                        sqlCom.Connection = connection;
+                        SqlDataReader dr = sqlCom.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(dr);
+                        dataGridView1.DataSource = dt.DefaultView;
+                        dataGridView1.Columns["Код"].Visible = false;
+                    }
+                    else
+                    {
+                        sqlCom.CommandText = comm;
+                        sqlCom.Connection = connection;
+                        SqlDataReader dr = sqlCom.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(dr);
+                        dataGridView1.DataSource = dt.DefaultView;
+                        dataGridView1.Columns["Код"].Visible = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OKCancel);
+                }
+            }
+        }
+
         private void DataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             string s = "";
+            string ulog = "";
+            if (zur)
+            {
+                int i1 = 0;
+                foreach (char c in log)
+                {
+                    if (Char.IsUpper(c))
+                        i1++;
+                    if (i1 == 2)
+                    {
+                        ulog += " ";
+                        ulog += c;
+                        ulog += ".";
+                        continue;
+                    }
+                    ulog += c;
+                }
+                ulog += ".";
+            }
             switch (curTable)
             {
                 case "Отзыв":
@@ -761,7 +863,7 @@ namespace WindowsFormsApp1
                     if (zur)
                     {
                         s = dataGridView1.Rows[e.RowIndex].Cells["ФИОСотрудника"].Value.ToString();
-                        if (String.Compare(s, log) != 0)
+                        if (String.Compare(s, ulog) != 0)
                         {
                             dataGridView1.Rows[e.RowIndex].ReadOnly = true;
                         }
@@ -771,7 +873,7 @@ namespace WindowsFormsApp1
                     if (zur)
                     {
                         s = dataGridView1.Rows[e.RowIndex].Cells["ФИОСотрудника"].Value.ToString();
-                        if (String.Compare(s, log) != 0)
+                        if (String.Compare(s, ulog) != 0)
                         {
                             dataGridView1.Rows[e.RowIndex].ReadOnly = true;
                         }
@@ -783,6 +885,7 @@ namespace WindowsFormsApp1
 
         private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
+            checkBox1.Checked = false;
             string ulog = "";
             int i = 0;
             foreach (char c in log)
@@ -851,6 +954,8 @@ namespace WindowsFormsApp1
                                 break;
                         }
                         SqlCommand myCommand = new SqlCommand(command, connection);
+                        sqlCom.CommandText = myCommand.CommandText;
+                        comm = myCommand.CommandText;
                         SqlDataReader dr = myCommand.ExecuteReader();
                         DataTable dt = new DataTable();
                         dt.Load(dr);
